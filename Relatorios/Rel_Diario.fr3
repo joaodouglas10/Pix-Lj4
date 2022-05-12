@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<TfrxReport Version="6.7.9" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="167935" PreviewOptions.Zoom="1" PrintOptions.Printer="Default" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="44449,3858667361" ReportOptions.Description.Text="" ReportOptions.LastChange="44449,5288613426" ScriptLanguage="PascalScript" ScriptText.Text="begin&#13;&#10;&#13;&#10;end.">
+  <Datasets>
+    <item DataSet="frxDB_Diario" DataSetName="frxDBDataset1"/>
+  </Datasets>
+  <Variables>
+    <item Name=" Tipo"/>
+    <item Name="Periodo"/>
+  </Variables>
+  <TfrxDataPage Name="Data" Height="1000" Left="0" Top="0" Width="1000"/>
+  <TfrxReportPage Name="Page1" PaperWidth="75" PaperHeight="297" PaperSize="256" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" ColumnWidth="0" ColumnPositions.Text="" Frame.Typ="0" MirrorMode="0" HGuides.Text="" VGuides.Text="">
+    <TfrxReportTitle Name="ReportTitle1" FillType="ftBrush" FillGap.Top="0" FillGap.Left="0" FillGap.Bottom="0" FillGap.Right="0" Frame.Typ="0" Height="86,92919" Left="0" Top="18,89765" Width="207,87415">
+      <TfrxMemoView Name="Memo1" AllowVectorExport="True" Left="5,55906" Top="0" Width="196,53556" Height="18,89765" Font.Charset="0" Font.Color="0" Font.Height="-9" Font.Name="Tahoma" Font.Style="1" Frame.Typ="0" ParentFont="False" Text="RELATÓRIO DIÁRIO DE PAGAMENTOS"/>
+      <TfrxMemoView Name="Memo2" AllowVectorExport="True" Left="60,37013" Top="12,89765" Width="94,48825" Height="11,33859" Font.Charset="0" Font.Color="0" Font.Height="-9" Font.Name="Tahoma" Font.Style="1" Frame.Typ="0" ParentFont="False" Text="CLIENTES - LOJA 4"/>
+      <TfrxLineView Name="Line1" AllowVectorExport="True" Left="6,33859" Top="68,81107" Width="196,53556" Height="0" Color="0" Frame.Typ="0" Diagonal="True"/>
+      <TfrxMemoView Name="Memo18" AllowVectorExport="True" Left="71,26778" Top="47,91342" Width="56,69295" Height="15,11812" Font.Charset="0" Font.Color="0" Font.Height="-9" Font.Name="Tahoma" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="versão: 1.01"/>
+      <TfrxMemoView Name="Periodo" IndexTag="1" AllowVectorExport="True" Left="51,69295" Top="30,45671" Width="147,40167" Height="11,33859" Font.Charset="0" Font.Color="0" Font.Height="-8" Font.Name="Tahoma" Font.Style="1" Frame.Typ="0" ParentFont="False" Text="[Periodo]"/>
+      <TfrxMemoView Name="Memo5" AllowVectorExport="True" Left="3,33859" Top="71,81107" Width="60,47248" Height="11,33859" Font.Charset="0" Font.Color="0" Font.Height="-9" Font.Name="Tahoma" Font.Style="1" Frame.Typ="0" ParentFont="False" Text="CLIENTE"/>
+      <TfrxMemoView Name="Memo6" AllowVectorExport="True" Left="102,81107" Top="71,81107" Width="60,47248" Height="11,33859" Font.Charset="0" Font.Color="0" Font.Height="-9" Font.Name="Tahoma" Font.Style="1" Frame.Typ="0" ParentFont="False" Text="DATA PAG."/>
+      <TfrxMemoView Name="Memo7" AllowVectorExport="True" Left="169,62214" Top="71,81107" Width="60,47248" Height="11,33859" Font.Charset="0" Font.Color="0" Font.Height="-9" Font.Name="Tahoma" Font.Style="1" Frame.Typ="0" ParentFont="False" Text="VALOR"/>
+      <TfrxLineView Name="Line3" AllowVectorExport="True" Left="2,77953" Top="86,48825" Width="200,31509" Height="0" Color="0" Frame.Typ="0" Diagonal="True"/>
+    </TfrxReportTitle>
+    <TfrxMasterData Name="MasterData1" FillType="ftBrush" FillGap.Top="0" FillGap.Left="0" FillGap.Bottom="0" FillGap.Right="0" Frame.Typ="0" Height="26,45671" Left="0" Top="166,29932" Width="207,87415" ColumnWidth="0" ColumnGap="0" DataSet="frxDB_Diario" DataSetName="frxDBDataset1" RowCount="0">
+      <TfrxMemoView Name="frxDB_PagTransCLIENTE" IndexTag="1" AllowVectorExport="True" Left="3,67718" Top="3,77953" Width="158,74026" Height="18,89765" DataField="CLIENTE" DataSet="frxDB_Diario" DataSetName="frxDBDataset1" Font.Charset="0" Font.Color="0" Font.Height="-9" Font.Name="Tahoma" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="[frxDBDataset1.&#34;CLIENTE&#34;]"/>
+      <TfrxMemoView Name="Memo11" IndexTag="1" AllowVectorExport="True" Left="103,92919" Top="3,77953" Width="75,5906" Height="18,89765" DataField="DATA_PAG" DataSet="frxDB_Diario" DataSetName="frxDBDataset1" Font.Charset="0" Font.Color="0" Font.Height="-9" Font.Name="Tahoma" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="[frxDBDataset1.&#34;DATA_PAG&#34;]"/>
+      <TfrxMemoView Name="Memo14" IndexTag="1" AllowVectorExport="True" Left="125,04731" Top="4,88188" Width="79,37013" Height="18,89765" DataField="VALOR" DataSet="frxDB_Diario" DataSetName="frxDBDataset1" Font.Charset="0" Font.Color="0" Font.Height="-9" Font.Name="Tahoma" Font.Style="0" Frame.Typ="0" HAlign="haRight" ParentFont="False" Text="[frxDBDataset1.&#34;VALOR&#34;]"/>
+      <TfrxLineView Name="Line2" AllowVectorExport="True" Left="2,77953" Top="24,23624" Width="200,31509" Height="0" Color="0" Frame.Typ="0" Diagonal="True"/>
+    </TfrxMasterData>
+    <TfrxFooter Name="Footer1" FillType="ftBrush" FillGap.Top="0" FillGap.Left="0" FillGap.Bottom="0" FillGap.Right="0" Frame.Typ="0" Height="22,67718" Left="0" Top="215,43321" Width="207,87415">
+      <TfrxMemoView Name="Memo4" AllowVectorExport="True" Left="0" Top="3,77953" Width="109,60637" Height="11,33859" Font.Charset="0" Font.Color="0" Font.Height="-9" Font.Name="Tahoma" Font.Style="1" Frame.Typ="0" ParentFont="False" Text="TOTAL GERAL: =&#62;&#62;&#62;"/>
+      <TfrxSysMemoView Name="SysMemo1" AllowVectorExport="True" Left="144,3859" Top="0,77953" Width="94,48825" Height="18,89765" DisplayFormat.FormatStr="%2.2n" DisplayFormat.Kind="fkNumeric" Font.Charset="0" Font.Color="0" Font.Height="-11" Font.Name="Tahoma" Font.Style="1" Frame.Typ="0" ParentFont="False" Text="[SUM(&#60;frxDBDataset1.&#34;VALOR&#34;&#62;,MasterData1,2)]"/>
+    </TfrxFooter>
+  </TfrxReportPage>
+</TfrxReport>

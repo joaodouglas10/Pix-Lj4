@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<windowSettings>
+		<windowTitle>Epson Müşteri Memnuniyeti Değerlendirme Anketi</windowTitle>
+		<caption>Lütfen aşağıdaki soruları yanıtlayın.</caption>
+		<select>Seç</select>
+	</windowSettings>
+	<questionnaireSettings>
+		<question name="Sex">
+			<questionString>Cinsiyet</questionString>
+			<answerType>LISTBOX</answerType >
+			<answerList>
+				<answer name="male">Erkek</answer>
+				<answer name="female">Kadın</answer>
+			</answerList>
+		</question>
+		<question name="YearOfBirth">
+			<questionString>Doğum yılı</questionString>
+			<answerType>LISTBOX</answerType>
+			<answerList>
+				<answer name="from">1906</answer>
+				<answer name="to">2005</answer>
+			</answerList>
+		</question>
+		<question name="PrinterLocation">
+			<questionString>Yazıcı kullanımı</questionString>
+			<answerType> LISTBOX </answerType>
+			<answerList>
+				<answer name="UsedAtHomeForPersonal">Evde kişisel kullanım</answer>
+				<answer name="UsedAtHomeForBusiness">Evde iş amaçlı kullanım</answer>
+				<answer name="UsedAtHomeForBoth">Evde hem kişisel hem de iş amaçlı kullanım</answer>
+				<answer name="UsedAtOfficeForBusiness">Ofiste iş amaçlı kullanım</answer>
+			</answerList>
+		</question>
+		<question name="PurchaseRoute">
+			<questionString>S. Bu ürünü nereden aldınız?</questionString>
+			<answerType >LISTBOX</answerType>
+			<answerList>
+				<answer name="InStore">Mağaza</answer>
+				<answer name="MailOrder">Posta siparişi, katalog, telefon, TV alışverişi</answer>
+				<answer name="Online">Çevrimiçi (İnternet)</answer>
+				<answer name="SalesAgency">İşletme, kurumsal firma</answer>
+				<answer name="Other">Diğer</answer >
+			</answerList>
+		</question>
+	</questionnaireSettings>
+	<versionSettings>
+		<version>2010</version>
+	</versionSettings>
+</configuration>

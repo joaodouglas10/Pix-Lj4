@@ -1,0 +1,80 @@
+unit un_principal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.jpeg, Vcl.ExtCtrls,
+  Vcl.Buttons, Vcl.StdCtrls, sButton, sSkinManager, Vcl.ComCtrls;
+
+type
+  Tfrm_principal = class(TForm)
+    StatusBar1: TStatusBar;
+    Timer1: TTimer;
+    Panel1: TPanel;
+    sButton1: TSpeedButton;
+    sButton2: TSpeedButton;
+    sButton3: TSpeedButton;
+    sButton4: TSpeedButton;
+    sButton5: TSpeedButton;
+    SpeedButton1: TSpeedButton;
+    Image1: TImage;
+    procedure Timer1Timer(Sender: TObject);
+    procedure sButton1Click(Sender: TObject);
+    procedure sButton2Click(Sender: TObject);
+    procedure sButton3Click(Sender: TObject);
+    procedure sButton4Click(Sender: TObject);
+    procedure sButton5Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frm_principal: Tfrm_principal;
+
+implementation
+
+{$R *.dfm}
+
+uses un_cadcondutor, un_cadmov, un_movrealizadas, un_cadcli, un_cadvendedor;
+
+procedure Tfrm_principal.sButton1Click(Sender: TObject);
+begin
+   frm_clientes.showmodal;
+end;
+
+procedure Tfrm_principal.sButton2Click(Sender: TObject);
+begin
+   frm_cadcondutor.showmodal;
+end;
+
+procedure Tfrm_principal.sButton3Click(Sender: TObject);
+begin
+   frm_cadmov.showmodal;
+end;
+
+procedure Tfrm_principal.sButton4Click(Sender: TObject);
+begin
+   frm_realizadas.Showmodal;
+end;
+
+procedure Tfrm_principal.sButton5Click(Sender: TObject);
+begin
+   Close;
+end;
+
+procedure Tfrm_principal.SpeedButton1Click(Sender: TObject);
+begin
+  frm_vendedor.Showmodal;
+end;
+
+procedure Tfrm_principal.Timer1Timer(Sender: TObject);
+begin
+   StatusBar1.Panels[3].Text := '' + FormatDateTime('hh:nn:ss',now);
+   StatusBar1.Panels[2].Text := '' + FormatDateTime ('dddd", "dd" de "mmmm" de "yyyy',now);
+end;
+
+end.

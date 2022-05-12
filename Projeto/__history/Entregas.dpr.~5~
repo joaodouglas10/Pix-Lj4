@@ -1,0 +1,73 @@
+program Entregas;
+
+uses
+  Vcl.Forms,
+  un_cadcondutor in 'un_cadcondutor.pas' {frm_cadcondutor},
+  un_principal in 'un_principal.pas' {frm_principal},
+  un_cadmov in 'un_cadmov.pas' {frm_cadmov},
+  un_chama_servcli in 'un_chama_servcli.pas' {frm_rel_servcli},
+  un_movrealizadas in 'un_movrealizadas.pas' {frm_realizadas},
+  un_cadcli in 'un_cadcli.pas' {frm_clientes},
+  un_conscli in 'un_conscli.pas' {frm_conscli},
+  un_conscond in 'un_conscond.pas' {frm_conscond},
+  un_entrega in 'un_entrega.pas' {Dtm_Entrega: TDataModule},
+  un_cadvendedor in 'un_cadvendedor.pas' {frm_vendedor},
+  un_entreal in 'un_entreal.pas' {frm_entreal},
+  un_cadusu in 'un_cadusu.pas' {frm_cadusu},
+  U_Senha in 'U_Senha.pas' {Fm_Senha},
+  un_consusu in 'un_consusu.pas' {frm_consusu},
+  un_pagtransf in 'un_pagtransf.pas' {frm_pagTransf},
+  un_relprovisorios in 'un_relprovisorios.pas' {frm_relprovisorios},
+  un_extenso in 'un_extenso.pas',
+  un_provisorios in 'un_provisorios.pas' {frm_cadprov},
+  un_reltransf in 'un_reltransf.pas' {frm_reltransf},
+  un_trasnf in 'un_trasnf.pas' {frm_transf},
+  un_consvend in 'un_consvend.pas' {frm_consven};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TFm_Senha, Fm_Senha);
+  Application.CreateForm(Tfrm_principal, frm_principal);
+  Application.CreateForm(Tfrm_cadcondutor, frm_cadcondutor);
+  Application.CreateForm(Tfrm_cadmov, frm_cadmov);
+  Application.CreateForm(Tfrm_rel_servcli, frm_rel_servcli);
+  Application.CreateForm(Tfrm_realizadas, frm_realizadas);
+  Application.CreateForm(Tfrm_clientes, frm_clientes);
+  Application.CreateForm(Tfrm_conscli, frm_conscli);
+  Application.CreateForm(Tfrm_conscond, frm_conscond);
+  Application.CreateForm(TDtm_Entrega, Dtm_Entrega);
+  Application.CreateForm(Tfrm_vendedor, frm_vendedor);
+  Application.CreateForm(Tfrm_entreal, frm_entreal);
+  Application.CreateForm(Tfrm_cadusu, frm_cadusu);
+  Application.CreateForm(Tfrm_consusu, frm_consusu);
+  Application.CreateForm(Tfrm_pagTransf, frm_pagTransf);
+  Application.CreateForm(Tfrm_cadprov, frm_cadprov);
+  Application.CreateForm(Tfrm_cadprov, frm_cadprov);
+  Application.CreateForm(Tfrm_cadprov, frm_cadprov);
+  Application.CreateForm(Tfrm_cadprov, frm_cadprov);
+  Application.CreateForm(Tfrm_cadprov, frm_cadprov);
+  Application.CreateForm(Tfrm_cadprov, frm_cadprov);
+  Application.CreateForm(Tfrm_cadprov, frm_cadprov);
+  Application.CreateForm(Tfrm_cadprov, frm_cadprov);
+  Application.CreateForm(Tfrm_cadprov, frm_cadprov);
+  Application.CreateForm(Tfrm_cadprov, frm_cadprov);
+  Application.CreateForm(Tfrm_cadprov, frm_cadprov);
+  Application.CreateForm(Tfrm_cadprov, frm_cadprov);
+  Application.CreateForm(Tfrm_cadprov, frm_cadprov);
+  Application.CreateForm(Tfrm_cadprov, frm_cadprov);
+  Application.CreateForm(Tfrm_cadprov, frm_cadprov);
+  Application.CreateForm(Tfrm_cadprov, frm_cadprov);
+  Application.CreateForm(Tfrm_relprovisorios, frm_relprovisorios);
+  Application.CreateForm(Tfrm_cadprov, frm_cadprov);
+  Application.CreateForm(Tfrm_cadprov, frm_cadprov);
+  Application.CreateForm(Tfrm_cadprov, frm_cadprov);
+  Application.CreateForm(Tfrm_cadprov, frm_cadprov);
+  Application.CreateForm(Tfrm_cadprov, frm_cadprov);
+  Application.CreateForm(Tfrm_reltransf, frm_reltransf);
+  Application.CreateForm(Tfrm_transf, frm_transf);
+  Application.CreateForm(Tfrm_consven, frm_consven);
+  Application.Run;
+end.

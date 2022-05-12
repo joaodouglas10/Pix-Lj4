@@ -1,0 +1,2183 @@
+﻿;[Rev.G1.3(BP)]
+
+; =====================================================================================================
+; === 共通設定 ========================================================================================
+; =====================================================================================================
+[Main]
+Mode			=3
+DirMember		="./_cdres"
+DefPanelSection	="Select.Flow"
+
+BreakRebootAction	=
+ReplaceEntry	=LANG_PATH,LANG_PATH_OLD,LG_OCFR,LG_OCMR,LG_OCAM,LG_MIMP,LG_PIMP,LG_SNSD,LG_BZCA,EMAILPRINT,HTM_NSUP,SW_DRV,DIR_SDRV,SW_NET,OP1_NSUP_ADD,OP1_NSUP_ADDPC_LFP,OP1_NSUP_LAN_LFP,LANG_PIC,HTM_SCN_CONNECT_CHK,DIR_PDRV,DIR_STM,DIR_WEB2P_COMMON,DIR_SCRFNT_COMMON,DIR_BCFNT_COMMON,DIR_RMPNL2_LANG
+Authorization	=1
+;LanguageList=%MENU_LANG_LIST%
+
+[Install.Hide]
+PanelSetting	=DEFAULT,1
+
+[Select.Flow]
+MainWindow		="%SET_WND%"	,"1,,1","%MES_CAPTION%"
+PanelSetting	=DEFAULT,1
+Button1.Diag	=,,,,,"Diag.ExistPrn,Panel.LA",,0x00000101,,
+
+[Diag.ExistPrn]
+ActionMode		=DIAG
+DiagCheckItem.Path	=,1		,"DIAG_PATH,%DIR_PDRV%"		,"Select.STM,"
+
+[Select.STM]
+Button1.Diag	=,,,,,"Diag.ExistSTM,Panel.LA",,0x00000101,,
+
+[Diag.ExistSTM]
+ActionMode		=DIAG
+DiagCheckItem.Path	=,1		,"DIAG_PATH,%DIR_STM%"		,"Select.NSUP,"
+
+[Select.NSUP]
+Button1.Diag	=,,,,,"Diag.ExistNSUP,Panel.LA",,0x00000101,,
+
+[Diag.ExistNSUP]
+ActionMode		=DIAG
+DiagCheckItem.Path	=,1		,"DIAG_PATH,%DIR_NSET%"		,"Panel.Manual,"
+
+[Panel.Manual]
+MainWindow		=,"1,,1"
+ScreenColor		="%C_WHITE%"
+ScreenImage		="%IMG_BACK%,%FLG_LTR%"
+
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.ManuView",,","
+TextArea.Body	="TEXT"	,"%SET_TXT_BODY%"	,"Font.Medium,%C_BLACK%"	,"List.Body.ManuView",,","
+BoxArea.Lang	="COMBO","%SET_LANG%"		,"Font.Medium"				,"List.Lang,EN",,1,",","LANGSKIP",,"%TYPE_LANG_BOX%,,,"
+
+Button0.Show	=		,"%SET_BTN0%"		,Font.Button,,%BTN_SHOW%	,"DiagManual.Act,BrowseManual.Act",,0x00000000,,
+Button1.Quit	=		,"%SET_BTN1%"		,Font.Button,,%BTN_QUIT%	,"Quit.Act",,0x00000000,,
+
+[List.Head.ManuView]
+stc1			=%MES_UG%			,,,LEFT,""
+
+[List.Body.ManuView]
+stc1			=%MES_UG_OPEN%			,,,LEFT,""
+
+[DiagManual.Act]
+ActionMode	=DIAG
+DiagCheckItem.OS	=,1,"DIAG_PATH,%DIR_BRMANUAL%","BrowseManualAll.Act"
+
+[BrowseManual.Act]
+ActionMode	=EXEC
+Exec1	="SWID_MANUAL",
+SWID_MANUAL	=%OS_BRMANUAL%,%DIR_BRMANUAL%,,%CTRL_BRMANUAL%,,",",
+
+[BrowseManualAll.Act]
+ActionMode	=EXEC
+Exec1	="SWID_MANUAL,SWID_MANUAL_LIST",
+SWID_MANUAL		=%OS_BRMANUAL%,%DIR_BRMANUAL_ALL%,,%CTRL_BRMANUAL%,,",",
+SWID_MANUAL_LIST=%OS_BRMANUAL%,%DIR_BRMANUAL_LIST%%EXE_BRMANUAL_LIST%,,%CTRL_BRMANUAL%,,",",
+
+[List.Lang]
+EN		=%LANG_EN%,,"%LCODE_EN%,%LANG_PATH_EN%"
+JA		=%LANG_JA%,,"%LCODE_JA%,%LANG_PATH_JA%"
+FR		=%LANG_FR%,,"%LCODE_FR%,%LANG_PATH_FR%"
+DE		=%LANG_DE%,,"%LCODE_DE%,%LANG_PATH_DE%"
+NL		=%LANG_NL%,,"%LCODE_NL%,%LANG_PATH_NL%"
+IT		=%LANG_IT%,,"%LCODE_IT%,%LANG_PATH_IT%"
+ES		=%LANG_ES%,,"%LCODE_ES%,%LANG_PATH_ES%"
+PT		=%LANG_PT%,,"%LCODE_PT%,%LANG_PATH_PT%"
+TR		=%LANG_TR%,,"%LCODE_TR%,%LANG_PATH_TR%"
+EL		=%LANG_EL%,,"%LCODE_EL%,%LANG_PATH_EL%"
+SL		=%LANG_SL%,,"%LCODE_SL%,%LANG_PATH_SL%"
+HR		=%LANG_HR%,,"%LCODE_HR%,%LANG_PATH_HR%"
+MK		=%LANG_MK%,,"%LCODE_MK%,%LANG_PATH_MK%"
+SR		=%LANG_SR%,,"%LCODE_SR%,%LANG_PATH_SR%"
+DA		=%LANG_DA%,,"%LCODE_DA%,%LANG_PATH_DA%"
+FI		=%LANG_FI%,,"%LCODE_FI%,%LANG_PATH_FI%"
+NO		=%LANG_NO%,%OS_NO%,"%LCODE_NO%,%LANG_PATH_NO%"
+NO		=%LANG_NB%,%OS_NB%,"%LCODE_NB%,%LANG_PATH_NB%"
+NO		=%LANG_NN%,%OS_NN%,"%LCODE_NN%,%LANG_PATH_NN%"
+SV		=%LANG_SV%,,"%LCODE_SV%,%LANG_PATH_SV%"
+PL		=%LANG_PL%,,"%LCODE_PL%,%LANG_PATH_PL%"
+CS		=%LANG_CS%,,"%LCODE_CS%,%LANG_PATH_CS%"
+HU		=%LANG_HU%,,"%LCODE_HU%,%LANG_PATH_HU%"
+SK		=%LANG_SK%,,"%LCODE_SK%,%LANG_PATH_SK%"
+RO		=%LANG_RO%,,"%LCODE_RO%,%LANG_PATH_RO%"
+BG		=%LANG_BG%,,"%LCODE_BG%,%LANG_PATH_BG%"
+LV		=%LANG_LV%,,"%LCODE_LV%,%LANG_PATH_LV%"
+LT		=%LANG_LT%,,"%LCODE_LT%,%LANG_PATH_LT%"
+ET		=%LANG_ET%,,"%LCODE_ET%,%LANG_PATH_ET%"
+CA		=%LANG_CA%,,"%LCODE_CA%,%LANG_PATH_CA%"
+RU		=%LANG_RU%,,"%LCODE_RU%,%LANG_PATH_RU%"
+UK		=%LANG_UK%,,"%LCODE_UK%,%LANG_PATH_UK%"
+KK		=%LANG_KK%,,"%LCODE_KK%,%LANG_PATH_KK%"
+AR		=%LANG_AR%,,"%LCODE_AR%,%LANG_PATH_AR%"
+HE		=%LANG_HE%,,"%LCODE_HE%,%LANG_PATH_HE%"
+FA		=%LANG_FA%,,"%LCODE_FA%,%LANG_PATH_FA%"
+KO		=%LANG_KO%,,"%LCODE_KO%,%LANG_PATH_KO%"
+TH		=%LANG_TH%,,"%LCODE_TH%,%LANG_PATH_TH%"
+SC		=%LANG_SC%,,"%LCODE_SC%,%LANG_PATH_SC%"
+TC		=%LANG_TC%,,"%LCODE_TC%,%LANG_PATH_TC%"
+
+; -----------------------------------------------------------------------------
+; -------- [1] 約款表示画面 ---------------------------------------------------
+; -----------------------------------------------------------------------------
+[Panel.LA]
+MainWindow		="%SET_WND%"	,"1,,1","%MES_CAPTION%"
+PanelSetting	=INST_SETTING,0
+ScreenColor		="%C_WHITE%"
+ScreenImage		="%IMG_BACK%,%FLG_LTR%"
+AddImage		=,
+
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.LA",,"100,VERT"
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.LA",,","
+FreeArea.htmLA	="HTML1","%SET_HTM_LA%"		,,,"%HTM_LA%,,,",
+TextArea.radLA	="CHECK","%SET_AGREE%"		,"Font.SmallB,%C_BLACK%"	,"List.License,",,"20,VERT,PIXEL"
+BoxArea.Lang	="COMBO","%SET_LANG%"		,"Font.Medium"				,"List.Lang,EN",,1,",","LANGSKIP",,"%TYPE_LANG_BOX%,,,HIDE"
+
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"ModelSelect.Act,%SECTION_EASYINSTALL%",,0x00000000,AND,"List.License.Agree"
+Button2.Cancel	=		,"%SET_BTN3%"		,Font.Button,,%BTN_CANCEL%	,"Quit.Act",,0x00000000,,
+
+[List.Head.LA]
+stc1			=%MES_LA%			,,,LEFT,""
+
+[List.License]
+Agree			=%MES_LA_AGREE%		,,,LEFT,""
+
+; -----------------------------------------------------------------------------
+; -------- [C-1] 機種選択アクション -------------------------------------------
+; -----------------------------------------------------------------------------
+[ModelSelect.Act]
+ActionMode		=MODELSELECT
+MainWindow		="%SET_DLG%"	,"0,,1","%MES_MODEL_SELECT_CAPTION%"
+TextArea.Head	="TEXT"	,"%SET_DLG_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.ModelSelect",,","
+TextArea.radLA	="RADIO","%SET_DLG_RADIO_MODEL%"		,"Font.SmallB,%C_BLACK%"	,"List.ModelSelect,",,"%SET_DLG_PIXEL%"
+Button1.Next	=		,"%SET_DLG_BTN1%"		,Font.Button,,%BTN_NEXT%	,"%SECTION_EASYINSTALL%",,0x00000000,AND,List.ModelSelect
+[List.Head.ModelSelect]
+stc1			=%MES_MODEL_SELECT%			,,,LEFT,""
+
+[List.ModelSelect]
+Dummy			=YES
+
+; -----------------------------------------------------------------------------
+; -------- [C-1] お知らせ表示アクション ---------------------------------------
+; -----------------------------------------------------------------------------
+[Oshirase.Act]
+ActionMode		=EXEC
+Exec1			="SWID_NEWS",
+SWID_NEWS		=%OS_NEWS%,%DIR_NEWS%%EXE_NEWS%,,%CTRL_NEWS%,,"%OP1_NEWS%,%OP2_NEWS%,%OP1_NEWS%",
+
+; -----------------------------------------------------------------------------
+; -------- [C-1] 環境チェック＆エラー画面 -------------------------------------
+; -----------------------------------------------------------------------------
+[Diag.Act]
+ActionMode		=DIAG
+DiagCheckItem.OS	=,1						,"DIAG_OS,%DIAG_CHECK_OS%"	,"Panel.Fatal,%MES_SYS_OS%<br>"
+DiagCheckItem.Admin	=,2						,"DIAG_ADMIN,"				,"Panel.Fatal,%MES_SYS_ADMIN%<br>"
+
+[Panel.Fatal]
+MainWindow		=,"1,,1"
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Err",,"100,VERT"
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.Err",,","
+FreeArea.Body	="HTML2","%SET_HTM_BODY%"	,,,"%DIAG_ERR_REPORT%,,",
+Button1.Exit	=		,"%SET_BTN1%"		,Font.Button,,%BTN_EXIT%	,"Quit.Act",,0x00000001,,
+
+[Panel.Reboot]
+MainWindow		=,"1,,1"
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Err",,"100,VERT"
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.Err",,","
+FreeArea.Body	="HTML2","%SET_HTM_BODY%"	,,,"%DIAG_ERR_REPORT%,,,",
+Button1.Exit	=		,"%SET_BTN1%"		,Font.Button,,%BTN_EXIT%	,"Quit.Act",,0x00000000,,
+Button2.Reboot	=		,"%SET_BTN2%"		,Font.Button,,%BTN_REBOOT%	,"Reboot.Act",,0x00000000,,
+
+[DiagCate2.Act]
+ActionMode		=DIAG
+DiagCheckItem.Path	=%DIAG_DRIVER%,1		,"DIAG_PATH,%DIR_POSX%"	,"EasyInstall.Cate2.PS,"
+
+[DiagCate3.Act]
+ActionMode		=DIAG
+DiagCheckItem.Path	=%DIAG_DRIVER%,1		,"DIAG_PATH,%DIR_POSX%"	,"EasyInstall.Cate3.NoDrv,"
+
+; -----------------------------------------------------------------------------
+; -------- [2] 簡単インストール画面 -------------------------------------------
+; -----------------------------------------------------------------------------
+
+[EasyInstall]	;Category base section
+MainWindow		=,"1,,1","%PRODUCT_NAME%"
+PanelSetting	=INST_SETTING,0
+
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.ManuView",,","
+TextArea.Body	="TEXT"	,"%SET_TXT_BODY%"	,"Font.Medium,%C_BLACK%"	,"List.Body.ManuView",,","
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.EasyIns",,"100,VERT"
+TextArea.Inst	="TEXT"	,"%SET_TXT_INST%"	,"Font.LargeB,%C_BLACK%"	,"List.Inst.EasyIns",,","
+TextArea.Space1	="TEXT"	,"%SET_SPACE1%"		,"Font.Xsmall,%C_BLACK%"	,"List.Space1",,","
+TextArea.Space2	="TEXT"	,"%SET_SPACE2%"		,"Font.Xsmall,%C_BLACK%"	,"List.Space2",,","
+
+Button0.Show	=		,"%SET_BTN0%"		,Font.Button,,%BTN_SHOW%	,"DiagManual.Act,BrowseManual.Act",,0x00000000,,
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"Panel.LA",,0x00000000,,
+Button3.Cancel	=		,"%SET_BTN3%"		,Font.Button,,%BTN_CANCEL%	,"Quit.Act",,0x00000000,,
+
+[List.Inst.EasyIns]
+stc1			=%MES_SW%			,,,LEFT,""
+
+[List.Space1]
+stc1			=%MES_SW_SIZE%		,,,RIGHT,""
+
+[List.Space2]
+stc1			=%ALLAPP_USE%		,,,RIGHT,""
+
+[List.Info.EasyIns]
+stc1			=%MES_SW_INFO%		,,,LEFT,""
+
+; -------- for SIDM -----------------------------------------------------------
+[EasyInstall.Cate1]
+BaseSection		=EasyInstall
+BoxArea.App1	="TREE"	,"%SET_LIST%"		,"Font.Small"				,"List.InstallItem1.SIDM.DopUI%SPEC_DOP_UI%",,1,"1,0","NONE",",MES_SW_INFO",0
+Button1.Install	=		,"%SET_BTN1%"		,Font.Button,,%BTN_INSTALL%	,"DiagInst.Act,EasyInstall.SIDM.DopUI%SPEC_DOP_UI%.Act",,0x00000000,AND,"List.InstallItem1.SIDM.DopUI%SPEC_DOP_UI%"
+
+[List.InstallItem1.SIDM.DopUIY]
+; --- Epson Driver and Utilites ---
+SWID_DRV		=%SW_DRV%	,,,%TIP_DRV%			,,,1,1,","				,,,,,,",",,,,
+SWID_PDRV86		=%SW_PDRV%,%OS_PX86%,,%TIP_PDRV%	,,SWID_DRV,0,1,","		,%MB_PX86%	,%DIR_PX86%%EXE_PX86%	,,%CTRL_PX86%	,,"%OP1_PX86_SIDM_DOP_E%	,",,,,			; PrinterDriverX86
+SWID_PDRV64		=%SW_PDRV%,%OS_PX64%,,%TIP_PDRV%	,,SWID_DRV,0,1,","		,%MB_PX64%	,%DIR_PX64%%EXE_PX64%	,,%CTRL_PX64%	,,"%OP1_PX64_SIDM_DOP_E%	,",,,,			; PrinterDriverX64
+SWID_STM86		=%SW_STM%,%OS_STM86%,,%TIP_STM%	,,SWID_DRV,1,1,","		,%MB_STM86%	,%DIR_STM86%%EXE_STM86%	,,%CTRL_STM86_INST%	,,"%OP1_STM86_E%	,",,,,			; PrinterDriverX86
+SWID_STM64		=%SW_STM%,%OS_STM64%,,%TIP_STM%	,,SWID_DRV,1,1,","		,%MB_STM64%	,%DIR_STM64%%EXE_STM64%	,,%CTRL_STM64_INST%	,,"%OP1_STM64_E%	,",,,,			; PrinterDriverX64
+
+[List.InstallItem1.SIDM.DopUIN]
+; --- Epson Driver and Utilites ---
+SWID_DRV		=%SW_DRV%	,,,%TIP_DRV%			,,,1,1,","				,,,,,,",",,,,
+SWID_PDRV86		=%SW_PDRV%,%OS_PX86%,,%TIP_PDRV%	,,SWID_DRV,0,1,","		,%MB_PX86%	,%DIR_PX86%%EXE_PX86%	,,%CTRL_PX86%	,,"%OP1_PX86_SIDM_NODOP_E%	,",,,,			; PrinterDriverX86
+SWID_PDRV64		=%SW_PDRV%,%OS_PX64%,,%TIP_PDRV%	,,SWID_DRV,0,1,","		,%MB_PX64%	,%DIR_PX64%%EXE_PX64%	,,%CTRL_PX64%	,,"%OP1_PX64_SIDM_NODOP_E%	,",,,,			; PrinterDriverX64
+SWID_STM86		=%SW_STM%,%OS_STM86%,,%TIP_STM%	,,SWID_DRV,1,1,","		,%MB_STM86%	,%DIR_STM86%%EXE_STM86%	,,%CTRL_STM86_NOINST%	,,"%OP1_STM86_E%	,",,,,			; PrinterDriverX86
+SWID_STM64		=%SW_STM%,%OS_STM64%,,%TIP_STM%	,,SWID_DRV,1,1,","		,%MB_STM64%	,%DIR_STM64%%EXE_STM64%	,,%CTRL_STM64_NOINST%	,,"%OP1_STM64_E%	,",,,,			; PrinterDriverX64
+
+[EasyInstall.SIDM.DopUIY.Act]
+ActionMode		=ALLINSTALL
+TransSection	="Install","DiagINet.Cate%SPEC_CATE%.Act,Finish.Applet",,,,
+
+[EasyInstall.SIDM.DopUIN.Act]
+ActionMode		=ALLINSTALL
+TransSection	="Install","Select.LocalOnly",,,,
+
+; -------- for LP -------------------------------------------------------------
+[EasyInstall.Cate2]
+BaseSection		=EasyInstall
+BoxArea.App1	="TREE"	,"%SET_LIST%"		,"Font.Small"				,"List.InstallItem1.LP",,1,"1,0","NONE",",MES_SW_INFO",0
+Button1.Install	=		,"%SET_BTN1%"		,Font.Button,,%BTN_INSTALL%	,"DiagInst.Act,EasyInstall.LP.Act",,0x00000000,AND,"List.InstallItem1.LP"
+
+[List.InstallItem1.LP]
+; --- Epson Driver and Utilites ---
+SWID_DRV		=%SW_DRV%	,,,%TIP_DRV%			,,,1,1,","				,,,,,,",",,,,
+SWID_SDRV		=%SW_SDRV%,%OS_SDRV_LP%,,%TIP_SDRV%	,,SWID_DRV,0,1,","		,%MB_SDRV%	,%DIR_SDRV%%EXE_SDRV%	,,%CTRL_SDRV%	,,"%OP1_SDRV_E%	,%OP2_SDRV_E%",,,,		; EPSON Scan
+SWID_SDRV_VI	=%SW_SDRV%,%OS_SDRV_VI%,,%TIP_SDRV%	,,SWID_DRV,0,1,","		,%MB_SDRV_VI%	,%DIR_SDRV%%EXE_SDRV_VI%	,,%CTRL_SDRV_VI%	,,",%OP2_SDRV_VI_E%",,,,		; EPSON Scan
+SWID_SOCR		=%SW_SOCR%,%OS_SOCR_LP%,,%TIP_SOCR%	,,SWID_DRV,0,1,","		,%MB_SOCR%	,%DIR_SOCR%%EXE_SOCR%	,,%CTRL_SOCR%	,,"%OP1_SOCR_E%	,%OP2_SOCR_E%",,,,		; EPSON Scan OCR
+SWID_SPDF		=%SW_SPDF%,%OS_SPDF_LP%,,%TIP_SPDF%	,,SWID_DRV,0,1,","		,%MB_SPDF%	,%DIR_SPDF%%EXE_SPDF%	,,%CTRL_SPDF%	,,"%OP1_SPDF_E%	,%OP2_SPDF_E%",,,,		; PDF Extension
+SWID_SPDF_VI		=%SW_SPDF%,%OS_SPDF_VI%,,%TIP_SPDF%	,,SWID_DRV,0,1,","		,%MB_SPDF_VI%	,%DIR_SPDF%%EXE_SPDF_VI%	,,%CTRL_SPDF_VI%	,,",%OP2_SPDF_VI_E%",,,,		; PDF Extension
+SWID_PDRVOSX	=%SW_PDRV%,%OS_POSX%,,%TIP_PDRV%	,,SWID_DRV,0,1,","		,%MB_POSX%	,%DIR_POSX%%EXE_POSX%	,,%CTRL_POSX%	,,"%OP1_POSX_E%	,%OP2_POSX_E%",,,,		; PrinterDriverMac
+SWID_PDRVOSX_VI	=%SW_PDRV%,%OS_POSX_VI%,,%TIP_PDRV%	,,SWID_DRV,0,1,","		,%MB_POSX_VI%	,%DIR_POSX%%EXE_POSX_VI%	,,%CTRL_POSX_VI%	,,",%OP2_POSX_VI_E%",,,,		; PrinterDriverMac
+SWID_PDRV86		=%SW_PDRV%,%OS_PX86%,,%TIP_PDRV%	,,SWID_DRV,0,1,","		,%MB_PX86%	,%DIR_PX86%%EXE_PX86%	,,%CTRL_PX86%	,,"%OP1_PX86_LP_E%	,",,,,			; PrinterDriverX86
+SWID_PDRV64		=%SW_PDRV%,%OS_PX64%,,%TIP_PDRV%	,,SWID_DRV,0,1,","		,%MB_PX64%	,%DIR_PX64%%EXE_PX64%	,,%CTRL_PX64%	,,"%OP1_PX64_LP_E%	,",,,,			; PrinterDriverX64
+SWID_PDRV86_2	=%SW_PDRV%,%OS_PX86%,,%TIP_PDRV%	,,SWID_DRV,0,1,","		,%MB_PX86%	,%DIR_PX86_2%%EXE_PX86%	,,%CTRL_PX86%	,,"%OP1_PX86_LP_E%	,",,,,			; PrinterDriverX86
+SWID_PDRV64_2	=%SW_PDRV%,%OS_PX64%,,%TIP_PDRV%	,,SWID_DRV,0,1,","		,%MB_PX64%	,%DIR_PX64_2%%EXE_PX64%	,,%CTRL_PX64%	,,"%OP1_PX64_LP_E%	,",,,,			; PrinterDriverX64
+
+; --- STM ---
+;SWID_STM		=%SW_STM%	,,,%TIP_STM%			,,,1,1,","
+SWID_STM86		=%SW_STM%,%OS_STM86%,,%TIP_STM%	,,SWID_DRV,1,1,","		,%MB_STM86%	,%DIR_STM86%%EXE_STM86%	,,%CTRL_STM86_NOINST%	,,"%OP1_STM86_E%	,",,,,			; PrinterDriverX86
+SWID_STM64		=%SW_STM%,%OS_STM64%,,%TIP_STM%	,,SWID_DRV,1,1,","		,%MB_STM64%	,%DIR_STM64%%EXE_STM64%	,,%CTRL_STM64_NOINST%	,,"%OP1_STM64_E%	,",,,,			; PrinterDriverX64
+
+; --- Epson Network Utilites ---
+SWID_NET		=%SW_NET_LP%,,,%TIP_NET%				,,,1,1,","				,,,,,,",",,,,
+SWID_AN86		=%SW_ANET%,%OS_AN86%,,%TIP_ANET%	,,SWID_NET,0,1,","		,%MB_ANET%	,%DIR_AN86%%EXE_AN86%	,,%CTRL_ANET%	,,"%OP1_ANET_E%	,",,,,		; EP WINDOW!3(Network Module)
+SWID_AN64		=%SW_ANET%,%OS_AN64%,,%TIP_ANET%	,,SWID_NET,0,1,","		,%MB_ANET%	,%DIR_AN64%%EXE_AN64%	,,%CTRL_ANET%	,,"%OP1_ANET_E%	,",,,,		; EP WINDOW!3(Network Module)
+SWID_NPRN		=%SW_NPRN%,%OS_NPRN%,,%TIP_NPRN%	,,SWID_NET,0,1,","		,%MB_NPRN%	,%DIR_NPRN%%EXE_NPRN%	,,%CTRL_NPRN%	,,"%OP1_NPRN_E%	,",,,,		; EpsonNet Print
+SWID_NSET		=%SW_NSET%,%OS_NSET%,,%TIP_NSET%	,,SWID_NET,0,1,","		,%MB_NSET%	,%DIR_NSET%%EXE_NSET%	,,%CTRL_NSET%	,,"%OP1_NSET_E%	,%OP2_NSET_E%",,,,		; EpsonNet Setup
+
+; --- EpsonNet Print ---
+SWID_NPRN_LP	=%SW_NPRN%,%OS_NPRN%,,%TIP_NPRN%	,,,1,1,","		,%MB_NPRN%	,%DIR_NPRN%%EXE_NPRN%	,,%CTRL_NPRN%	,,"%OP1_NPRN_E%	,",,,,		; EpsonNet Print
+
+; --- Bonus Software ---
+SWID_ETC		=%SW_ETC%,,,%TIP_ETC%				,,,1,%CHK%,","				,,,,,,",",,,,
+SWID_ICCP		=%SW_ICCP%,%OS_ICCP%,,%TIP_ICCP%	,,SWID_ETC,1,%CHK%,","		,%MB_ICCP%	,%DIR_ICCP%%EXE_ICCP%	,,%CTRL_ICCP%	,,"%OP1_ICCP_E%	,%OP2_ICCP_E%",,,,		; ICC Profile
+
+; --- Administrator Software ---
+SWID_ADM		=%SW_ADM%,,,%TIP_ADM%				,,,1,0,","				,,,,,,",",,,,
+SWID_NCNF		=%SW_NCNF%,%OS_NCNF%,,%TIP_NCNF%	,,SWID_ADM,1,0,","				,%MB_NCNF%	,%DIR_NCNF%%EXE_NCNF%	,,%CTRL_NCNF%	,,"%OP1_NCNF_E%,%OP2_NCNF_E%",,,,		; EpsonNet Config
+SWID_NCNF4		=%SW_NCNF%,%OS_NCNF4%,,%TIP_NCNF%	,,SWID_ADM,1,0,","				,%MB_NCNF%	,%DIR_NCNF%%EXE_NCNF4%	,,%CTRL_NCNF%	,,"%OP1_NCNF_E%,%OP2_NCNF_E%",,,,		; EpsonNet Config
+SWID_NCNF_VI	=%SW_NCNF%,%OS_NCNF_VI%,,%TIP_NCNF%	,,SWID_ADM,1,0,","				,%MB_NCNF_VI%	,%DIR_NCNF%%EXE_NCNF_VI%	,,%CTRL_NCNF_VI%	,,",%OP2_NCNF_VI_E%",,,,		; EpsonNet Config
+
+; --- EpsonNet PC-FAX ---
+SWID_ENFX		=%SW_ENFX%,%OS_ENFX_LP%,,%TIP_ENFX%	,,,1,0,","			,%MB_ENFX%	,%DIR_ENFX_LP%%EXE_ENFX_LP%	,,%CTRL_ENFX%	,,"%OP1_ENFX_E%	,",,,,
+
+; --- Epson Web-To-Page ---
+SWID_WEB2P		=%SW_WEB2P%,%OS_WEB2P%,,%TIP_WEB2P%	,,,1,%CHK%,","			,%MB_WEB2P%	,%DIR_WEB2P%%EXE_WEB2P%	,,%CTRL_WEB2P%	,,"%OP1_WEB2P_E%	,",,,,
+
+; --- Epson Screen Fonts ---
+SWID_SCRFNT		=%SW_SCRFNT%,%OS_SCRFNT%,,%TIP_SCRFNT%	,,,1,%CHK%,","		,%MB_SCRFNT%	,%DIR_SCRFNT%%EXE_SCRFNT%	,,%CTRL_SCRFNT%	,,"%OP1_SCRFNT_E%	,",,,,
+
+; --- Epson BarCode Font ---
+SWID_BCFNT		=%SW_BCFNT%,%OS_BCFNT%,,%TIP_BCFNT%	,,,1,0,","			,%MB_BCFNT%	,%DIR_BCFNT%%EXE_BCFNT%	,,%CTRL_BCFNT%	,,"%OP1_BCFNT_E%	,",,,,
+
+; --- OCR-B TrueType Font ---
+SWID_OCRFNT		=%SW_OCRFNT%,%OS_OCRFNT%,,%TIP_OCRFNT%	,,,1,%CHK2%,","		,%MB_OCRFNT%	,%DIR_OCRFNT%%EXE_OCRFNT%	,,%CTRL_OCRFNT%	,,"%OP1_OCRFNT_E%	,",,,,
+
+; --- Epson TrueType Font ---
+SWID_TTFNT		=%SW_TTFNT%,%OS_TTFNT%,,%TIP_TTFNT%	,,,1,%CHK2%,","		,%MB_TTFNT%	,%DIR_TTFNT%%EXE_TTFNT%	,,%CTRL_TTFNT%	,,"%OP1_TTFNT_E%	,",,,,
+
+; --- MyEPSON Assistant ---
+SWID_MEAS		=%SW_MEAS%,%OS_MEAS%,,%TIP_MEAS%	,,,1,%CHK%,","		,%MB_MEAS%	,%DIR_MEAS%%EXE_MEAS%	,,%CTRL_MEAS%	,,"%OP1_MEAS_E%	,%OP2_MEAS_E%,%OP1_MEAS_E%",,,,
+
+[EasyInstall.Cate2.PS]			;for Mac (PS Driver)
+BaseSection		=EasyInstall
+BoxArea.App1	="TREE"	,"%SET_LIST%"		,"Font.Small"				,"List.InstallItem1.LP.PS",,1,"1,0","NONE",",MES_SW_INFO",0
+Button1.Install	=		,"%SET_BTN1%"		,Font.Button,,%BTN_INSTALL%	,"DiagInst.Act,EasyInstall.LP.Act",,0x00000000,AND,"List.InstallItem1.LP.PS"
+
+[List.InstallItem1.LP.PS]
+; --- Epson Driver and Utilites ---
+SWID_DRV		=%SW_DRV%	,,,%TIP_DRV%			,,,1,1,","				,,,,,,",",,,,
+SWID_SDRV		=%SW_SDRV%,%OS_SDRV_LP%,,%TIP_SDRV%	,,SWID_DRV,0,1,","		,%MB_SDRV%	,%DIR_SDRV%%EXE_SDRV%	,,%CTRL_SDRV%	,,"%OP1_SDRV_E%	,%OP2_SDRV_E%",,,,		; EPSON Scan
+SWID_SDRV_VI	=%SW_SDRV%,%OS_SDRV_VI%,,%TIP_SDRV%	,,SWID_DRV,0,1,","		,%MB_SDRV_VI%	,%DIR_SDRV%%EXE_SDRV_VI%	,,%CTRL_SDRV_VI%	,,",%OP2_SDRV_VI_E%",,,,		; EPSON Scan
+SWID_SPDF		=%SW_SPDF%,%OS_SPDF_LP%,,%TIP_SPDF%	,,SWID_DRV,0,1,","		,%MB_SPDF%	,%DIR_SPDF%%EXE_SPDF%	,,%CTRL_SPDF%	,,"%OP1_SPDF_E%	,%OP2_SPDF_E%",,,,		; PDF Extension
+SWID_SPDF_VI		=%SW_SPDF%,%OS_SPDF_VI%,,%TIP_SPDF%	,,SWID_DRV,0,1,","		,%MB_SPDF_VI%	,%DIR_SPDF%%EXE_SPDF_VI%	,,%CTRL_SPDF_VI%	,,",%OP2_SPDF_VI_E%",,,,		; PDF Extension
+SWID_PDRVOSX	=%SW_PDRV%,%OS_POSX_PS%,,%TIP_PDRV%	,,SWID_DRV,0,1,","		,%MB_POSX_PS%	,%DIR_POSX_PS%%EXE_POSX_PS%	,,%CTRL_POSX_PS%	,,",%OP2_POSX_PS_E%",,,,		; PrinterDriverMac
+SWID_PDRVOSX_VI	=%SW_PDRV%,%OS_POSX_PS_VI%,,%TIP_PDRV%	,,SWID_DRV,0,1,","		,%MB_POSX_PS_VI%	,%DIR_POSX_PS%%EXE_POSX_PS_VI%	,,%CTRL_POSX_PS_VI%	,,",%OP2_POSX_PS_VI_E%",,,,		; PrinterDriverMac
+
+; --- Epson Network Utilites ---
+SWID_NET		=%SW_NET_LP%,,,%TIP_NET%				,,,1,1,","				,,,,,,",",,,,
+SWID_NSET		=%SW_NSET%,%OS_NSET%,,%TIP_NSET%	,,SWID_NET,0,1,","		,%MB_NSET%	,%DIR_NSET%%EXE_NSET%	,,%CTRL_NSET%	,,"%OP1_NSET_E%	,%OP2_NSET_E%",,,,		; EpsonNet Setup
+
+; --- Bonus Software ---
+SWID_ETC		=%SW_ETC%,,,%TIP_ETC%				,,,1,%CHK%,","				,,,,,,",",,,,
+SWID_ICCP		=%SW_ICCP%,%OS_ICCP%,,%TIP_ICCP%	,,SWID_ETC,1,%CHK%,","		,%MB_ICCP%	,%DIR_ICCP%%EXE_ICCP%	,,%CTRL_ICCP%	,,"%OP1_ICCP_E%	,%OP2_ICCP_E%",,,,		; ICC Profile
+
+; --- Administrator Software ---
+SWID_ADM		=%SW_ADM%,,,%TIP_ADM%				,,,1,0,","				,,,,,,",",,,,
+SWID_NCNF		=%SW_NCNF%,%OS_NCNF%,,%TIP_NCNF%	,,SWID_ADM,1,0,","				,%MB_NCNF%	,%DIR_NCNF%%EXE_NCNF%	,,%CTRL_NCNF%	,,"%OP1_NCNF_E%,%OP2_NCNF_E%",,,,		; EpsonNet Config
+SWID_NCNF4		=%SW_NCNF%,%OS_NCNF4%,,%TIP_NCNF%	,,SWID_ADM,1,0,","				,%MB_NCNF%	,%DIR_NCNF%%EXE_NCNF4%	,,%CTRL_NCNF%	,,"%OP1_NCNF_E%,%OP2_NCNF_E%",,,,		; EpsonNet Config
+SWID_NCNF_VI	=%SW_NCNF%,%OS_NCNF_VI%,,%TIP_NCNF%	,,SWID_ADM,1,0,","				,%MB_NCNF_VI%	,%DIR_NCNF%%EXE_NCNF_VI%	,,%CTRL_NCNF_VI%	,,",%OP2_NCNF_VI_E%",,,,		; EpsonNet Config
+
+; --- MyEPSON Assistant ---
+SWID_MEAS		=%SW_MEAS%,%OS_MEAS%,,%TIP_MEAS%	,,,1,%CHK%,","		,%MB_MEAS%	,%DIR_MEAS%%EXE_MEAS%	,,%CTRL_MEAS%	,,"%OP1_MEAS_E%	,%OP2_MEAS_E%,%OP1_MEAS_E%",,,,
+
+; -------- for LFP ------------------------------------------------------------
+[EasyInstall.Cate3]
+BaseSection		=EasyInstall
+BoxArea.App1	="TREE"	,"%SET_LIST%"		,"Font.Small"				,"List.InstallItem1.LFP",,1,"1,0","NONE",",MES_SW_INFO",0
+Button1.Install	=		,"%SET_BTN1%"		,Font.Button,,%BTN_INSTALL%	,"DiagInst.Act,EasyInstall.LFP.Flow%SPEC_FLOW%.Act",,0x00000000,AND,"List.InstallItem1.LFP"
+
+[List.InstallItem1.LFP]
+; --- Epson Driver and Utilites ---
+SWID_DRV		=%SW_DRV%	,,,%TIP_DRV%			,,,1,1,","				,,,,,,",",,,,
+SWID_SDRV		=%SW_SDRV%,%OS_SDRV%,,%TIP_SDRV%	,,SWID_DRV,0,1,","		,%MB_SDRV%	,%DIR_SDRV%%EXE_SDRV%	,,%CTRL_SDRV%	,,"%OP1_SDRV_E%	,%OP2_SDRV_E%",,,,		; EPSON Scan
+SWID_SDRV_VI	=%SW_SDRV%,%OS_SDRV_VI%,,%TIP_SDRV%	,,SWID_DRV,0,1,","		,%MB_SDRV_VI%	,%DIR_SDRV%%EXE_SDRV_VI%	,,%CTRL_SDRV_VI%	,,",%OP2_SDRV_VI_E%",,,,		; EPSON Scan
+SWID_SOCR		=%SW_SOCR%,%OS_SOCR%,,%TIP_SOCR%	,,SWID_DRV,0,1,","		,%MB_SOCR%	,%DIR_SOCR%%EXE_SOCR%	,,%CTRL_SOCR%	,,"%OP1_SOCR_E%	,%OP2_SOCR_E%",,,,		; EPSON Scan OCR
+SWID_SPDF		=%SW_SPDF%,%OS_SPDF%,,%TIP_SPDF%	,,SWID_DRV,0,1,","		,%MB_SPDF%	,%DIR_SPDF%%EXE_SPDF%	,,%CTRL_SPDF%	,,"%OP1_SPDF_E%	,%OP2_SPDF_E%",,,,		; PDF Extension
+SWID_SPDF_VI		=%SW_SPDF%,%OS_SPDF_VI%,,%TIP_SPDF%	,,SWID_DRV,0,1,","		,%MB_SPDF_VI%	,%DIR_SPDF%%EXE_SPDF_VI%	,,%CTRL_SPDF_VI%	,,",%OP2_SPDF_VI_E%",,,,		; PDF Extension
+SWID_PDRVOSX	=%SW_PDRV%,%OS_POSX%,,%TIP_PDRV%	,,SWID_DRV,0,1,","		,%MB_POSX%	,%DIR_POSX%%EXE_POSX%	,,%CTRL_POSX%	,,"%OP1_POSX_E%	,%OP2_POSX_E%",,,,		; PrinterDriverMac
+SWID_PDRVOSX_VI	=%SW_PDRV%,%OS_POSX_VI%,,%TIP_PDRV%	,,SWID_DRV,0,1,","		,%MB_POSX_VI%	,%DIR_POSX%%EXE_POSX_VI%	,,%CTRL_POSX_VI%	,,",%OP2_POSX_VI_E%",,,,		; PrinterDriverMac
+SWID_PDRV86		=%SW_PDRV%,%OS_PX86%,,%TIP_PDRV%	,,SWID_DRV,0,1,","		,%MB_PX86%	,%DIR_PX86%%EXE_PX86%	,,%CTRL_PX86%	,,"%OP1_PX86_LFP_E%	,",,,,			; PrinterDriverX86
+SWID_PDRV64		=%SW_PDRV%,%OS_PX64%,,%TIP_PDRV%	,,SWID_DRV,0,1,","		,%MB_PX64%	,%DIR_PX64%%EXE_PX64%	,,%CTRL_PX64%	,,"%OP1_PX64_LFP_E%	,",,,,			; PrinterDriverX64
+SWID_PDRV86_2	=%SW_PDRV%,%OS_PX86%,,%TIP_PDRV%	,,SWID_DRV,0,1,","		,%MB_PX86%	,%DIR_PX86_2%%EXE_PX86%	,,%CTRL_PX86%	,,"%OP1_PX86_LFP_E%	,",,,,			; PrinterDriverX86
+SWID_PDRV64_2	=%SW_PDRV%,%OS_PX64%,,%TIP_PDRV%	,,SWID_DRV,0,1,","		,%MB_PX64%	,%DIR_PX64_2%%EXE_PX64%	,,%CTRL_PX64%	,,"%OP1_PX64_LFP_E%	,",,,,			; PrinterDriverX64
+SWID_RMPNL2		=%SW_RMPNL2%,%OS_RMPNL2%,,%TIP_RMPNL2%	,,SWID_DRV,1,1,","			,%MB_RMPNL2%	,%DIR_RMPNL2%%EXE_RMPNL2%	,,%CTRL_RMPNL2%	,,"%OP1_RMPNL2_E%	,%OP2_RMPNL2_E%",,,,
+SWID_RMPNL2_PKG	=%SW_RMPNL2%,%OS_RMPNL2_PKG%,,%TIP_RMPNL2%	,,SWID_DRV,1,1,","		,%MB_RMPNL2_PKG%,%DIR_RMPNL2_PKG%%EXE_RMPNL2_PKG%	,,%CTRL_RMPNL2_PKG%	,,",%OP2_RMPNL2_PKG_E%",,,,
+
+; --- STM ---
+SWID_STM		=%SW_STM%	,,,%TIP_STM%			,,,1,1,","
+SWID_STM86		=%SW_STM%,%OS_STM86%,,%TIP_STM%	,,SWID_STM,0,1,","		,%MB_STM86%	,%DIR_STM86%%EXE_STM86%	,,%CTRL_STM86_NOINST%	,,"%OP1_STM86_E%	,",,,,			; PrinterDriverX86
+SWID_STM64		=%SW_STM%,%OS_STM64%,,%TIP_STM%	,,SWID_STM,0,1,","		,%MB_STM64%	,%DIR_STM64%%EXE_STM64%	,,%CTRL_STM64_NOINST%	,,"%OP1_STM64_E%	,",,,,			; PrinterDriverX64
+
+; --- Epson Network Utilites ---
+SWID_NET		=%SW_NET%,,,%TIP_NET%				,,,1,1,","				,,,,,,",",,,,
+SWID_AN86		=%SW_ANET%,%OS_AN86%,,%TIP_ANET%	,,SWID_NET,0,1,","		,%MB_ANET%	,%DIR_AN86%%EXE_AN86%	,,%CTRL_ANET%	,,"%OP1_ANET_E%	,",,,,		; EP WINDOW!3(Network Module)
+SWID_AN64		=%SW_ANET%,%OS_AN64%,,%TIP_ANET%	,,SWID_NET,0,1,","		,%MB_ANET%	,%DIR_AN64%%EXE_AN64%	,,%CTRL_ANET%	,,"%OP1_ANET_E%	,",,,,		; EP WINDOW!3(Network Module)
+SWID_NPRN		=%SW_NPRN%,%OS_NPRN%,,%TIP_NPRN%	,,SWID_NET,0,1,","		,%MB_NPRN%	,%DIR_NPRN%%EXE_NPRN%	,,%CTRL_NPRN%	,,"%OP1_NPRN_E%	,",,,,		; EpsonNet Print
+SWID_NSET		=%SW_NSET%,%OS_NSET%,,%TIP_NSET%	,,SWID_NET,0,1,","		,%MB_NSET%	,%DIR_NSET%%EXE_NSET%	,,%CTRL_NSET%	,,"%OP1_NSET_E%	,%OP2_NSET_E%",,,,		; EpsonNet Setup
+
+; --- Bonus Software ---
+SWID_ETC		=%SW_ETC%,,,%TIP_ETC%				,,,1,%CHK%,","				,,,,,,",",,,,
+SWID_ICCP		=%SW_ICCP%,%OS_ICCP%,,%TIP_ICCP%	,,SWID_ETC,1,%CHK%,","		,%MB_ICCP%	,%DIR_ICCP%%EXE_ICCP%	,,%CTRL_ICCP%	,,"%OP1_ICCP_E%	,%OP2_ICCP_E%",,,,		; ICC Profile
+
+; --- Administrator Software ---
+SWID_ADM		=%SW_ADM%,,,%TIP_ADM%				,,,1,0,","				,,,,,,",",,,,
+SWID_NCNF		=%SW_NCNF%,%OS_NCNF%,,%TIP_NCNF%	,,SWID_ADM,1,0,","				,%MB_NCNF%	,%DIR_NCNF%%EXE_NCNF%	,,%CTRL_NCNF%	,,"%OP1_NCNF_E%,%OP2_NCNF_E%",,,,		; EpsonNet Config
+SWID_NCNF4		=%SW_NCNF%,%OS_NCNF4%,,%TIP_NCNF%	,,SWID_ADM,1,0,","				,%MB_NCNF%	,%DIR_NCNF%%EXE_NCNF4%	,,%CTRL_NCNF%	,,"%OP1_NCNF_E%,%OP2_NCNF_E%",,,,		; EpsonNet Config
+SWID_NCNF_VI	=%SW_NCNF%,%OS_NCNF_VI%,,%TIP_NCNF%	,,SWID_ADM,1,0,","				,%MB_NCNF_VI%	,%DIR_NCNF%%EXE_NCNF_VI%	,,%CTRL_NCNF_VI%	,,",%OP2_NCNF_VI_E%",,,,		; EpsonNet Config
+
+; --- EpsonNet PC-FAX ---
+SWID_ENFX		=%SW_ENFX%,%OS_ENFX%,,%TIP_ENFX%	,,,1,%CHK%,","			,%MB_ENFX%	,%DIR_ENFX%%EXE_ENFX%	,,%CTRL_ENFX%	,,"%OP1_ENFX_E%	,",,,,
+
+; --- Epson Web-To-Page ---
+SWID_WEB2P		=%SW_WEB2P%,%OS_WEB2P%,,%TIP_WEB2P%	,,,1,%CHK%,","			,%MB_WEB2P%	,%DIR_WEB2P%%EXE_WEB2P%	,,%CTRL_WEB2P%	,,"%OP1_WEB2P_E%	,",,,,
+
+; --- MyEPSON Assistant ---
+SWID_MEAS		=%SW_MEAS%,%OS_MEAS%,,%TIP_MEAS%	,,,1,%CHK%,","		,%MB_MEAS%	,%DIR_MEAS%%EXE_MEAS%	,,%CTRL_MEAS%	,,"%OP1_MEAS_E%	,%OP2_MEAS_E%,%OP1_MEAS_E%",,,,
+
+; --- LFP Print Plug-In for Office ---
+SWID_PPLUG86	=%SW_PPLUG%,%OS_PPLUG86%,,%TIP_PPLUG%	,,,1,0,","		,%MB_PPLUG%	,%DIR_PPLUG86%%EXE_PPLUG%	,,%CTRL_PPLUG%	,,"%OP1_PPLUG_E%,",,,,
+SWID_PPLUG64	=%SW_PPLUG%,%OS_PPLUG64%,,%TIP_PPLUG%	,,,1,0,","		,%MB_PPLUG%	,%DIR_PPLUG64%%EXE_PPLUG%	,,%CTRL_PPLUG%	,,"%OP1_PPLUG_E%,",,,,
+
+[EasyInstall.Cate3.NoDrv]		;for Mac (No Driver)
+BaseSection		=EasyInstall
+BoxArea.App1	="TREE"	,"%SET_LIST%"		,"Font.Small"				,"List.InstallItem1.LFP.NoDrv",,1,"1,0","NONE",",MES_SW_INFO",0
+Button1.Install	=		,"%SET_BTN1%"		,Font.Button,,%BTN_INSTALL%	,"DiagInst.Act,EasyInstall.LFP.Flow%SPEC_FLOW%.Act",,0x00000000,AND,"List.InstallItem1.LFP.NoDrv"
+
+[List.InstallItem1.LFP.NoDrv]
+; --- Epson Driver and Utilites ---
+SWID_DRV		=%SW_DRV%	,,,%TIP_DRV%			,,,1,1,","				,,,,,,",",,,,
+SWID_SDRV		=%SW_SDRV%,%OS_SDRV%,,%TIP_SDRV%	,,SWID_DRV,0,1,","		,%MB_SDRV%	,%DIR_SDRV%%EXE_SDRV%	,,%CTRL_SDRV%	,,"%OP1_SDRV_E%	,%OP2_SDRV_E%",,,,		; EPSON Scan
+SWID_SDRV_VI	=%SW_SDRV%,%OS_SDRV_VI%,,%TIP_SDRV%	,,SWID_DRV,0,1,","		,%MB_SDRV_VI%	,%DIR_SDRV%%EXE_SDRV_VI%	,,%CTRL_SDRV_VI%	,,",%OP2_SDRV_VI_E%",,,,		; EPSON Scan
+SWID_SPDF		=%SW_SPDF%,%OS_SPDF%,,%TIP_SPDF%	,,SWID_DRV,0,1,","		,%MB_SPDF%	,%DIR_SPDF%%EXE_SPDF%	,,%CTRL_SPDF%	,,"%OP1_SPDF_E%	,%OP2_SPDF_E%",,,,		; PDF Extension
+SWID_SPDF_VI		=%SW_SPDF%,%OS_SPDF_VI%,,%TIP_SPDF%	,,SWID_DRV,0,1,","		,%MB_SPDF_VI%	,%DIR_SPDF%%EXE_SPDF_VI%	,,%CTRL_SPDF_VI%	,,",%OP2_SPDF_VI_E%",,,,		; PDF Extension
+
+; --- Epson LFP Remote Panel 2 ---
+SWID_RMPNL2		=%SW_RMPNL2%,%OS_RMPNL2%,,%TIP_RMPNL2%	,,,1,1,","			,%MB_RMPNL2%	,%DIR_RMPNL2%%EXE_RMPNL2%	,,%CTRL_RMPNL2%	,,"%OP1_RMPNL2_E%	,%OP2_RMPNL2_E%",,,,
+SWID_RMPNL2_PKG	=%SW_RMPNL2%,%OS_RMPNL2_PKG%,,%TIP_RMPNL2%	,,,1,1,","		,%MB_RMPNL2_PKG%,%DIR_RMPNL2_PKG%%EXE_RMPNL2_PKG%	,,%CTRL_RMPNL2_PKG%	,,",%OP2_RMPNL2_PKG_E%",,,,
+
+; --- Epson Network Utilites ---
+SWID_NET		=%SW_NET%,,,%TIP_NET%				,,,1,1,","				,,,,,,",",,,,
+SWID_NSET		=%SW_NSET%,%OS_NSET%,,%TIP_NSET%	,,SWID_NET,0,1,","		,%MB_NSET%	,%DIR_NSET%%EXE_NSET%	,,%CTRL_NSET%	,,"%OP1_NSET_E%	,%OP2_NSET_E%",,,,		; EpsonNet Setup
+
+; --- Bonus Software ---
+SWID_ETC		=%SW_ETC%,,,%TIP_ETC%				,,,1,%CHK%,","				,,,,,,",",,,,
+SWID_ICCP		=%SW_ICCP%,%OS_ICCP%,,%TIP_ICCP%	,,SWID_ETC,1,%CHK%,","		,%MB_ICCP%	,%DIR_ICCP%%EXE_ICCP%	,,%CTRL_ICCP%	,,"%OP1_ICCP_E%	,%OP2_ICCP_E%",,,,		; ICC Profile
+
+; --- Administrator Software ---
+SWID_ADM		=%SW_ADM%,,,%TIP_ADM%				,,,1,0,","				,,,,,,",",,,,
+SWID_NCNF		=%SW_NCNF%,%OS_NCNF%,,%TIP_NCNF%	,,SWID_ADM,1,0,","				,%MB_NCNF%	,%DIR_NCNF%%EXE_NCNF%	,,%CTRL_NCNF%	,,"%OP1_NCNF_E%,%OP2_NCNF_E%",,,,		; EpsonNet Config
+SWID_NCNF4		=%SW_NCNF%,%OS_NCNF4%,,%TIP_NCNF%	,,SWID_ADM,1,0,","				,%MB_NCNF%	,%DIR_NCNF%%EXE_NCNF4%	,,%CTRL_NCNF%	,,"%OP1_NCNF_E%,%OP2_NCNF_E%",,,,		; EpsonNet Config
+SWID_NCNF_VI	=%SW_NCNF%,%OS_NCNF_VI%,,%TIP_NCNF%	,,SWID_ADM,1,0,","				,%MB_NCNF_VI%	,%DIR_NCNF%%EXE_NCNF_VI%	,,%CTRL_NCNF_VI%	,,",%OP2_NCNF_VI_E%",,,,		; EpsonNet Config
+
+; --- MyEPSON Assistant ---
+SWID_MEAS		=%SW_MEAS%,%OS_MEAS%,,%TIP_MEAS%	,,,1,%CHK%,","		,%MB_MEAS%	,%DIR_MEAS%%EXE_MEAS%	,,%CTRL_MEAS%	,,"%OP1_MEAS_E%	,%OP2_MEAS_E%,%OP1_MEAS_E%",,,,
+
+; -----------------------------------------------------------------------------
+; -------- [C-1] 空き容量チェック ---------------------------------------------
+; -----------------------------------------------------------------------------
+[DiagInst.Act]
+ActionMode		=DIAG
+DiagCheckItem.HD	=,1,"DIAG_HD,%ALLAPP_USE%","Panel.HD,%MES_SYS_HD%<br>"
+
+[Panel.HD]
+MainWindow		=,"1,,1"
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Err",,"100,VERT"
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.Err",,","
+FreeArea.Body	="HTML2","%SET_HTM_BODY%"	,,,"%DIAG_ERR_REPORT%,,",
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"",,0x00000004,
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"Back.Act",,0x00000000,,
+Button3.Exit	=		,"%SET_BTN3%"		,Font.Button,,%BTN_EXIT%	,"Quit.Act",,0x00000000,,
+
+[List.Head.Err]
+stc1			=%MES_SYS%	,,,"left",""
+
+; -----------------------------------------------------------------------------
+; -------- [3] インストール開始アクション -------------------------------------
+; -----------------------------------------------------------------------------
+[EasyInstall.Act]
+ActionMode		=ALLINSTALL
+TransSection	="Install","DiagFinish.NWIF%SPEC_NWIF%.Act,SelectIF.%SPEC_NWIF%",,,,
+
+[EasyInstall.LP.Act]	;Support is "SPEC_NWIF = 0 or 3"
+ActionMode		=ALLINSTALL
+TransSection	="Install","DiagFinish.NWIF%SPEC_NWIF%.LP.Act,SelectIF.%SPEC_NWIF%",,,,
+
+[EasyInstall.LFP.Flow0.Act]
+ActionMode		=ALLINSTALL
+TransSection	="Install","DiagFinish.NWIF%SPEC_NWIF%.Act,SelectIF.%SPEC_NWIF%",,,,
+
+[EasyInstall.LFP.Flow1.Act]	;Support is "SPEC_NWIF = 0 or 3 or 4"
+ActionMode		=ALLINSTALL
+TransSection	="Install","DiagFinish.NWIF%SPEC_NWIF%.LFP.Act,SelectIF.%SPEC_NWIF%",,,,
+
+; -----------------------------------------------------------------------------
+; -------- [3-1] ダウンロード中画面 -------------------------------------------
+; -----------------------------------------------------------------------------
+[Download]
+BaseSection		=Install
+FreeArea.CM		=NONE
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Install",,"100,VERT"
+TextArea.Remain	=NONE
+TextArea.Inst	="TEXT"	,"%SET_TXT_ING%"	,"Font.Small,%C_BLACK%"		,"List.Download",,"5,"
+ProgressBar		="%SET_BAR%"
+
+[List.Download]
+stc1			=%MES_DOWNLOAD%		,,,LEFT,""
+
+; -----------------------------------------------------------------------------
+; -------- [3-2] インストール中画面 -------------------------------------------
+; -----------------------------------------------------------------------------
+[Install]
+MainWindow		=,"1,,0"
+AddImage		=,
+
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Install",,"100,VERT"
+FreeArea.CM		="CM"	,"%SET_HTM_CM%"		,,,%HTM_CM%,
+TextArea.Remain	="TEXT"	,"%SET_TXT_TIME%"	,"Font.Xsmall,%C_BLACK%"	,"List.Remain",,"5,"
+TextArea.Inst	="TEXT"	,"%SET_TXT_ING%"	,"Font.Small,%C_BLACK%"		,"List.Install",,"5,"
+FreeArea.Mov	="MOVIE","%SET_MOV%"		,,,"%AVI_INSTALL%,,,",
+ProgressBar		="%SET_BAR%"
+
+[List.Remain]
+stc1			=%MES_REMAIN%		,,,RIGHT,""
+
+[List.Install]
+stc1			=%MES_INSTALL%		,,,LEFT,""
+
+; -----------------------------------------------------------------------------
+; -------- [C-2] インストール終了画面遷移先チェック ---------------------------
+; -----------------------------------------------------------------------------
+[DiagFinish.NWIF0.Act]
+ActionMode		=DIAG
+DiagCheckItem.Drv	=,1,"DIAG_SOFT,PDRV","Select.Scn"
+DiagCheckItem.Net	=,2,"DIAG_SOFT,NET","Select.LocalOnly"
+
+[DiagFinish.NWIF0.LP.Act]
+ActionMode		=DIAG
+DiagCheckItem.Drv	=,1,"DIAG_SOFT,PDRV","Select.Scn"
+DiagCheckItem.Net	=,2,"DIAG_SOFT,NET","Select.LocalOnly"
+
+[DiagFinish.NWIF0.LFP.Act]
+ActionMode		=DIAG
+DiagCheckItem.Drv	=,1,"DIAG_SOFT,PDRV","Select.Scn"
+DiagCheckItem.Net	=,2,"DIAG_SOFT,NET","Select.LocalOnly"
+
+[DiagFinish.NWIF1.Act]
+ActionMode		=DIAG
+DiagCheckItem.Drv	=,1,"DIAG_SOFT,PDRV","Select.Scn"
+DiagCheckItem.Net	=,2,"DIAG_SOFT,NET","Select.LocalOnly"
+
+[DiagFinish.NWIF2.Act]
+ActionMode		=DIAG
+DiagCheckItem.Drv	=,1,"DIAG_SOFT,PDRV","Select.Scn"
+DiagCheckItem.Net	=,2,"DIAG_SOFT,NET","Select.LocalOnly"
+
+[DiagFinish.NWIF3.Act]
+ActionMode		=DIAG
+DiagCheckItem.Drv	=,1,"DIAG_SOFT,PDRV","Select.Scn"
+DiagCheckItem.Net	=,2,"DIAG_SOFT,NET","Select.LocalOnly"
+
+[DiagFinish.NWIF3.LP.Act]
+ActionMode		=DIAG
+DiagCheckItem.Drv	=,1,"DIAG_SOFT,PDRV","Select.Scn"
+
+[DiagFinish.NWIF3.LFP.Act]
+ActionMode		=DIAG
+DiagCheckItem.Drv	=,1,"DIAG_SOFT,PDRV","Select.Scn"
+
+[DiagFinish.NWIF4.Act]
+ActionMode		=DIAG
+DiagCheckItem.Net	=,2,"DIAG_SOFT,NET","Finish.NoSet"
+
+[DiagFinish.NWIF4.LFP.Act]
+ActionMode		=DIAG
+DiagCheckItem.Net	=,2,"DIAG_SOFT,NET","Finish.NoSet"
+
+; -----------------------------------------------------------------------------
+; -------- [4-1] 接続選択(ネットワーク:WiFi/Wired、ローカル) --------------
+; -----------------------------------------------------------------------------
+[SelectIF.1]
+MainWindow		=,"1,,0"
+AddImage		="%IMG_NETSET%,%FLG_LTR%","%SET_IMG_OPT1%","%IMG_LOCAL%,%FLG_LTR%","%SET_IMG_OPT2%"
+
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Connect",,"100,VERT"
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.SelectIF.1",,","
+TextArea.Body	="TEXT"	,"%SET_TXT_BODY%"	,"Font.Medium,%C_BLACK%"	,"List.Body.SelectIF.1",,","
+TextArea.Select	="RADIO","%SET_SELECT%"		,"Font.MediumB,%C_BLACK%"	,"List.SelectIF.1,Net",,"%SET_PIXEL%"
+TextArea.Net	="TEXT"	,"%SET_TXT_OPT1%"	,"Font.Medium,%C_BLACK%"	,"List.Net.1",,","
+TextArea.Local	="TEXT"	,"%SET_TXT_OPT2%"	,"Font.Medium,%C_BLACK%"	,"List.Local.1",,","
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"DiagNIC.Act,SelectNet,DiagFax.Act,SelectFax",,0x00000008,
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"Back.Act",,0x00000004,,
+Button3.Cancel	=		,"%SET_BTN3%"		,Font.Button,,%BTN_CANCEL%	,"",,0x00000004,,""
+
+[List.Head.SelectIF.1]
+stc1			=%MES_CON%			,,,LEFT,""
+
+[List.Body.SelectIF.1]
+stc1			=%MES_CON_G%		,,,LEFT,""
+
+[List.SelectIF.1]
+Net				=%MES_CON_NW1%		,,,LEFT,""
+Local			=%MES_CON_USB%		,,,LEFT,".Local"
+
+[List.Net.1]
+stc1			=%MES_CON_NW_G%		,,,LEFT,""
+
+[List.Local.1]
+stc1			=%MES_CON_USB_G%	,,,LEFT,""
+
+; -----------------------------------------------------------------------------
+; -------- [4-2] 接続選択(ネットワーク:WiFi、ローカル) ------------------------
+; -----------------------------------------------------------------------------
+[SelectIF.2]
+BaseSection		=SelectIF.1
+TextArea.Select	="RADIO","%SET_SELECT%"		,"Font.MediumB,%C_BLACK%"	,"List.SelectIF.2,Net",,"%SET_PIXEL%"
+
+[List.SelectIF.2]
+Net				=%MES_CON_NW2%		,,,LEFT,""
+Local			=%MES_CON_USB%		,,,LEFT,".Local"
+
+; -----------------------------------------------------------------------------
+; -------- [4-3] 接続選択(ネットワーク:Wired、ローカル) -----------------------
+; -----------------------------------------------------------------------------
+[SelectIF.3]
+BaseSection		=SelectIF.1
+AddImage		="%IMG_LAN%,%FLG_LTR%","%SET_IMG_OPT1%","%IMG_LOCAL%,%FLG_LTR%","%SET_IMG_OPT2%"
+TextArea.Select	="RADIO","%SET_SELECT%"		,"Font.MediumB,%C_BLACK%"	,"List.SelectIF.3,Net",,"%SET_PIXEL%"
+
+[List.SelectIF.3]
+Net				=%MES_CON_NW3%		,,,LEFT,""
+Local			=%MES_CON_USB%		,,,LEFT,".Local"
+
+; -----------------------------------------------------------------------------
+; -------- [4-4] 接続選択(ネットワーク:Wired) -----------------------
+; -----------------------------------------------------------------------------
+[SelectIF.4]
+Button1.Next	=,,,,,"DiagNIC.NetOnly.Act,SelectNet.NetOnly",,0x00000101,,
+
+[DiagNIC.NetOnly.Act]
+ActionMode		=DIAG
+DiagCheckItem.Net1	=,1,"DIAG_NET,%DIR_ENSF%%LIB_ENSF%,1","Select.IFErr.NetOnly,"
+
+[SelectNet.NetOnly]
+BaseSection		=SelectNet
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"",,0x00000004,,
+
+[Select.IFErr.NetOnly]
+BaseSection		=Select.IFErr
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_RETRY%	,"SelectIF.%SPEC_NWIF%",,0x00000000,,
+Button3.Cancel	=		,"%SET_BTN3%"		,Font.Button,,%BTN_CANCEL%	,"QuitConfirm.Act,Quit.Act",,0x00000000,,""
+
+; -----------------------------------------------------------------------------
+; -------- [C-3] ネットワークI/Fチェック＆エラー画面 --------------------------
+; -----------------------------------------------------------------------------
+[DiagNIC.Act]
+ActionMode		=DIAG
+DiagCheckItem.Net1	=,1,"DIAG_NET,%DIR_ENSF%%LIB_ENSF%,1","Select.IFErr,"
+
+[Select.IFErr]
+MainWindow		=,"1,,0"
+AddImage		=NONE
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Connect",,"100,VERT"
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.Select.IFErr",,","
+FreeArea.Body	="HTML1","%SET_HTM_BODY%"	,,,"%HTM_NWIF%,,,",
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"",,0x00000004,
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"SelectIF.%SPEC_NWIF%",,0x00000000,,
+Button3.Cancel	=		,"%SET_BTN3%"		,Font.Button,,%BTN_CANCEL%	,"",,0x00000004,,""
+
+[List.Head.Select.IFErr]
+stc1			=%MES_NW_ERROR%		,,,LEFT,""
+
+; -----------------------------------------------------------------------------
+; -------- [5] 接続選択(ネットワーク(初回)、ネットワーク(追加)) ---------------
+; -----------------------------------------------------------------------------
+[SelectNet]
+MainWindow		=,"1,,0"
+AddImage		="%IMG_FIRST%,%FLG_LTR%","%SET_IMG_OPT1%","%IMG_ADDPC%,%FLG_LTR%","%SET_IMG_OPT2%"
+
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Connect",,"100,VERT"
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.SelectNet",,","
+TextArea.Body	="TEXT"	,"%SET_TXT_BODY%"	,"Font.Medium,%C_BLACK%"	,"List.Body.SelectNet",,","
+TextArea.Select	="RADIO","%SET_SELECT%"		,"Font.MediumB,%C_BLACK%"	,"List.SelectNet,First",,"%SET_PIXEL%"
+TextArea.First	="TEXT"	,"%SET_TXT_OPT1%"	,"Font.Medium,%C_BLACK%"	,"List.First",,","
+TextArea.Add	="TEXT"	,"%SET_TXT_OPT2%"	,"Font.Medium,%C_BLACK%"	,"List.Add",,","
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"SelectNet.%SPEC_NWIF%,DiagFax.Act,SelectFax",,0x00000008,
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"SelectIF.%SPEC_NWIF%",,0x00000000,,
+Button3.Cancel	=		,"%SET_BTN3%"		,Font.Button,,%BTN_CANCEL%	,"",,0x00000004,,""
+
+[List.Head.SelectNet]
+stc1			=%MES_NSO%			,,,LEFT,""
+
+[List.Body.SelectNet]
+stc1			=%MES_NSO_G%		,,,LEFT,""
+
+[List.SelectNet]
+First			=%MES_NSO_1ST%		,,,LEFT,".First"
+Add				=%MES_NSO_ADD%		,,,LEFT,".Add"
+
+[List.First]
+stc1			=%MES_NSO_1ST_G%	,,,LEFT,""
+
+[List.Add]
+stc1			=%MES_NSO_ADD_G%	,,,LEFT,""
+
+[SelectNet.2]
+BaseSection		=SelectNet
+
+; -----------------------------------------------------------------------------
+; -------- ネットワーク接続(追加,非表示) --------------------------------------
+; -----------------------------------------------------------------------------
+[DiagFax.Act.Add]
+ActionMode		=DIAG
+DiagCheckItem.Fax	=,1,"DIAG_SOFT,FAX","Select,"
+
+; -----------------------------------------------------------------------------
+; -------- ネットワーク接続(追加,非表示、Faxなし) -----------------------------
+; -----------------------------------------------------------------------------
+[Select.Add]
+Button1.Install	=,,,,,"Select.STMInst.Add",,0x00000101,,
+
+[Select.STMInst.Add]
+Button1.Install	=,,,,,"DiagSTMInst.Add.Act,Select.AddIns.STM.NWIF%SPEC_NWIF%",,0x00000101,,
+
+[DiagSTMInst.Add.Act]
+ActionMode		=DIAG
+DiagCheckItem.STM	=,1,"DIAG_SOFT,STM","Select.AddIns.NWIF%SPEC_NWIF%"
+
+[Select.AddIns.NWIF3]
+PanelSetting	=INST_SETTING,0
+Button1.Install	=,,,,,"NetINS.Act",,0x00000101,,
+BoxArea.App1	="LIST"	,,,"List.AddINS.Cate%SPEC_CATE%.Flow%SPEC_FLOW%",,0,"0,0","NONE",,0
+BoxArea.App2	="LIST"	,,,"List.AddINS.PSet",,0,"0,0","NONE",,0
+
+[Select.AddIns.NWIF4]
+BaseSection		=Select.AddIns.NWIF3
+BoxArea.App2	=NONE
+
+[Select.AddIns.STM.NWIF3]
+BaseSection		=Select.AddIns.NWIF3
+BoxArea.App1	="LIST"	,,,"List.AddINS.Cate%SPEC_CATE%.Flow%SPEC_FLOW%",,0,"0,0","NONE",,0
+BoxArea.App3	="LIST"	,,,"List.Connect.STM",,0,"0,0","NONE",,0
+
+[Select.AddIns.STM.NWIF4]
+BaseSection		=Select.AddIns.NWIF3
+BoxArea.App1	="LIST"	,,,"List.AddINS.Cate%SPEC_CATE%.Flow%SPEC_FLOW%",,0,"0,0","NONE",,0
+BoxArea.App2	=NONE
+BoxArea.App3	="LIST"	,,,"List.Connect.STM",,0,"0,0","NONE",,0
+
+[List.AddINS.Cate2.Flow0]
+SWID_NPRN		=,%OS_NPRN%,,,,,0,1,","		,,%DIR_NPRN%%EXE_NPRN%	,,%CTRL_NPRN%	,,"%OP1_NPRN_E%,",,"Panel.NetSet",,		; EpsonNet Print
+SWID_NSUP		=,%OS_NSUP%,,,,,0,1,",",,%DIR_NSET%%EXE_NSET%,,%CTRL_NSUP%,",,%PREF_FILE%","%OP1_NSUP_ADDPC_LP%,%OP2_NSUP%",,"Panel.NetSet",,,,"%TMP_PATH%,%TMP_MOD%,STRING,%TMP_MOD_V%,%TMP_PATH%,%TMP_HT%,STRING,%NSET_HT%,%TMP_PATH%,%TMP_M%,STRING,%MDL%,%TMP_PATH%,%TMP_C%,STRING,%TMP_C_ADDPC%,%TMP_PATH%,%TMP_SUP%,STRING,%TMP_SUP_V%,%TMP_PATH%,%TMP_PT%,STRING,%TMP_PT_V%,%TMP_PATH%,%TMP_RTN%,STRING,%TMP_RTN_V%"		; EpsonNet Setup
+
+[List.AddINS.Cate3.Flow0]
+SWID_NSUP		=,%OS_NSUP%,,,,,0,1,",",,%DIR_NSET%%EXE_NSET%,,%CTRL_NSUP%,",,%PREF_FILE%","%OP1_NSUP_ADDPC_LFP%,%OP2_NSUP%",,"Panel.NetSet",,,,"%TMP_PATH%,%TMP_MOD%,STRING,%TMP_MOD_V%,%TMP_PATH%,%TMP_HT%,STRING,%NSET_HT%,%TMP_PATH%,%TMP_M%,STRING,%MDL%,%TMP_PATH%,%TMP_C%,STRING,%TMP_C_ADDPC%,%TMP_PATH%,%TMP_SUP%,STRING,%TMP_SUP_V%,%TMP_PATH%,%TMP_PT%,STRING,%TMP_PT_V%,%TMP_PATH%,%TMP_RTN%,STRING,%TMP_RTN_V%"		; EpsonNet Setup
+
+[List.AddINS.Cate3.Flow1]
+SWID_NPRN		=,%OS_NPRN%,,,,,0,1,","		,,%DIR_NPRN%%EXE_NPRN%	,,%CTRL_NPRN%	,,"%OP1_NPRN_E%,",,"Panel.NetSet",,		; EpsonNet Print
+SWID_NSUP		=,%OS_NSUP%,,,,,0,1,",",,%DIR_NSET%%EXE_NSET%,,%CTRL_NSUP%,",,%PREF_FILE%","%OP1_NSUP_ADDPC_LFP%,%OP2_NSUP%",,"Panel.NetSet",,,,"%TMP_PATH%,%TMP_MOD%,STRING,%TMP_MOD_V%,%TMP_PATH%,%TMP_HT%,STRING,%NSET_HT%,%TMP_PATH%,%TMP_M%,STRING,%MDL%,%TMP_PATH%,%TMP_C%,STRING,%TMP_C_ADDPC%,%TMP_PATH%,%TMP_SUP%,STRING,%TMP_SUP_V%,%TMP_PATH%,%TMP_PT%,STRING,%TMP_PT_V%,%TMP_PATH%,%TMP_RTN%,STRING,%TMP_RTN_V%"		; EpsonNet Setup
+
+[List.AddINS.PSet]
+SWID_PSET		=,%OS_PSET%,,,,,0,1,",",,%EXE_PSET%,,,,",%OP2_PSET%",,"Panel.PrinterSet",",",","		; for Mac - PrinterSetting
+
+[Panel.NetSet]
+MainWindow		=,"1,,0"
+AddImage		=,
+
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Connect",,"100,VERT"
+TextArea.Load	="TEXT"	,"%SET_TXT_ING%"	,"Font.Small,%C_BLACK%"		,"List.Load",,"5,"
+FreeArea.Mov	="MOVIE","%SET_MOV%"		,,,"%AVI_INSTALL%,,,",
+
+[List.Load]
+stc1			=%MES_LOAD%		,,,LEFT,""
+
+[NetINS.Act]
+ActionMode		=ALLINSTALL
+TransSection	="Install.Hide",%SECTION_FIN_FIRST_NW%,,,,"ConnectNW.Fatal"
+
+; -----------------------------------------------------------------------------
+; -------- ネットワーク接続(追加,非表示、Faxあり) -----------------------------
+; -----------------------------------------------------------------------------
+[SelectFax.Add]
+BaseSection		=Select.Add
+BoxArea.App1	="LIST"	,,,"List.AddINS.AN%NSET_ADDNET%",,0,"0,0","NONE",,0
+BoxArea.App2	="LIST"	,,,"List.FaxINS.NW",,0,"0,0","NONE",,0
+
+[List.FaxINS.NW]
+SWID_FDPS		=,%OS_FSET%,,,,,1,1,","	,,%DIR_FDPS%%EXE_FDPS%	,,%CTRL_FDPS%,,"%OP1_FDPS_NET%,"	,,"",,		; for Win - Fax Setup
+; -----------------------------------------------------------------------------
+; -------- [6] ネットワーク接続方法確認画面(有線/無線LANの機種) ---------------
+; -----------------------------------------------------------------------------
+[SelectNet.1.First]
+MainWindow		=,"1,,0"
+AddImage		="%IMG_WIFI%,%FLG_LTR%","%SET_IMG_OPT1%","%IMG_LAN%,%FLG_LTR%","%SET_IMG_OPT2%"
+
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Connect",,"100,VERT"
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.SelectNet.1.First",,","
+TextArea.Body	="TEXT"	,"%SET_TXT_BODY%"	,"Font.Medium,%C_BLACK%"	,"List.Body.SelectNet.1.First",,","
+TextArea.Select	="RADIO","%SET_SELECT%"		,"Font.MediumB,%C_BLACK%"	,"List.SelectNet.1.First,str1",,"%SET_PIXEL%"
+TextArea.WiFi	="TEXT"	,"%SET_TXT_OPT1%"	,"Font.Medium,%C_BLACK%"	,"List.WiFi",,","
+TextArea.Lan	="TEXT"	,"%SET_TXT_OPT2%"	,"Font.Medium,%C_BLACK%"	,"List.Lan",,","
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"SelectNet.First,DiagFax.Act,SelectFax",,0x00000008,
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"SelectNet",,0x00000000,,
+Button3.Cancel	=		,"%SET_BTN3%"		,Font.Button,,%BTN_CANCEL%	,"",,0x00000004,,""
+
+[List.Head.SelectNet.1.First]
+stc1			=%MES_NWT%			,,,LEFT,""
+
+[List.Body.SelectNet.1.First]
+stc1			=%MES_NWT_G%		,,,LEFT,""
+
+[List.SelectNet.1.First]
+str1			=%MES_NWT_WIFI%		,,,LEFT,".WiFi"
+str2			=%MES_NWT_LAN%		,,,LEFT,".Lan.Int1"
+
+[List.WiFi]
+stc1			=%MES_NWT_WIFI_G%	,,,LEFT,""
+
+[List.Lan]
+stc1			=%MES_NWT_LAN_G%	,,,LEFT,""
+
+; -----------------------------------------------------------------------------
+; -------- [C-4] 無線LANチェック(有線LAN/無線LANのみの機種、非表示) -----------
+; -----------------------------------------------------------------------------
+[SelectNet.First.WiFi]
+Button1.Diag	=,,,,,"DiagWiFi.Act,SelectSup.WiFi",,0x00000101,,
+
+[DiagWiFi.Act]
+ActionMode		=DIAG
+DiagCheckItem.Net2	=,1,"DIAG_NET,%DIR_ENSF%%LIB_ENSF%,2","SelectSup.Panel%SPEC_PANEL%.WiFi,"
+DiagCheckItem.Net3	=,2,"DIAG_NET,%DIR_ENSF%%LIB_ENSF%,3","SelectSup.Panel%SPEC_PANEL%.WiFi,"
+
+; -----------------------------------------------------------------------------
+; -------- [C-4] 無線LANチェック(無線LANのみの機種、非表示) -------------------
+; -----------------------------------------------------------------------------
+[SelectNet.2.First]
+BaseSection		=SelectNet.First.WiFi
+
+[SelectNet.3.First]
+BaseSection		=ConnectLanCheck.First
+
+[SelectNet.4.First]
+BaseSection		=ConnectLanCheck.First
+
+; -----------------------------------------------------------------------------
+; -------- [7-1] 無線LAN接続選択画面(Vista未満、パネルあり) -------------------
+; -----------------------------------------------------------------------------
+[SelectSup.PanelY.WiFi]
+MainWindow		=,"1,,0"
+AddImage		="%IMG_WIFI_USB%,%FLG_LTR%","%SET_IMG_OPT1%","%IMG_WIFI_PANEL%,%FLG_LTR%","%SET_IMG_OPT2%","%IMG_WIFI_AOSS%,%FLG_LTR%","%SET_IMG_OPT3%"
+
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Connect",,"100,VERT"
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.Select.PanelY.WiFi",,","
+TextArea.Body	="TEXT"	,"%SET_TXT_BODY%"	,"Font.Medium,%C_BLACK%"	,"List.Body.Select.PanelY.WiFi",,","
+TextArea.Select	="RADIO","%SET_SELECT%"		,"Font.MediumB,%C_BLACK%"	,"List.Select.PanelY.WiFi,str1",,"%SET_PIXEL%"
+TextArea.USB	="TEXT"	,"%SET_TXT_OPT1%"	,"Font.Medium,%C_BLACK%"	,"List.Select.PanelY.WiFi.USB",,","
+TextArea.Panel	="TEXT"	,"%SET_TXT_OPT2%"	,"Font.Medium,%C_BLACK%"	,"List.Select.PanelY.WiFi.Panel",,","
+TextArea.AOSS	="TEXT"	,"%SET_TXT_OPT3%"	,"Font.Medium,%C_BLACK%"	,"List.Select.PanelY.WiFi.AOSS",,","
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"DiagFax.Act.PanelY.WiFi,SelectFax.WiFi",,0x00000008,
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"SelectNet.%SPEC_NWIF%,SelectNet.1.First",,0x00000000,,
+Button3.Cancel	=		,"%SET_BTN3%"		,Font.Button,,%BTN_CANCEL%	,"",,0x00000004,,""
+
+[List.Head.Select.PanelY.WiFi]
+stc1			=%MES_WIFI%			,,,LEFT,""
+
+[List.Body.Select.PanelY.WiFi]
+stc1			=%MES_WIFI_G%		,,,LEFT,""
+
+[List.Select.PanelY.WiFi]
+str1			=%MES_WIFI_USB%		,,,LEFT,".USB"
+str2			=%MES_WIFI_PANEL%	,,,LEFT,".Panel"
+str3			=%MES_WIFI_AOSS%	,,,LEFT,".AOSS"
+
+[List.Select.PanelY.WiFi.USB]
+stc1			=%MES_WIFI_USB_G%	,,,LEFT,""
+
+[List.Select.PanelY.WiFi.Panel]
+stc1			=%MES_WIFI_PANEL_G%	,,,LEFT,""
+
+[List.Select.PanelY.WiFi.AOSS]
+stc1			=%MES_WIFI_AOSS_G%	,,,LEFT,""
+
+; -----------------------------------------------------------------------------
+[DiagFax.Act.PanelY.WiFi.USB]
+ActionMode		=DIAG
+DiagCheckItem.Fax	=,1,"DIAG_SOFT,FAX","SelectWiFi,"
+
+[DiagFax.Act.PanelY.WiFi.Panel]
+ActionMode		=DIAG
+DiagCheckItem.Fax	=,1,"DIAG_SOFT,FAX","SelectWiFi,"
+
+[DiagFax.Act.PanelY.WiFi.AOSS]
+ActionMode		=DIAG
+DiagCheckItem.Fax	=,1,"DIAG_SOFT,FAX","SelectWiFi,"
+
+; -----------------------------------------------------------------------------
+; -------- [7-2] 無線LAN接続選択画面(Vista未満、パネルなし) -------------------
+; -----------------------------------------------------------------------------
+[SelectSup.PanelN.WiFi]
+BaseSection		=SelectSup.PanelY.WiFi
+AddImage		="%IMG_WIFI_USB%,%FLG_LTR%","%SET_IMG_OPT1%","%IMG_WIFI_AOSS%,%FLG_LTR%","%SET_IMG_OPT2%"
+
+TextArea.Select	="RADIO","%SET_SELECT%"		,"Font.MediumB,%C_BLACK%"	,"List.Select.PanelN.WiFi,str1",,"%SET_PIXEL%"
+TextArea.USB	="TEXT"	,"%SET_TXT_OPT1%"	,"Font.Medium,%C_BLACK%"	,"List.Select.PanelY.WiFi.USB",,","
+TextArea.AOSS	="TEXT"	,"%SET_TXT_OPT2%"	,"Font.Medium,%C_BLACK%"	,"List.Select.PanelY.WiFi.AOSS",,","
+TextArea.Panel	=NONE
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"DiagFax.Act.PanelY.WiFi,SelectFax.WiFi",,0x00000008,
+
+[List.Select.PanelN.WiFi]
+str1			=%MES_WIFI_USB%		,,,LEFT,	".USB"
+str3			=%MES_WIFI_AOSS%	,,,LEFT,	".AOSS"
+
+; -----------------------------------------------------------------------------
+; -------- [7-3] 無線LAN接続選択画面(Vista以降、Mac) --------------------------
+; -----------------------------------------------------------------------------
+[SelectSup.WiFi]
+MainWindow		=,"1,,0"
+AddImage		="%IMG_WIFI_AUTO%,%FLG_LTR%","%SET_IMG_OPT1%","%IMG_WIFI_AOSS%,%FLG_LTR%","%SET_IMG_OPT2%"
+
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Connect",,"100,VERT"
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.SelectWiFi",,","
+TextArea.Body	="TEXT"	,"%SET_TXT_BODY%"	,"Font.Medium,%C_BLACK%"	,"List.Body.SelectWiFi",,","
+TextArea.Select	="RADIO","%SET_SELECT%"		,"Font.MediumB,%C_BLACK%"	,"List.SelectWiFi,Auto",,"%SET_PIXEL%"
+TextArea.Auto	="TEXT"	,"%SET_TXT_OPT1%"	,"Font.Medium,%C_BLACK%"	,"List.SelectWiFi.Auto",,","
+TextArea.AOSS	="TEXT"	,"%SET_TXT_OPT2%"	,"Font.Medium,%C_BLACK%"	,"List.SelectWiFi.AOSS",,","
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"DiagFax.Act.WiFi,SelectFax.WiFi",,0x00000008,
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"SelectNet.%SPEC_NWIF%,SelectNet.1.First",,0x00000000,,
+Button3.Cancel	=		,"%SET_BTN3%"		,Font.Button,,%BTN_CANCEL%	,"",,0x00000004,,""
+
+[List.Head.SelectWiFi]
+stc1			=%MES_WIFI%			,,,LEFT,""
+
+[List.Body.SelectWiFi]
+stc1			=%MES_WIFI_G%		,,,LEFT,""
+
+[List.SelectWiFi]
+Auto			=%MES_WIFI_AUTO%	,,,LEFT,".Auto"
+AOSS			=%MES_WIFI_AOSS%	,,,LEFT,".AOSS.ConfWiFi"
+
+[List.SelectWiFi.Auto]
+stc1			=%MES_WIFI_AUTO_G%	,,,LEFT,""
+
+[List.SelectWiFi.AOSS]
+stc1			=%MES_WIFI_AOSS_G%	,,,LEFT,""
+
+; -----------------------------------------------------------------------------
+[DiagFax.Act.WiFi.Auto]
+ActionMode		=DIAG
+DiagCheckItem.Fax	=,1,"DIAG_SOFT,FAX","SelectWiFi,"
+
+[DiagFax.Act.WiFi.AOSS]
+ActionMode		=DIAG
+DiagCheckItem.Fax	=,1,"DIAG_SOFT,FAX","SelectWiFi,"
+
+[DiagFax.Act.WiFi.AOSS.ConfWiFi]
+ActionMode		=DIAG
+DiagCheckItem.Fax	=,1,"DIAG_SOFT,FAX","SelectWiFi,"
+
+; -----------------------------------------------------------------------------
+; -------- [8] USB接続画面(Network選択からの遷移ではない場合、非表示) ---------
+; -----------------------------------------------------------------------------
+[Select.LocalOnly]
+Button1.Next	=,,,,,"DiagFax.Act.LocalOnly,Select.LocalOnlyFaxINS",,0x00000101,,
+
+[Select.LocalOnlyIns]
+PanelSetting	=INST_SETTING,0
+BoxArea.App3	="LIST"	,,,"List.LocalOnly.DOP.Cate%SPEC_CATE%.Flow%SPEC_FLOW%",,0,"0,0","NONE",,0
+BoxArea.App5	="LIST"	,,,"List.LocalOnly.Mac",,0,"0,0","NONE",,0
+Button1.Install	=,,,,,"LocalOnlyINS.Act",,0x00000101,,
+
+[Select.LocalOnlyIns.STM]
+BaseSection		=Select.LocalOnlyIns
+BoxArea.App3	="LIST"	,,,"List.LocalOnly.DOP.Cate%SPEC_CATE%.Flow%SPEC_FLOW%",,0,"0,0","NONE",,0
+BoxArea.App4	="LIST"	,,,"List.Connect.STM",,0,"0,0","NONE",,0
+BoxArea.App5	="LIST"	,,,"List.LocalOnly.Mac",,0,"0,0","NONE",,0
+
+[List.LocalOnly.DOP.Cate1.Flow0]
+SWID_OP2K		=,%OS_OP2K%,,,,,0,1,","	,,%DIR_PX86%%EXE_OP2K%	,,%CTRL_OP2K%,,"%OP1_OP2K%,"	,,"ConnectLocalOnly","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 2K
+SWID_OP86		=,%OS_OP86%,,,,,0,1,","	,,%DIR_PX86%%EXE_OP86%	,,%CTRL_OP86%,,"%OP1_OP86%,"	,,"ConnectLocalOnly","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 86
+SWID_OP64		=,%OS_OP64%,,,,,0,1,","	,,%DIR_PX64%%EXE_OP64%	,,%CTRL_OP64%,,"%OP1_OP64%,"	,,"ConnectLocalOnly","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 64
+SWID_OP2K_2		=,%OS_OP2K%,,,,,0,1,","	,,%DIR_PX86_2%%EXE_OP2K%	,,%CTRL_OP2K%,,"%OP1_OP2K%,"	,,"ConnectLocalOnly","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 2K
+SWID_OP86_2		=,%OS_OP86%,,,,,0,1,","	,,%DIR_PX86_2%%EXE_OP86%	,,%CTRL_OP86%,,"%OP1_OP86%,"	,,"ConnectLocalOnly","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 86
+SWID_OP64_2		=,%OS_OP64%,,,,,0,1,","	,,%DIR_PX64_2%%EXE_OP64%	,,%CTRL_OP64%,,"%OP1_OP64%,"	,,"ConnectLocalOnly","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 64
+
+[List.LocalOnly.DOP.Cate2.Flow0]
+SWID_OP2K		=,%OS_OP2K%,,,,,0,1,","	,,%DIR_PX86%%EXE_OP2K%	,,%CTRL_OP2K%,,"%OP1_OP2K_LP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 2K
+SWID_OP86		=,%OS_OP86%,,,,,0,1,","	,,%DIR_PX86%%EXE_OP86%	,,%CTRL_OP86%,,"%OP1_OP86_LP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 86
+SWID_OP64		=,%OS_OP64%,,,,,0,1,","	,,%DIR_PX64%%EXE_OP64%	,,%CTRL_OP64%,,"%OP1_OP64_LP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 64
+SWID_OP2K_2		=,%OS_OP2K%,,,,,0,1,","	,,%DIR_PX86_2%%EXE_OP2K%	,,%CTRL_OP2K%,,"%OP1_OP2K_LP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 2K
+SWID_OP86_2		=,%OS_OP86%,,,,,0,1,","	,,%DIR_PX86_2%%EXE_OP86%	,,%CTRL_OP86%,,"%OP1_OP86_LP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 86
+SWID_OP64_2		=,%OS_OP64%,,,,,0,1,","	,,%DIR_PX64_2%%EXE_OP64%	,,%CTRL_OP64%,,"%OP1_OP64_LP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 64
+
+[List.LocalOnly.DOP.Cate3.Flow0]
+SWID_OP2K		=,%OS_OP2K%,,,,,0,1,","	,,%DIR_PX86%%EXE_OP2K%	,,%CTRL_OP2K%,,"%OP1_OP2K%,"	,,"ConnectLocalOnly","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 2K
+SWID_OP86		=,%OS_OP86%,,,,,0,1,","	,,%DIR_PX86%%EXE_OP86%	,,%CTRL_OP86%,,"%OP1_OP86%,"	,,"ConnectLocalOnly","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 86
+SWID_OP64		=,%OS_OP64%,,,,,0,1,","	,,%DIR_PX64%%EXE_OP64%	,,%CTRL_OP64%,,"%OP1_OP64%,"	,,"ConnectLocalOnly","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 64
+SWID_OP2K_2		=,%OS_OP2K%,,,,,0,1,","	,,%DIR_PX86_2%%EXE_OP2K%	,,%CTRL_OP2K%,,"%OP1_OP2K%,"	,,"ConnectLocalOnly","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 2K
+SWID_OP86_2		=,%OS_OP86%,,,,,0,1,","	,,%DIR_PX86_2%%EXE_OP86%	,,%CTRL_OP86%,,"%OP1_OP86%,"	,,"ConnectLocalOnly","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 86
+SWID_OP64_2		=,%OS_OP64%,,,,,0,1,","	,,%DIR_PX64_2%%EXE_OP64%	,,%CTRL_OP64%,,"%OP1_OP64%,"	,,"ConnectLocalOnly","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 64
+
+[List.LocalOnly.DOP.Cate3.Flow1]
+SWID_OP2K		=,%OS_OP2K%,,,,,0,1,","	,,%DIR_PX86%%EXE_OP2K%	,,%CTRL_OP2K%,,"%OP1_OP2K_LFP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 2K
+SWID_OP86		=,%OS_OP86%,,,,,0,1,","	,,%DIR_PX86%%EXE_OP86%	,,%CTRL_OP86%,,"%OP1_OP86_LFP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 86
+SWID_OP64		=,%OS_OP64%,,,,,0,1,","	,,%DIR_PX64%%EXE_OP64%	,,%CTRL_OP64%,,"%OP1_OP64_LFP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 64
+SWID_OP2K_2		=,%OS_OP2K%,,,,,0,1,","	,,%DIR_PX86_2%%EXE_OP2K%	,,%CTRL_OP2K%,,"%OP1_OP2K_LFP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 2K
+SWID_OP86_2		=,%OS_OP86%,,,,,0,1,","	,,%DIR_PX86_2%%EXE_OP86%	,,%CTRL_OP86%,,"%OP1_OP86_LFP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 86
+SWID_OP64_2		=,%OS_OP64%,,,,,0,1,","	,,%DIR_PX64_2%%EXE_OP64%	,,%CTRL_OP64%,,"%OP1_OP64_LFP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 64
+
+[List.Connect.STM]
+SWID_STM86		=%SW_STM%,%OS_STM86%,,%TIP_STM%	,,SWID_DRV,0,1,","		,%MB_STM86%	,%DIR_STM86%%EXE_STM86%	,,%CTRL_STM86_INST%	,,"%OP1_STM86_E%	,",,"Panel.NetSet",,			; PrinterDriverX86
+SWID_STM64		=%SW_STM%,%OS_STM64%,,%TIP_STM%	,,SWID_DRV,0,1,","		,%MB_STM64%	,%DIR_STM64%%EXE_STM64%	,,%CTRL_STM64_INST%	,,"%OP1_STM64_E%	,",,"Panel.NetSet",,			; PrinterDriverX64
+
+[List.LocalOnly.Mac]
+SWID_DUMMY		=,%OS_PSET%,,,,,0,1,","	,,%INSTALLER_SIMULATE%,,,,,,"ConnectLocalOnly",",",","					; for Mac - Dummy
+SWID_PSET	=,%OS_PSET%,,,,,0,1,",",,%EXE_PSET%,,,,"	,%OP2_PSET%",,"Panel.PrinterSet.LocalOnly",",",","		; for Mac - PrinterSetting
+
+[Select.LocalOnlyFaxIns]
+BaseSection		=Select.LocalOnlyIns
+BoxArea.App3	="LIST"	,,,"List.LocalOnlyCommonINS",,0,"0,0","NONE",,0
+BoxArea.App4	="LIST"	,,,"List.LocalOnlyINS",,0,"0,0","NONE",,0
+BoxArea.App5	="LIST"	,,,"List.FaxINS",,0,"0,0","NONE",,0
+
+[List.FaxINS]
+SWID_FDPS		=,%OS_FSET%,,,,,1,1,","	,,%DIR_FDPS%%EXE_FDPS%	,,%CTRL_FDPS%,,"%OP1_FDPS_USB%,"	,,"",,		; for Win - Fax Setup
+; -----------------------------------------------------------------------------
+; -------- 環境チェックアクション(Fax) ----------------------------------------
+; -----------------------------------------------------------------------------
+[DiagFax.Act.LocalOnly]
+ActionMode		=DIAG
+DiagCheckItem.Fax	=,1,"DIAG_SOFT,FAX","Select.STMInst.LocalOnly"
+
+[Select.STMInst.LocalOnly]
+Button1.Install	=,,,,,"DiagSTMInst.LocalOnly.Act,Select.LocalOnlyINS.STM",,0x00000101,,
+
+[DiagSTMInst.LocalOnly.Act]
+ActionMode		=DIAG
+DiagCheckItem.STM	=,1,"DIAG_SOFT,STM","Select.LocalOnlyINS"
+
+[LocalOnlyINS.Act]
+ActionMode		=ALLINSTALL
+TransSection	=Install.Hide,%SECTION_FIN_FIRST%,,,
+
+; -----------------------------------------------------------------------------
+; -------- [8] USB接続画面(ローカル、戻る不可) --------------------------------
+; -----------------------------------------------------------------------------
+[ConnectLocalOnly]
+MainWindow		=,"1,,0"
+AddImage		="%IMG_BASE_USB%,%FLG_LTR%","%SET_IMG_BASE%","%IMG_ICON_HW%,%FLG_LTR%","%SET_IMG_HW%","%IMG_PLUS_USB%,%FLG_LTR%","%SET_IMG_PLUS%"
+
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Connect",,"100,VERT"
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.PowerOn",,","
+TextArea.Note	="TEXT"	,"%SET_TXT_NOTE%"	,"Font.Medium,%C_BLACK%"	,"List.Note.PowerOn",,","
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"%BTN_NXT_SECTION_PON%",",",%BTN_NXT_TYPE_PON%,,
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"",,0x00000004,"",""
+Button3.Cancel	=		,"%SET_BTN3%"		,Font.Button,,%BTN_CANCEL%	,"",,0x00000004,"",""
+
+[List.Head.PowerOn]
+stc1			=%MES_USB%			,,,LEFT,""
+
+[List.Note.PowerOn]
+stc1			=%MES_USB_G%		,,,LEFT,""
+
+; -----------------------------------------------------------------------------
+; -------- [8] USB接続画面(ローカル、戻る有効) --------------------------------
+; -----------------------------------------------------------------------------
+[ConnectLocal]
+BaseSection		=ConnectLocalOnly
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"DevopQuitMsg.Act,SelectIF.%SPEC_NWIF%",,0x00000000,"",""
+
+; -----------------------------------------------------------------------------
+; -------- ローカル選択画面(非表示) -------------------------------------------
+; -----------------------------------------------------------------------------
+[DiagFax.Act.Local]
+ActionMode		=DIAG
+DiagCheckItem.Fax	=,1,"DIAG_SOFT,FAX","Select.STMInst,"
+
+[Select.STMInst.Local]
+Button1.Install	=,,,,,"DiagSTMInst.Local.Act,Select.LocalINS.STM",,0x00000101,,
+
+[DiagSTMInst.Local.Act]
+ActionMode		=DIAG
+DiagCheckItem.STM	=,1,"DIAG_SOFT,STM","Select.LocalINS"
+
+[Select.LocalIns]
+PanelSetting	=INST_SETTING,0
+BoxArea.App3	="LIST"	,,,"List.Local.DOP.Cate%SPEC_CATE%.Flow%SPEC_FLOW%",,0,"0,0","NONE",,0
+BoxArea.App5	="LIST"	,,,"List.Local.Mac",,0,"0,0","NONE",,0
+Button1.Install	=,,,,,"LocalOnlyINS.Act",,0x00000101,,
+
+[Select.LocalIns.STM]
+BaseSection		=Select.LocalIns
+BoxArea.App3	="LIST"	,,,"List.Local.DOP.Cate%SPEC_CATE%.Flow%SPEC_FLOW%",,0,"0,0","NONE",,0
+BoxArea.App4	="LIST"	,,,"List.Connect.STM",,0,"0,0","NONE",,0
+BoxArea.App5	="LIST"	,,,"List.Local.Mac",,0,"0,0","NONE",,0
+
+[List.Local.DOP.Cate1.Flow0]
+SWID_OP2K		=,%OS_OP2K%,,,,,0,1,","	,,%DIR_PX86%%EXE_OP2K%	,,%CTRL_OP2K%,,"%OP1_OP2K%,"	,,"ConnectLocal","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 2K
+SWID_OP86		=,%OS_OP86%,,,,,0,1,","	,,%DIR_PX86%%EXE_OP86%	,,%CTRL_OP86%,,"%OP1_OP86%,"	,,"ConnectLocal","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 86
+SWID_OP64		=,%OS_OP64%,,,,,0,1,","	,,%DIR_PX64%%EXE_OP64%	,,%CTRL_OP64%,,"%OP1_OP64%,"	,,"ConnectLocal","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 64
+SWID_OP2K_2		=,%OS_OP2K%,,,,,0,1,","	,,%DIR_PX86_2%%EXE_OP2K%	,,%CTRL_OP2K%,,"%OP1_OP2K%,"	,,"ConnectLocal","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 2K
+SWID_OP86_2		=,%OS_OP86%,,,,,0,1,","	,,%DIR_PX86_2%%EXE_OP86%	,,%CTRL_OP86%,,"%OP1_OP86%,"	,,"ConnectLocal","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 86
+SWID_OP64_2		=,%OS_OP64%,,,,,0,1,","	,,%DIR_PX64_2%%EXE_OP64%	,,%CTRL_OP64%,,"%OP1_OP64%,"	,,"ConnectLocal","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 64
+
+[List.Local.DOP.Cate2.Flow0]
+SWID_OP2K		=,%OS_OP2K%,,,,,0,1,","	,,%DIR_PX86%%EXE_OP2K%	,,%CTRL_OP2K%,,"%OP1_OP2K_LP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 2K
+SWID_OP86		=,%OS_OP86%,,,,,0,1,","	,,%DIR_PX86%%EXE_OP86%	,,%CTRL_OP86%,,"%OP1_OP86_LP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 86
+SWID_OP64		=,%OS_OP64%,,,,,0,1,","	,,%DIR_PX64%%EXE_OP64%	,,%CTRL_OP64%,,"%OP1_OP64_LP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 64
+SWID_OP2K_2		=,%OS_OP2K%,,,,,0,1,","	,,%DIR_PX86_2%%EXE_OP2K%	,,%CTRL_OP2K%,,"%OP1_OP2K_LP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 2K
+SWID_OP86_2		=,%OS_OP86%,,,,,0,1,","	,,%DIR_PX86_2%%EXE_OP86%	,,%CTRL_OP86%,,"%OP1_OP86_LP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 86
+SWID_OP64_2		=,%OS_OP64%,,,,,0,1,","	,,%DIR_PX64_2%%EXE_OP64%	,,%CTRL_OP64%,,"%OP1_OP64_LP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 64
+
+[List.Local.DOP.Cate3.Flow0]
+SWID_OP2K		=,%OS_OP2K%,,,,,0,1,","	,,%DIR_PX86%%EXE_OP2K%	,,%CTRL_OP2K%,,"%OP1_OP2K%,"	,,"ConnectLocal","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 2K
+SWID_OP86		=,%OS_OP86%,,,,,0,1,","	,,%DIR_PX86%%EXE_OP86%	,,%CTRL_OP86%,,"%OP1_OP86%,"	,,"ConnectLocal","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 86
+SWID_OP64		=,%OS_OP64%,,,,,0,1,","	,,%DIR_PX64%%EXE_OP64%	,,%CTRL_OP64%,,"%OP1_OP64%,"	,,"ConnectLocal","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 64
+SWID_OP2K_2		=,%OS_OP2K%,,,,,0,1,","	,,%DIR_PX86_2%%EXE_OP2K%	,,%CTRL_OP2K%,,"%OP1_OP2K%,"	,,"ConnectLocal","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 2K
+SWID_OP86_2		=,%OS_OP86%,,,,,0,1,","	,,%DIR_PX86_2%%EXE_OP86%	,,%CTRL_OP86%,,"%OP1_OP86%,"	,,"ConnectLocal","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 86
+SWID_OP64_2		=,%OS_OP64%,,,,,0,1,","	,,%DIR_PX64_2%%EXE_OP64%	,,%CTRL_OP64%,,"%OP1_OP64%,"	,,"ConnectLocal","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 64
+
+[List.Local.DOP.Cate3.Flow1]
+SWID_OP2K		=,%OS_OP2K%,,,,,0,1,","	,,%DIR_PX86%%EXE_OP2K%	,,%CTRL_OP2K%,,"%OP1_OP2K_LFP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 2K
+SWID_OP86		=,%OS_OP86%,,,,,0,1,","	,,%DIR_PX86%%EXE_OP86%	,,%CTRL_OP86%,,"%OP1_OP86_LFP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 86
+SWID_OP64		=,%OS_OP64%,,,,,0,1,","	,,%DIR_PX64%%EXE_OP64%	,,%CTRL_OP64%,,"%OP1_OP64_LFP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 64
+SWID_OP2K_2		=,%OS_OP2K%,,,,,0,1,","	,,%DIR_PX86_2%%EXE_OP2K%	,,%CTRL_OP2K%,,"%OP1_OP2K_LFP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 2K
+SWID_OP86_2		=,%OS_OP86%,,,,,0,1,","	,,%DIR_PX86_2%%EXE_OP86%	,,%CTRL_OP86%,,"%OP1_OP86_LFP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 86
+SWID_OP64_2		=,%OS_OP64%,,,,,0,1,","	,,%DIR_PX64_2%%EXE_OP64%	,,%CTRL_OP64%,,"%OP1_OP64_LFP%,"	,,"Panel.NetSet","Panel.ModelOK,Panel.TimeOut",","		; for Win - Deviceop 64
+
+[List.Local.Mac]
+SWID_DUMMY		=,%OS_PSET%,,,,,0,1,",",,%INSTALLER_SIMULATE%,,,,,,"ConnectLocal",",",","					; for Mac - Dummy
+SWID_PSET		=,%OS_PSET%,,,,,0,1,",",,%EXE_PSET%,,,,"	,%OP2_PSET%",,"Panel.PrinterSet.Local",",",","		; for Mac - PrinterSetting
+
+[LocalINS.Act]
+ActionMode		=ALLINSTALL
+TransSection	=Install.Hide,%SECTION_FIN_FIRST%,,,,
+
+[SelectFax.Local]
+BaseSection		=Select.LocalOnlyIns
+BoxArea.App3	="LIST"	,,,"List.LocalCommonINS",,0,"0,0","NONE",,0
+BoxArea.App4	="LIST"	,,,"List.LocalINS",,0,"0,0","NONE",,0
+BoxArea.App5	="LIST"	,,,"List.FaxINS",,0,"0,0","NONE",,0
+Button1.Install	=,,,,,"LocalINS.Act",,0x00000101,,
+
+
+; -----------------------------------------------------------------------------
+; -------- [9] 有線LAN開始接続画面(Faxなし) -----------------------------------
+; -----------------------------------------------------------------------------
+[ConnectLan]
+Button1.Install	=,,,,,"Select.STMInst.ConnectLan",,0x00000101,,
+
+[Select.STMInst.ConnectLan]
+Button1.Install	=,,,,,"DiagSTMInst.ConnectLan.Act,Select.ConnectLanIns.STM.NWIF%SPEC_NWIF%",,0x00000101,,
+
+[DiagSTMInst.ConnectLan.Act]
+ActionMode		=DIAG
+DiagCheckItem.STM	=,1,"DIAG_SOFT,STM","Select.ConnectLanIns.NWIF%SPEC_NWIF%"
+
+[Select.ConnectLanIns.NWIF3]
+MainWindow		=,"1,,0"
+PanelSetting	=INST_SETTING,0
+AddImage		="%IMG_BASE_LAN%,%FLG_LTR%","%SET_IMG_BASE%","%IMG_ICON_HW%,%FLG_LTR%","%SET_IMG_HW%","%IMG_PLUS_LAN%,%FLG_LTR%","%SET_IMG_PLUS%"
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Connect",,"100,VERT"
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.ConnectLan",,","
+TextArea.Note	="TEXT"	,"%SET_TXT_NOTE%"	,"Font.Medium,%C_BLACK%"	,"List.Note.ConnectLan",,","
+BoxArea.App1	="LIST"	,,,"List.LanINS.Cate%SPEC_CATE%.Flow%SPEC_FLOW%",,0,"0,0","NONE",,0
+BoxArea.App2	="LIST"	,,,"List.LanINS.PSet",,0,"0,0","NONE",,0
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"NetINS.Act",,0x00000000,
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"SelectNet",,0x00000000,,
+Button3.Cancel	=		,"%SET_BTN3%"		,Font.Button,,%BTN_CANCEL%	,"",,0x00000004,,""
+
+[List.Head.ConnectLan]
+stc1			=%MES_LAN%			,,,LEFT,""
+
+[List.Note.ConnectLan]
+stc1			=%MES_LAN_G%		,,,LEFT,""
+
+[Select.ConnectLanIns.NWIF4]
+BaseSection		=Select.ConnectLanIns.NWIF3
+BoxArea.App2	=NONE
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"SelectNet.NetOnly",,0x00000000,,
+
+[Select.ConnectLanIns.STM.NWIF3]
+BaseSection		=Select.ConnectLanIns.NWIF3
+BoxArea.App1	="LIST"	,,,"List.LanINS.Cate%SPEC_CATE%.Flow%SPEC_FLOW%",,0,"0,0","NONE",,0
+BoxArea.App3	="LIST"	,,,"List.Connect.STM",,0,"0,0","NONE",,0
+
+[Select.ConnectLanIns.STM.NWIF4]
+BaseSection		=Select.ConnectLanIns.NWIF3
+BoxArea.App1	="LIST"	,,,"List.LanINS.Cate%SPEC_CATE%.Flow%SPEC_FLOW%",,0,"0,0","NONE",,0
+BoxArea.App2	=NONE
+BoxArea.App3	="LIST"	,,,"List.Connect.STM",,0,"0,0","NONE",,0
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"SelectNet.NetOnly",,0x00000000,,
+
+[List.LanINS.Cate2.Flow0]
+SWID_NPRN		=,%OS_NPRN%,,,,,0,1,","		,,%DIR_NPRN%%EXE_NPRN%	,,%CTRL_NPRN%	,,"%OP1_NPRN_E%,",,"Panel.NetSet",,		; EpsonNet Print
+SWID_NSUP		=,%OS_NSUP%,,,,,0,1,",",,%DIR_NSET%%EXE_NSET%,,%CTRL_NSUP%,",,%PREF_FILE%","%OP1_NSUP_LAN_LP%,%OP2_NSUP%",,"Panel.NetSet",,,,"%TMP_PATH%,%TMP_MOD%,STRING,%TMP_MOD_V%,%TMP_PATH%,%TMP_HT%,STRING,%NSET_HT%,%TMP_PATH%,%TMP_M%,STRING,%MDL%,%TMP_PATH%,%TMP_C%,STRING,%TMP_C_LAN%,%TMP_PATH%,%TMP_SUP%,STRING,%TMP_SUP_V%,%TMP_PATH%,%TMP_PT%,STRING,%TMP_PT_V%,%TMP_PATH%,%TMP_RTN%,STRING,%TMP_RTN_V%"		; EpsonNet Setup
+
+[List.LanINS.Cate3.Flow0]
+SWID_NSUP		=,%OS_NSUP%,,,,,0,1,",",,%DIR_NSET%%EXE_NSET%,,%CTRL_NSUP%,",,%PREF_FILE%","%OP1_NSUP_LAN_LFP%,%OP2_NSUP%",,"Panel.NetSet",,,,"%TMP_PATH%,%TMP_MOD%,STRING,%TMP_MOD_V%,%TMP_PATH%,%TMP_HT%,STRING,%NSET_HT%,%TMP_PATH%,%TMP_M%,STRING,%MDL%,%TMP_PATH%,%TMP_C%,STRING,%TMP_C_LAN%,%TMP_PATH%,%TMP_SUP%,STRING,%TMP_SUP_V%,%TMP_PATH%,%TMP_PT%,STRING,%TMP_PT_V%,%TMP_PATH%,%TMP_RTN%,STRING,%TMP_RTN_V%"		; EpsonNet Setup
+
+[List.LanINS.Cate3.Flow1]
+SWID_NPRN		=,%OS_NPRN%,,,,,0,1,","		,,%DIR_NPRN%%EXE_NPRN%	,,%CTRL_NPRN%	,,"%OP1_NPRN_E%,",,"Panel.NetSet",,		; EpsonNet Print
+SWID_NSUP		=,%OS_NSUP%,,,,,0,1,",",,%DIR_NSET%%EXE_NSET%,,%CTRL_NSUP%,",,%PREF_FILE%","%OP1_NSUP_LAN_LFP%,%OP2_NSUP%",,"Panel.NetSet",,,,"%TMP_PATH%,%TMP_MOD%,STRING,%TMP_MOD_V%,%TMP_PATH%,%TMP_HT%,STRING,%NSET_HT%,%TMP_PATH%,%TMP_M%,STRING,%MDL%,%TMP_PATH%,%TMP_C%,STRING,%TMP_C_LAN%,%TMP_PATH%,%TMP_SUP%,STRING,%TMP_SUP_V%,%TMP_PATH%,%TMP_PT%,STRING,%TMP_PT_V%,%TMP_PATH%,%TMP_RTN%,STRING,%TMP_RTN_V%"		; EpsonNet Setup
+
+[List.LanINS.PSet]
+SWID_PSET		=,%OS_PSET%,,,,,1,1,",",,%EXE_PSET%,,,,",%OP2_PSET%",,"Panel.PrinterSet",",",","		; for Mac - PrinterSetting
+
+[Select.Lan.Int1]
+BaseSection		=ConnectLan
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"SelectNet.1.First",,0x00000000,,
+
+; -----------------------------------------------------------------------------
+; -------- [9] 有線LAN開始接続画面(Faxあり) -----------------------------------
+; -----------------------------------------------------------------------------
+[SelectFax.Lan]
+BaseSection		=ConnectLan
+BoxArea.App1	="LIST"	,,,"List.LanINS.AN%NSET_ADDNET%",,0,"0,0","NONE",,0
+BoxArea.App2	="LIST"	,,,"List.FaxINS.NW",,0,"0,0","NONE",,0
+
+[SelectFax.Lan.Int1]
+BaseSection		=ConnectLan
+BoxArea.App1	="LIST"	,,,"List.LanINS.AN%NSET_ADDNET%",,0,"0,0","NONE",,0
+BoxArea.App2	="LIST"	,,,"List.FaxINS.NW",,0,"0,0","NONE",,0
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"SelectNet.1.First",,0x00000000,,
+
+; -----------------------------------------------------------------------------
+; -------- [10] 無線LANのUSB設定画面 ------------------------------------------
+; -----------------------------------------------------------------------------
+[ConnectWiFi]
+MainWindow		=,"1,,0"
+AddImage		="%IMG_BASE_USB%,%FLG_LTR%","%SET_IMG_BASE%","%IMG_ICON_HW%,%FLG_LTR%","%SET_IMG_HW%","%IMG_PLUS_USB%,%FLG_LTR%","%SET_IMG_PLUS%","%IMG_BACKS%,%FLG_LTR%","%SET_INFO%","%IMG_CATN%,%FLG_LTR%","%SET_ICON%"
+
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Connect",,"100,VERT"
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.WiFi",,","
+TextArea.Note	="TEXT"	,"%SET_TXT_NOTE%"	,"Font.Medium,%C_BLACK%"	,"List.Note.WiFi",,","
+TextArea.Info	="TEXT"	,"%SET_TXT_INFO%"	,"Font.Small,%C_BLACK%"		,"List.Info.WiFi",,","
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"Proceed.Act",,%BTN_NXT_TYPE_WIRELESS%,,
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"DevopQuitMsg.Act,SelectSup.Panel%SPEC_PANEL%.WiFi",,0x00000000,,
+Button3.Cancel	=		,"%SET_BTN3%"		,Font.Button,,%BTN_CANCEL%	,"",,0x00000004,,""
+
+[List.Head.WiFi]
+stc1			=%MES_WUS%			,,,LEFT,""
+
+[List.Note.WiFi]
+stc1			=%MES_WUS_G%		,,,LEFT,""
+
+[List.Info.WiFi]
+stc1			=%MES_WUS_INFO%		,,,LEFT,""
+
+; -----------------------------------------------------------------------------
+; -------- [10] 無線LANのUSB設定画面(Faxなし) ---------------------------------
+; -----------------------------------------------------------------------------
+[SelectWiFi.USB]
+PanelSetting	=INST_SETTING,0
+BoxArea.App1	="LIST"	,,,"List.WiFiUSBINS.AN%NSET_ADDNET%",,0,"0,0","NONE",,0
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"NetINS.Act",,0x00000101,
+
+[List.WiFiUSBINS.ANY]
+SWID_OP86		=,%OS_OP86%,,,,,0,1,","	,,%DIR_PX86%%EXE_OP86%	,,%CTRL_OP86%,,"%OP1_OP86%,"	,,"ConnectWiFi","Panel.ModelOK.NW,Panel.TimeOut",","		; for Win - Deviceop x86
+SWID_OP64		=,%OS_OP64%,,,,,0,1,","	,,%DIR_PX64%%EXE_OP64%	,,%CTRL_OP64%,,"%OP1_OP64%,"	,,"ConnectWiFi","Panel.ModelOK.NW,Panel.TimeOut",","		; for Win - Deviceop x64
+SWID_DUMMY		=,%OS_PSET%,,,,,0,1,","	,,%INSTALLER_SIMULATE%	,,,,,,"ConnectWiFi",",",","			; for Mac - Dummy
+SWID_NSUP		=,%OS_NSUP%,,,,,0,1,",",,%DIR_NSET%%EXE_NSET%,,%CTRL_NSUP%,",,%PREF_FILE%","%OP1_NSUP_WIFIUSB%,%OP2_NSUP%",,"Panel.NetSet",,,,"%TMP_PATH%,%TMP_MOD%,STRING,%TMP_MOD_V%,%TMP_PATH%,%TMP_HT%,STRING,%NSET_HT%,%TMP_PATH%,%TMP_M%,STRING,%MDL%,%TMP_PATH%,%TMP_C%,STRING,%TMP_C_WIFIUSB%,%TMP_PATH%,%TMP_SUP%,STRING,%TMP_SUP_V%,%TMP_PATH%,%TMP_PT%,STRING,%TMP_PT_V%,%TMP_PATH%,%TMP_RTN%,STRING,%TMP_RTN_V%"		; EpsonNet Setup
+SWID_PSET		=,%OS_PSET%,,,,,0,1,","	,,%EXE_PSET%			,,,,",%OP2_PSET%",,"Panel.PrinterSet",",",","		; for Mac - PrinterSetting
+
+[List.WiFiUSBINS.ANN]
+SWID_OP86		=,%OS_OP86%,,,,,0,1,","	,,%DIR_PX86%%EXE_OP86%	,,%CTRL_OP86%,,"%OP1_OP86%,"	,,"ConnectWiFi","Panel.ModelOK.NW,Panel.TimeOut",","		; for Win - Deviceop x86
+SWID_OP64		=,%OS_OP64%,,,,,0,1,","	,,%DIR_PX64%%EXE_OP64%	,,%CTRL_OP64%,,"%OP1_OP64%,"	,,"ConnectWiFi","Panel.ModelOK.NW,Panel.TimeOut",","		; for Win - Deviceop x64
+SWID_DUMMY		=,%OS_PSET%,,,,,0,1,","	,,%INSTALLER_SIMULATE%	,,,,,,"ConnectWiFi",",",","			; for Mac - Dummy
+SWID_NSUP		=,%OS_NSUP%,,,,,0,1,",",,%DIR_NSET%%EXE_NSET%,,%CTRL_NSUP%,",,%PREF_FILE%","%OP1_NSUP_WIFIUSB_NA%,%OP2_NSUP%",,"Panel.NetSet",,,,"%TMP_PATH%,%TMP_MOD%,STRING,%TMP_MOD_V%,%TMP_PATH%,%TMP_HT%,STRING,%NSET_HT%,%TMP_PATH%,%TMP_M%,STRING,%MDL%,%TMP_PATH%,%TMP_C%,STRING,%TMP_C_WIFIUSB%,%TMP_PATH%,%TMP_SUP%,STRING,%TMP_SUP_V%,%TMP_PATH%,%TMP_PT%,STRING,%TMP_PT_V%,%TMP_PATH%,%TMP_RTN%,STRING,%TMP_RTN_V%"		; EpsonNet Setup
+SWID_PSET		=,%OS_PSET%,,,,,0,1,","	,,%EXE_PSET%			,,,,",%OP2_PSET%",,"Panel.PrinterSet",",",","		; for Mac - PrinterSetting
+
+; -----------------------------------------------------------------------------
+; -------- [10] 無線LANのUSB設定画面(Faxあり) ---------------------------------
+; -----------------------------------------------------------------------------
+[SelectFax.WiFi.USB]
+BaseSection		=SelectWiFi.USB
+BoxArea.App1	="LIST"	,,,"List.WiFiUSBINS.AN%NSET_ADDNET%",,0,"0,0","NONE",,0
+BoxArea.App2	="LIST"	,,,"List.FaxINS.NW",,0,"0,0","NONE",,0
+
+; -----------------------------------------------------------------------------
+; -------- [11-1] 無線LAN接続画面(AOSS、Faxなし) ------------------------------
+; -----------------------------------------------------------------------------
+[SelectWiFi.AOSS]
+PanelSetting	=INST_SETTING,0
+MainWindow		=,"1,,0"
+AddImage		="",""
+
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Connect",,"100,VERT"
+FreeArea.Full	="HTML3","%SET_HTM_FULL%"	,,,"%HTM_GWPS%,,,",
+BoxArea.App1	="LIST"	,,,"List.WiFiAOSSINS.AN%NSET_ADDNET%",,0,"0,0","NONE",,0
+
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"NetINS.Act",,0x00000010,,
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"SelectSup.Panel%SPEC_PANEL%.WiFi",,0x00000020,,
+Button3.Cancel	=		,"%SET_BTN3%"		,Font.Button,,%BTN_SKIP%	,"",,0x00000040,,""
+
+[List.WiFiAOSSINS.ANY]
+SWID_NSUP		=,%OS_NSUP%,,,,,0,1,",",,%DIR_NSET%%EXE_NSET%,,%CTRL_NSUP%,",,%PREF_FILE%","%OP1_NSUP_PANEL%,%OP2_NSUP%",,"Panel.NetSet",,,,"%TMP_PATH%,%TMP_MOD%,STRING,%TMP_MOD_V%,%TMP_PATH%,%TMP_HT%,STRING,%NSET_HT%,%TMP_PATH%,%TMP_M%,STRING,%MDL%,%TMP_PATH%,%TMP_C%,STRING,%TMP_C_PANEL%,%TMP_PATH%,%TMP_SUP%,STRING,%TMP_SUP_V%,%TMP_PATH%,%TMP_PT%,STRING,%TMP_PT_V%,%TMP_PATH%,%TMP_RTN%,STRING,%TMP_RTN_V%"		; EpsonNet Setup
+SWID_PSET		=,%OS_PSET%,,,,,1,1,","	,,%EXE_PSET%			,,,,",%OP2_PSET%",,"Panel.PrinterSet",",",","		; for Mac - PrinterSetting
+
+[List.WiFiAOSSINS.ANN]
+SWID_NSUP		=,%OS_NSUP%,,,,,0,1,",",,%DIR_NSET%%EXE_NSET%,,%CTRL_NSUP%,",,%PREF_FILE%","%OP1_NSUP_PANEL_NA%,%OP2_NSUP%",,"Panel.NetSet",,,,"%TMP_PATH%,%TMP_MOD%,STRING,%TMP_MOD_V%,%TMP_PATH%,%TMP_HT%,STRING,%NSET_HT%,%TMP_PATH%,%TMP_M%,STRING,%MDL%,%TMP_PATH%,%TMP_C%,STRING,%TMP_C_PANEL%,%TMP_PATH%,%TMP_SUP%,STRING,%TMP_SUP_V%,%TMP_PATH%,%TMP_PT%,STRING,%TMP_PT_V%,%TMP_PATH%,%TMP_RTN%,STRING,%TMP_RTN_V%"		; EpsonNet Setup
+SWID_PSET		=,%OS_PSET%,,,,,1,1,","	,,%EXE_PSET%			,,,,",%OP2_PSET%",,"Panel.PrinterSet",",",","		; for Mac - PrinterSetting
+
+[SelectWiFi.AOSS.ConfWiFi]
+BaseSection		=SelectWiFi.AOSS
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"SelectSup.WiFi",,0x00000020,,
+
+; -----------------------------------------------------------------------------
+; -------- [11-1] 無線LAN接続画面(AOSS、Faxあり) ------------------------------
+; -----------------------------------------------------------------------------
+[SelectFax.WiFi.AOSS]
+BaseSection		=SelectWiFi.AOSS
+BoxArea.App1	="LIST"	,,,"List.WiFiAOSSINS.AN%NSET_ADDNET%",,0,"0,0","NONE",,0
+BoxArea.App2	="LIST"	,,,"List.FaxINS.NW",,0,"0,0","NONE",,0
+
+[SelectFax.WiFi.AOSS.ConfWiFi]
+BaseSection		=SelectWiFi.AOSS
+BoxArea.App1	="LIST"	,,,"List.WiFiAOSSINS.AN%NSET_ADDNET%",,0,"0,0","NONE",,0
+BoxArea.App2	="LIST"	,,,"List.FaxINS.NW",,0,"0,0","NONE",,0
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"Back.Act",,0x00000020,,
+
+; -----------------------------------------------------------------------------
+; -------- [11-2] 無線LAN接続画面(Panel、Faxなし) -----------------------------
+; -----------------------------------------------------------------------------
+[SelectWiFi.Panel]
+BaseSection		=SelectWiFi.AOSS
+FreeArea.Full	="HTML3","%SET_HTM_FULL%",,,"%HTM_GWIZ%,,,",
+
+; -----------------------------------------------------------------------------
+; -------- [11-2] 無線LAN接続画面(Panel、Faxあり) -----------------------------
+; -----------------------------------------------------------------------------
+[SelectFax.WiFi.Panel]
+BaseSection		=SelectWiFi.AOSS
+FreeArea.Full	="HTML3","%SET_HTM_FULL%",,,"%HTM_GWIZ%,,,",
+BoxArea.App1	="LIST"	,,,"List.WiFiAOSSINS.AN%NSET_ADDNET%",,0,"0,0","NONE",,0
+BoxArea.App2	="LIST"	,,,"List.FaxINS.NW",,0,"0,0","NONE",,0
+
+; -----------------------------------------------------------------------------
+; -------- [12] 無線LAN接続画面(Auto、Faxなし、非表示) ------------------------
+; -----------------------------------------------------------------------------
+[SelectWiFi.Auto]
+PanelSetting	=INST_SETTING,0
+BoxArea.App1	="LIST"	,,,"List.WiFiAutoINS.AN%NSET_ADDNET%",,0,"0,0","NONE",,0
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"NetWiFiAutoINS.Act",,0x00000101,
+
+[List.WiFiAutoINS.ANY]
+SWID_NSUP		=,%OS_NSUP%,,,,,0,1,",",,%DIR_NSET%%EXE_NSET%,,%CTRL_NSUP%,",,%PREF_FILE%","%OP1_NSUP_EPSON%,%OP2_NSUP%",,"Panel.NetSet",,,,"%TMP_PATH%,%TMP_MOD%,STRING,%TMP_MOD_V%,%TMP_PATH%,%TMP_HT%,STRING,%NSET_HT%,%TMP_PATH%,%TMP_M%,STRING,%MDL%,%TMP_PATH%,%TMP_C%,STRING,%TMP_C_EPSON%,%TMP_PATH%,%TMP_SUP%,STRING,%TMP_SUP_V%,%TMP_PATH%,%TMP_HTM%,STRING,%TMP_HTM_V%,%TMP_PATH%,%TMP_PT%,STRING,%TMP_PT_V%,%TMP_PATH%,%TMP_RTN%,STRING,%TMP_RTN_V%"		; EpsonNet Setup
+SWID_PSET		=,%OS_PSET%,,,,,1,1,","	,,%EXE_PSET%			,,,,",%OP2_PSET%",,"Panel.PrinterSet",",",","		; for Mac - PrinterSetting
+
+[List.WiFiAutoINS.ANN]
+SWID_NSUP		=,%OS_NSUP%,,,,,0,1,",",,%DIR_NSET%%EXE_NSET%,,%CTRL_NSUP%,",,%PREF_FILE%","%OP1_NSUP_EPSON_NA%,%OP2_NSUP%",,"Panel.NetSet",,,,"%TMP_PATH%,%TMP_MOD%,STRING,%TMP_MOD_V%,%TMP_PATH%,%TMP_HT%,STRING,%NSET_HT%,%TMP_PATH%,%TMP_M%,STRING,%MDL%,%TMP_PATH%,%TMP_C%,STRING,%TMP_C_EPSON%,%TMP_PATH%,%TMP_SUP%,STRING,%TMP_SUP_V%,%TMP_PATH%,%TMP_HTM%,STRING,%TMP_HTM_V%,%TMP_PATH%,%TMP_PT%,STRING,%TMP_PT_V%,%TMP_PATH%,%TMP_RTN%,STRING,%TMP_RTN_V%"		; EpsonNet Setup
+SWID_PSET		=,%OS_PSET%,,,,,1,1,","	,,%EXE_PSET%			,,,,",%OP2_PSET%",,"Panel.PrinterSet",",",","		; for Mac - PrinterSetting
+
+[NetWiFiAutoINS.Act]
+ActionMode		=ALLINSTALL
+TransSection	="Install.Hide",%SECTION_FIN_FIRST_NW%,,,,"ConnectNW.Fatal.Setup.WiFi","ConnectNW.NotSetup","ConnectNW.ABNormal"
+
+; -----------------------------------------------------------------------------
+; -------- [12] 無線LAN接続画面(Auto、Faxあり、非表示) ------------------------
+; -----------------------------------------------------------------------------
+[SelectFax.WiFi.Auto]
+BaseSection		=SelectWiFi.Auto
+BoxArea.App1	="LIST"	,,,"List.WiFiAutoINS.AN%NSET_ADDNET%",,0,"0,0","NONE",,0
+BoxArea.App2	="LIST"	,,,"List.FaxINS.NW",,0,"0,0","NONE",,0
+
+; -----------------------------------------------------------------------------
+; -------- [C-5] WAC接続チェック＆エラー画面(CANCEL) --------------------------
+; -----------------------------------------------------------------------------
+[ConnectNW.Fatal.Setup.WiFi]
+BaseSection		=ConnectNW.Fatal
+TextArea.Head	="TEXT","%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.NW.WacCancel",,","
+
+[List.Head.NW.WacCancel]
+stc1			=%MES_WAC_CANCEL%	,,,LEFT,""
+
+; -----------------------------------------------------------------------------
+; -------- [C-5] WAC接続チェック＆エラー画面(CANCEL) --------------------------
+; -----------------------------------------------------------------------------
+[ConnectNW.NotSetup]
+BaseSection		=ConnectNW.Fatal
+TextArea.Head	="TEXT","%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.NW.NotSetup",,","
+FreeArea.Body	="HTML1","%SET_HTM_BODY%"	,,,"%HTM_WAC%,,,",
+
+[List.Head.NW.NotSetup]
+stc1			=%MES_WAC_CANCEL%	,,,LEFT,""
+
+; -----------------------------------------------------------------------------
+; -------- [C-5] WAC接続チェック＆エラー画面(ABEND) ---------------------------
+; -----------------------------------------------------------------------------
+[ConnectNW.ABNormal]
+BaseSection		=ConnectNW.Fatal
+
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.NW.ABNormal",,","
+FreeArea.Body	="HTML1","%SET_HTM_BODY%"	,,,"%HTM_ABEND%,,,",
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_REBOOT%	,"Reboot.Act",,0x00000000,,
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"Back.Act",,0x00000004,,
+Button3.Cancel	=		,"%SET_BTN3%"		,Font.Button,,%BTN_EXIT%	,"Quit.Act",,0x00000000,,
+
+[List.Head.NW.ABNormal]
+stc1			=%MES_WAC_FAILED%	,,,LEFT,""
+
+; -----------------------------------------------------------------------------
+;---------- [13] ローカル接続完了画面(Model OK) -------------------------------
+; -----------------------------------------------------------------------------
+[Panel.ModelOK]
+MainWindow		=,"1,,0"
+AddImage		="%IMG_BASE_PON%,%FLG_LTR%","%SET_IMG_BASE%","%IMG_ICON_HW%,%FLG_LTR%","%SET_IMG_HW%"
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Connect",,"100,VERT"
+TextArea.Head	="TEXT","%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.ModelPOK",,","
+
+[Panel.ModelOK.NW]
+BaseSection		="Panel.ModelOK"
+AddImage		="%IMG_BASE_PON%,%FLG_LTR%","%SET_IMG_BASE%","%IMG_ICON_HW%,%FLG_LTR%","%SET_IMG_HW%","%IMG_BACKS%,%FLG_LTR%","%SET_INFO%","%IMG_CATN%,%FLG_LTR%","%SET_ICON%"
+
+TextArea.Info	="TEXT"	,"%SET_TXT_INFO%"	,"Font.Small,%C_BLACK%"	,"List.Info.WiFi",,","
+
+[List.Head.ModelPOK]
+stc1			=%MES_MODELOK%		,,,LEFT,""
+
+; -----------------------------------------------------------------------------
+;--------- [C-6] タイムアウトエラー画面(for Win) ------------------------------
+; -----------------------------------------------------------------------------
+[Panel.TimeOut]
+MainWindow		=,"1,,1"
+AddImage		=,
+
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Connect",,"100,VERT"
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.TimeOut",,","
+FreeArea.Body	="HTML1","%SET_HTM_BODY%"	,,,"%HTM_TIMEOUT%,,,",
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"",,0x00000004,,
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"Retry.Act",,0x00000000,,
+Button3.Cancel	=		,"%SET_BTN3%"		,Font.Button,,%BTN_CANCEL%	,"QuitConfirm.Act,Quit.Act",,0x00000000,,
+
+[List.Head.TimeOut]
+stc1			=%MES_USB_TIMEOUT%	,,,LEFT,""
+
+; -----------------------------------------------------------------------------
+; -------- [C-6] ネットワーク接続エラー画面(CANCEL) ---------------------------
+; -----------------------------------------------------------------------------
+[ConnectNW.Fatal]
+MainWindow		=,"1,,0"
+AddImage		="",""
+
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Connect",,"100,VERT"
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.NW.Cancel",,","
+FreeArea.Body	="HTML1","%SET_HTM_BODY%"	,,,"%HTM_NWERR%,,,",
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,,,0x00000004	,,
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"SelectIF.%SPEC_NWIF%",,0x00000000,,
+Button3.Cancel	=		,"%SET_BTN3%"		,Font.Button,,%BTN_CANCEL%	,"QuitConfirm.Act,Quit.Act",,0x00000000,,
+
+[List.Head.NW.Cancel]
+stc1			=%MES_NW_CANCEL%	,,,LEFT,""
+
+; -----------------------------------------------------------------------------
+; ---------- [14] プリントセンター画面(戻るボタン有効) ------------------------
+; -----------------------------------------------------------------------------
+[Panel.PrinterSet]
+MainWindow		=,"1,,0"
+AddImage		="",""
+
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Connect",,"100,VERT"
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.PrinterSet",,","
+FreeArea.Body	="HTML1","%SET_HTM_BODY%"	,,,"%HTM_PRNSET%,,,",
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"Proceed.Act",,0x00000000,,""
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"SelectNet",,0x00000000,"",""
+Button3.Cancel	=		,"%SET_BTN3%"		,Font.Button,,%BTN_CANCEL%	,"",,0x00000004,,""
+
+[List.Head.PrinterSet]
+stc1			=%MES_MAC_PORT%		,,,LEFT,""
+
+[Panel.PrinterSet.Local]
+BaseSection		=Panel.PrinterSet
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%,"SelectIF.%SPEC_NWIF%",,0x00000000,"",""
+
+[Panel.PrinterSet.LocalOnly]
+BaseSection		=Panel.PrinterSet
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%,"",,0x00000004,"",""
+
+[Select.UpdateSetup]
+;Dummy
+FreeArea.Body	="HTML1","%SET_HTM_BODY%"	,,,"%HTM_PRNSET%,,,",
+
+; -----------------------------------------------------------------------------
+; ---------- [C-7] FAXチェック(有線LAN) ---------------------------------------
+; -----------------------------------------------------------------------------
+[DiagFax.Act.Lan]
+ActionMode		=DIAG
+DiagCheckItem.Fax	=,1,"DIAG_SOFT,FAX","Select,"
+
+[DiagFax.Act.Lan.Int1]
+ActionMode		=DIAG
+DiagCheckItem.Fax	=,1,"DIAG_SOFT,FAX","Select,"
+
+; -----------------------------------------------------------------------------
+; ---------- [C-7] FAXチェック画面(非表示) ------------------------------------
+; -----------------------------------------------------------------------------
+[ConnectLanCheck.First]
+Button1.Diag	=		,"%SET_BTN1%"		,,,"Hide","DiagFax.Act.First,SelectFax.Lan",,0x00000101,,
+
+; -----------------------------------------------------------------------------
+; ---------- [C-7] FAXチェック ------------------------------------------------
+; -----------------------------------------------------------------------------
+[DiagFax.Act.First]
+ActionMode		=DIAG
+DiagCheckItem.Fax	=,1,"DIAG_SOFT,FAX","ConnectLan,"
+
+; -----------------------------------------------------------------------------
+; ---------- [15] ファクス設定 ------------------------------------------------
+; -----------------------------------------------------------------------------
+[SelectFaxSet]
+MainWindow		=,"1,,0"
+PanelSetting	=INST_SETTING,0
+AddImage		="%IMG_FAX_Y%,%FLG_LTR%","%SET_IMG_OPT1%","%IMG_FAX_N%,%FLG_LTR%","%SET_IMG_OPT2%","%IMG_BACKS%,%FLG_LTR%","%SET_INFO%","%IMG_CATN%,%FLG_LTR%","%SET_ICON%"
+
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Setup",,"100,VERT"
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.SelectFaxSet",,","
+TextArea.Body	="TEXT"	,"%SET_TXT_BODY%"	,"Font.Medium,%C_BLACK%"	,"List.Body.SelectFaxSet",,","
+TextArea.Select	="RADIO","%SET_SELECT%"		,"Font.MediumB,%C_BLACK%"	,"List.SelectFaxSet,Yes",,"%SET_PIXEL%"
+TextArea.SetY	="TEXT"	,"%SET_TXT_OPT1%"	,"Font.Medium,%C_BLACK%"	,"List.SelectFaxSet.Yes",,","
+TextArea.SetN	="TEXT"	,"%SET_TXT_OPT2%"	,"Font.Medium,%C_BLACK%"	,"List.SelectFaxSet.No",,","
+TextArea.Info	="TEXT"	,"%SET_TXT_INFO%"	,"Font.Small,%C_BLACK%"		,"List.FaxInfo",,","
+BoxArea.App1	="LIST"	,,,"List.FaxSet",,0,"0,0","NONE",,0
+Button.FaxDiag	=		,"%SET_FDIAG%"		,Font.Button,,%BTN_FDIAG%	,"FaxDIAG.Act",,0x00000000,,""
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"DiagFaxsetInst,FaxSet,Select.Finish.Fax",,0x00000008,
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"",,0x00000004,,
+
+[DiagFaxsetInst.Act]
+ActionMode		=DIAG
+DiagCheckItem.Path	=,1,"DIAG_PATH,%DIR_FSET%%EXE_FSET%","FaxsetInstFail"
+
+[FaxsetInstFail.Act]
+PanelSetting	=,1
+Button1.FinishFax	=,,,,,"Select.Finish.Fax",,0x00000101,,""
+
+; -----------------------------------------------------------------------------
+; ---------- [15] ファクス設定(ネットワーク) ----------------------------------
+; -----------------------------------------------------------------------------
+[SelectFaxSet.NW]
+BaseSection		="SelectFaxSet"
+BoxArea.App1	="LIST"	,,,"List.FaxSet.NW",,0,"0,0","NONE",,0
+Button.FaxDiag	=,%SET_FDIAG%				,Font.Button,,%BTN_FDIAG%	,"FaxDIAGNW.Act",,0x00000000,,""
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"DiagFaxsetInst.NW,FaxSet.NW,Select.Finish.Fax.NW",,0x00000008,
+
+[DiagFaxsetInst.NW.Act]
+ActionMode		=DIAG
+DiagCheckItem.Path	=,1,"DIAG_PATH,%DIR_FSET%%EXE_FSET%","FaxsetInstFail.NW"
+
+[FaxsetInstFail.NW.Act]
+PanelSetting	=,1
+Button1.FinishFax	=,,,,,"Select.Finish.Fax.NW",,0x00000101,,""
+
+
+[List.Head.SelectFaxSet]
+stc1			=%MES_FAX%			,,,LEFT,	""
+
+[List.Body.SelectFaxSet]
+stc1			=%MES_FAX_G%		,,,LEFT,	""
+
+[List.SelectFaxSet]
+Yes				=%MES_SUP_YES%		,,,LEFT,	".Act"
+No				=%MES_SUP_NO%		,,,LEFT,	""
+
+[List.SelectFaxSet.Yes]
+stc1			=%MES_FAX_YES_G%	,,,LEFT,""
+
+[List.SelectFaxSet.No]
+stc1			=%MES_FAX_NO_G%		,,,LEFT,""
+
+[List.FaxInfo]
+stc1			=%MES_FAX_INFO%		,,,LEFT,""
+
+[List.FaxSet]
+SWID_FSET		="",%OS_FSET%,,,,,1,1,",",,%DIR_FSET%%EXE_FSET%	,,%CTRL_FSET%,,"%OP1_FSET_USB%,%OP2_FSET_USB%,%OP1_FSET_USB%"	,,,,	
+[List.FaxSet.NW]
+SWID_FSET		="",%OS_FSET%,,,,,1,1,",",,%DIR_FSET%%EXE_FSET%	,,%CTRL_FSET%,,"%OP1_FSET_NET%,%OP2_FSET_NET%,%OP1_FSET_NET%"	,,,,	
+
+; ---------------------------------------------------------------------
+[FaxDIAG.Act]
+ActionMode		=EXEC
+Exec1			="SWID_FCHK",
+SWID_FCHK		=%OS_FSET%,%DIR_FCHK%%EXE_FCHK%,,%CTRL_FCHK%,,"%OP1_FCHK_USB%,%OP2_FCHK_USB%,%OP1_FCHK_USB%",	; FaxDaiag
+
+[FaxDIAGNW.Act]
+ActionMode		=EXEC
+Exec1			="SWID_FCHK",
+SWID_FCHK		=%OS_FSET%,%DIR_FCHK%%EXE_FCHK%,,%CTRL_FCHK%,,"%OP1_FCHK_NET%,%OP2_FCHK_NET%,%OP1_FCHK_NET%",	; FaxDaiag
+
+[FaxSet.Act]
+ActionMode		=ALLINSTALL
+TransSection	="Install.Hide","Select.Finish.Fax",,,,
+
+[FaxSet.NW.Act]
+ActionMode		=ALLINSTALL
+TransSection	="Install.Hide","Select.Finish.Fax.NW",,,,
+
+[DiagFinishFirst]
+ActionMode		=DIAG
+DiagCheckItem.FinishFirst	=%DIAG_FIN_FIRST%,1,"DIAG_OS,%DIAG_CLIENT_CHECK_OS%","Finish.Noset,"
+
+[DiagFaxInstFinish.Act]
+ActionMode		=DIAG
+DiagCheckItem.Fax	=,1,"DIAG_SOFT,FAX","Select.Finish.Fax"
+
+[DiagFaxInstFinish.NW.Act]
+ActionMode		=DIAG
+DiagCheckItem.Fax	=,1,"DIAG_SOFT,FAX","Select.Finish.Fax.NW"
+
+; -----------------------------------------------------------------------------
+[Select.Finish.Fax]
+Button1.DiagFinFax	=,,,,,"DiagFinFax.Cate%SPEC_CATE%.Act,%SECTION_FIN_FAX%",,0x00000101,,""
+
+[DiagFinFax.Cate2.Act]
+ActionMode		=DIAG
+DiagCheckItem.Fax	=,1,"DIAG_OS,%DIAG_FAX_INST_PROCEED_OS%","SelectDiagNReboot"
+
+[DiagFinFax.Cate3.Act]
+ActionMode		=DIAG
+DiagCheckItem.Fax	=,1,"DIAG_OS,%DIAG_FAX_INST_PROCEED_OS%","SelectDiagNReboot"
+
+[Select.Finish.Fax.NW]
+Button1.DiagFinFax	=,,,,,"DiagFinFax.Cate%SPEC_CATE%.NW.Act,%SECTION_FIN_FAX_NW%",,0x00000101,,""
+
+[DiagFinFax.Cate2.NW.Act]
+ActionMode		=DIAG
+DiagCheckItem.Fax	=,1,"DIAG_OS,%DIAG_FAX_INST_PROCEED_OS%","SelectDiagNReboot"
+
+[DiagFinFax.Cate3.NW.Act]
+ActionMode		=DIAG
+DiagCheckItem.Fax	=,1,"DIAG_OS,%DIAG_FAX_INST_PROCEED_OS%","SelectDiagNReboot"
+
+
+; -----------------------------------------------------------------------------
+; ---------- [C-8] 画面遷移チェック -------------------------------------------
+; -----------------------------------------------------------------------------
+[SelectFaxFinish.FWUY.MPN]
+PanelSetting	=,1
+Button1.DiagINet	=,,,,,"DiagINet.Cate%SPEC_CATE%.Act,%SECTION_FW_UPDATE%",,0x00000101,,""
+
+[SelectFaxFinish.FWUN.MPN]
+PanelSetting	=,1
+Button1.DiagINet	=,,,,,"DiagINet.Cate%SPEC_CATE%.Act,%SECTION_FINISH_APPLET%.Cate%SPEC_CATE%",,0x00000101,,""
+
+[SelectFaxFinish.FWUY.MPY.NW]
+PanelSetting	=,1
+Button1.DiagINet	=,,,,,"DiagINet.Cate%SPEC_CATE%.Act,%SECTION_FW_UPDATE_NW%",,0x00000101,,""
+
+[SelectFaxFinish.FWUY.MPN.NW]
+BaseSection=SelectFaxFinish.FWUY.MPY.NW
+
+[SelectFaxFinish.FWUY.MPS.NW]	
+BaseSection=SelectFaxFinish.FWUY.MPY.NW
+
+[SelectFaxFinish.FWUN.MPY.NW]
+PanelSetting	=,1
+Button1.DiagINet	=,,,,,"DiagINet.Cate%SPEC_CATE%.Act,%SECTION_MAIL_PRINT_NW%",,0x00000101,,""
+
+[SelectFaxFinish.FWUN.MPN.NW]
+BaseSection=SelectFaxFinish.FWUN.MPN
+
+[SelectFaxFinish.FWUN.MPS.NW]
+BaseSection=SelectFaxFinish.FWUN.MPY.NW
+
+[DiagINet.Cate1.Act]
+ActionMode		=DIAG
+DiagCheckItem.INet	=%DIAG_FIN_INET_OS%,2,"DIAG_INET,","SelectDiagNReboot"
+
+[DiagINet.Cate2.Act]
+ActionMode		=DIAG
+DiagCheckItem.OS	=%DIAG_FIN_OS%,1,"DIAG_OS,%DIAG_FIN_CHECK_OS%","SelectDiagNReboot"
+DiagCheckItem.INet	=%DIAG_FIN_INET_OS%,2,"DIAG_INET,","SelectDiagNReboot"
+
+[DiagINet.Cate3.Act]
+ActionMode		=DIAG
+DiagCheckItem.OS	=%DIAG_FIN_OS%,1,"DIAG_OS,%DIAG_FIN_CHECK_OS%","SelectDiagNReboot"
+DiagCheckItem.INet	=%DIAG_FIN_INET_OS%,2,"DIAG_INET,","SelectDiagNReboot"
+
+[SelectDiagNReboot]
+PanelSetting	=,1
+Button1.DiagNReboot	=,,,,,"DiagNReboot.Act,Finish.NoSet",,0x00000101,,""
+
+[DiagNReboot.Act]
+ActionMode		=DIAG
+DiagCheckItem.INet	=,1,"DIAG_NREBOOT,","Finish.NoSet.Reboot"
+
+; -----------------------------------------------------------------------------
+; ---------- [16] インストール完了画面(終了) ----------------------------------
+; -----------------------------------------------------------------------------
+[Finish.NoSet]
+MainWindow		=,"1,,0"
+AddImage		="",""
+
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Finish",,"100,VERT"
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.Finish",,","
+Button1.Finish	=		,"%SET_BTN1%"		,Font.Button,,%BTN_FINISH%	,"Quit.Act",,0x00000000,,
+
+[List.Head.Finish]
+stc1			=%MES_FIN%			,,,LEFT,""
+
+; -----------------------------------------------------------------------------
+; ---------- [16] インストール完了画面(再起動) --------------------------------
+; -----------------------------------------------------------------------------
+[Finish.NoSet.Reboot]
+BaseSection		=Finish.NoSet
+TextArea.Body	="TEXT"	,"%SET_TXT_BODY%"	,"Font.Medium,%C_BLACK%"	,"List.Body.FinishReboot",,","
+Button2.Finish	=		,"%SET_BTN2%"		,Font.Button,,%BTN_REBOOT%	,"Reboot.Act",,0x00000000,,
+
+[List.Body.FinishReboot]
+stc1			=%MES_FIN_RESTART%	,,,LEFT,""
+
+; -----------------------------------------------------------------------------
+; ---------- [17] F/Wアップデート画面 -----------------------------------------
+; -----------------------------------------------------------------------------
+[UpdateChk.Act]
+ActionMode		=CHKFIRMWARE
+TransSection	=UpdateChkConf,SelectUpdate,SelectUpdateFinish.MPN
+ActionParam		="%DIR_WEB_DL%%LIB_WEB_DL%"
+
+[UpdateChk.NW.Act]
+ActionMode		=CHKFIRMWARE
+TransSection	=UpdateChkConf,SelectUpdate.NW,SelectUpdateFinish.MP%SPEC_MP%.NW
+ActionParam		="%DIR_WEB_DL%%LIB_WEB_DL%"
+
+[UpdateChkConf]
+BaseSection		=Install
+FreeArea.CM		=NONE
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Setup",,"100,VERT"
+TextArea.Remain	=NONE
+TextArea.Inst	="TEXT"	,"%SET_TXT_ING%"	,"Font.Small,%C_BLACK%"		,"List.UpdateChkConf",,"5,"
+ProgressBar		="%SET_BAR%"
+
+[List.UpdateChkConf]
+stc1			=%MES_FWU_CHK%		,,,LEFT,""
+
+
+[SelectUpdate]
+BaseSection		=SelectMail.NW.OK
+AddImage		="%IMG_FWU_Y%,%FLG_LTR%","%SET_IMG_OPT1%","%IMG_FWU_N%,%FLG_LTR%","%SET_IMG_OPT2%","%IMG_BACKS%,%FLG_LTR%","%SET_INFO%","%IMG_CATN%,%FLG_LTR%","%SET_ICON%"
+
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.SelectUpdate",,","
+TextArea.Body	="TEXT"	,"%SET_TXT_BODY%"	,"Font.Medium,%C_BLACK%"	,"List.Body.SelectUpdate",,","
+TextArea.SetY	="TEXT"	,"%SET_TXT_OPT1%"	,"Font.Medium,%C_BLACK%"	,"List.SelectUpdate.Yes",,","
+TextArea.SetN	="TEXT"	,"%SET_TXT_OPT2%"	,"Font.Medium,%C_BLACK%"	,"List.SelectUpdate.No",,","
+TextArea.Info	="TEXT"	,"%SET_TXT_INFO%"	,"Font.Small,%C_BLACK%"		,"List.Info.SelectUpdate",,","
+BoxArea.App1	=NONE
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"FWUpdate,SelectUpdateFinish.MPN",,0x00000008,
+
+[List.Head.SelectUpdate]
+stc1			=%MES_FWU%			,,,LEFT,	""
+
+[List.Body.SelectUpdate]
+stc1			=%MES_FWU_G%		,,,LEFT,	""
+
+[List.SelectUpdate.Yes]
+stc1			=%MES_FWU_YES_G%	,,,LEFT,""
+
+[List.SelectUpdate.NO]
+stc1			=%MES_FWU_NO_G%		,,,LEFT,""
+
+[List.Info.SelectUpdate]
+stc1			=%MES_FWU_INFO%		,,,LEFT,""
+
+; -----------------------------------------------------------------------------
+[FWUpdate.Act]
+ActionMode		=UPDFIRMWARE
+TransSection	=Download,Finish.FWUpdate
+ActionParam		="%DIR_WEB_DL%%LIB_WEB_DL%"
+
+; -----------------------------------------------------------------------------
+; ---------- [17] F/Wアップデート完了画面 -------------------------------------
+; -----------------------------------------------------------------------------
+[Finish.FWUpdate]
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Setup",,"100,VERT"
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.Select.FinishFWUpdate",,","
+TextArea.Note	="TEXT"	,"%SET_TXT_NOTE%"	,"Font.Medium,%C_BLACK%"	,"List.Note.Select.FinishFWUpdate",,","
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"SelectUpdateFinish.MPN",,0x00000101,
+
+[List.Head.Select.FinishFWUpdate]
+stc1			=%MES_FIN_FWU%		,,,LEFT,	""
+
+[List.Note.Select.FinishFWUpdate]
+stc1			=%MES_FIN_FWU_G%	,,,LEFT,	""
+
+[SelectUpdateFinish.MPN]
+BaseSection=Finish.Applet
+
+[SelectUpdate.NW]
+BaseSection		=SelectMail.NW.OK
+AddImage		="%IMG_FWU_Y%,%FLG_LTR%","%SET_IMG_OPT1%","%IMG_FWU_N%,%FLG_LTR%","%SET_IMG_OPT2%","%IMG_BACKS%,%FLG_LTR%","%SET_INFO%","%IMG_CATN%,%FLG_LTR%","%SET_ICON%"
+
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.SelectUpdate",,","
+TextArea.Body	="TEXT"	,"%SET_TXT_BODY%"	,"Font.Medium,%C_BLACK%"	,"List.Body.SelectUpdate",,","
+TextArea.SetY	="TEXT"	,"%SET_TXT_OPT1%"	,"Font.Medium,%C_BLACK%"	,"List.SelectUpdate.Yes",,","
+TextArea.SetN	="TEXT"	,"%SET_TXT_OPT2%"	,"Font.Medium,%C_BLACK%"	,"List.SelectUpdate.No",,","
+TextArea.Info	="TEXT"	,"%SET_TXT_INFO%"	,"Font.Small,%C_BLACK%"		,"List.Info.SelectUpdate",,","
+BoxArea.App1	=NONE
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"FWUpdate.NW,SelectUpdateFinish.MP%SPEC_MP%.NW",,0x00000008,
+
+[FWUpdate.NW.Act]
+ActionMode		=UPDFIRMWARE
+TransSection	=Download,SelectUpdateFinish.MP%SPEC_MP%.NW
+ActionParam		="%DIR_WEB_DL%%LIB_WEB_DL%"
+
+[Finish.FWUpdate.NW]
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Setup",,"100,VERT"
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.Select.FinishFWUpdate",,","
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"SelectUpdateFinish.MP%SPEC_MP%.NW",,0x00000008,
+
+[SelectUpdateFinish.MPY.NW]
+BaseSection=Select.CloudSup.Y
+
+[SelectUpdateFinish.MPN.NW]
+Button1.Next	=,,,,,"Select.CloudSup.%SPEC_GCP%",,0x00000101,,
+
+[SelectUpdateFinish.MPS.NW]
+BaseSection=Select.CloudSup.Y
+
+; -----------------------------------------------------------------------------
+; ---------- [18] Cloud Navi Setup --------------------------------------------
+; -----------------------------------------------------------------------------
+[Select.CloudSup.N]
+BaseSection=Finish.Applet
+
+[Select.CloudSup.Y]
+PanelSetting	=INST_SETTING,0
+BoxArea.App1	="LIST"	,,,"List.CloudSup",,0,"0,0","NONE",,0
+Button1.Next	=,,,,,"CloudSup.Act",,0x00000101,,
+
+[List.CloudSup]
+SWID_CLOUD_SUP_DL=,%OS_CLOUD_SUP_DL%,,,,,1,1,","	,,%DIR_MAIL_DL%%EXE_MAIL_DL%	,,%CTRL_CLOUD_SUP_DL%,,"%OP1_CLOUD_SUP_DL_E%,"	,,"",,
+SWID_CLOUD_SUP	=,%OS_CLOUD_SUP%,,,,,1,1,","	,,%EXE_CLOUD_SUP%	,,%CTRL_CLOUD_SUP%,,"%OP1_CLOUD_SUP_E%,",,"Install.Hide",,,",%SDNLOG_CLOUD_SUP%,%SDNSEC_CLOUD_SUP%,%SDNPATH_CLOUD_SUP%"
+
+[CloudSup.Act]
+ActionMode		=ALLINSTALL
+TransSection	=CloudSup.Download,"Finish.Applet",,,,"Finish.Applet"
+
+[CloudSup.Download]
+BaseSection		=Install
+FreeArea.CM		=NONE
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Setup",,"100,VERT"
+TextArea.Remain	=NONE
+TextArea.Inst	="TEXT"	,"%SET_TXT_ING%"	,"Font.Small,%C_BLACK%"		,"List.CloudSup.Download",,"5,"
+ProgressBar		="%SET_BAR%"
+
+[List.CloudSup.Download]
+stc1			=%MES_VERSATILE_DOWNLOAD%		,,,LEFT,""
+
+[CloudSup.Fail]
+BaseSection		=MailDL.Fail
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.CloudSup.Fail",,","
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"Select.CloudSup.Y",,0x00000000,,
+
+[List.CloudSup.Fail]
+stc1			="%MES_CLOUD_SUP_NG%",,,LEFT,""
+
+; -----------------------------------------------------------------------------
+; ---------- [18] E-Mail Print設定画面(Not use) -------------------------------
+; -----------------------------------------------------------------------------
+[SelectMail.NW]
+Button1.Next	=,,,,,"MailPrintChk.Act,",,0x00000101,,
+
+[MailPrintChk.Act]
+ActionMode		=CFGMAILPRINT
+TransSection	=UpdateChkConf,SelectMail.NW.OK,Finish.Applet
+ActionParam		="%PRINTER_QUEUE_NAME%","%MAILPRINT_CHK_URL%"
+
+[SelectMail.NW.OK]
+MainWindow		=,"1,,0"
+PanelSetting	=INST_SETTING,0
+AddImage		="%IMG_EMP_Y%,%FLG_LTR%","%SET_IMG_OPT1%","%IMG_EMP_N%,%FLG_LTR%","%SET_IMG_OPT2%","%IMG_BACKS%,%FLG_LTR%","%SET_INFO%","%IMG_CATN%,%FLG_LTR%","%SET_ICON%"
+
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Setup",,"100,VERT"
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.Head.SelectMail",,","
+TextArea.Body	="TEXT"	,"%SET_TXT_BODY%"	,"Font.Medium,%C_BLACK%"	,"List.Body.SelectMail",,","
+TextArea.Select	="RADIO","%SET_SELECT%"		,"Font.MediumB,%C_BLACK%"	,"List.SelectMail,Yes",,"%SET_PIXEL%"
+TextArea.SetY	="TEXT"	,"%SET_TXT_OPT1%"	,"Font.Medium,%C_BLACK%"	,"List.SelectMail.Yes",,","
+TextArea.SetN	="TEXT"	,"%SET_TXT_OPT2%"	,"Font.Medium,%C_BLACK%"	,"List.SelectMail.No",,","
+TextArea.Info	="TEXT"	,"%SET_TXT_INFO%"	,"Font.Small,%C_BLACK%"		,"List.MailInfo",,","
+BoxArea.App1	="LIST"	,,,"List.MailDL",,0,"0,0","NONE",,0
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"MailDL,Finish.Applet",,0x00000008,
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"",,0x00000004,,
+Button3.Cancel	=		,"%SET_BTN3%"		,Font.Button,,%BTN_CANCEL%	,"",,0x00000004,,""
+
+[List.Head.SelectMail]
+stc1			=%MES_MAIL%			,,,LEFT,	""
+
+[List.Body.SelectMail]
+stc1			=%MES_MAIL_G%		,,,LEFT,	""
+
+[List.SelectMail]
+Yes				=%MES_SUP_YES%		,,,LEFT,	".Act"
+No				=%MES_SUP_NO%		,,,LEFT,	""
+
+[List.SelectMail.Yes]
+stc1			=%MES_MAIL_YES_G%	,,,LEFT,""
+
+[List.SelectMail.NO]
+stc1			=%MES_MAIL_NO_G%	,,,LEFT,""
+
+[List.MailInfo]
+stc1			=%MES_MAIL_INFO%	,,,LEFT,""
+
+[List.MailDL]
+SWID_MAIL		="",%OS_MAIL_DL%,,,,,1,1,",",%MB_MAIL_DL%,%DIR_MAIL_DL%%EXE_MAIL_DL%	,,%CTRL_MAIL_DL%,,"%OP1_MAIL_DL_E%,",,,,	
+
+; ---------------------------------------------------------------------
+[MailDL.Act]
+ActionMode		=ALLINSTALL
+TransSection	=Download,"MailExec.Act,Finish.Applet",,,,"MailDL.Fail"
+
+[MailExec.Act]
+ActionMode		=EXEC
+Exec1			="SWID_MAIL",0
+SWID_MAIL		=%OS_MAIL_SUP%,%DIR_MAIL_SUP%%EXE_MAIL_SUP%,,%CTRL_MAIL_SUP%,,"%OP1_MAIL_SUP_E%,",	; E-Mail Print
+
+[MailDL.Fail]
+MainWindow		=,"1,,1"
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Setup",,"100,VERT"
+TextArea.Head	="TEXT"	,"%SET_TXT_HEAD%"	,"Font.LargeB,%C_BLACK%"	,"List.MailDL.Fail",,","
+FreeArea.Body	="HTML2","%SET_HTM_BODY%"	,,,"%MES_MAIL_NG_G%,,",
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"Finish.Applet",,0x00000000	,,
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"SelectMail.NW",,0x00000000,,
+Button3.Cancel	=		,"%SET_BTN3%"		,Font.Button,,%BTN_CANCEL%	,"",,0x00000004,,
+
+[List.MailDL.Fail]
+stc1			="%MES_MAIL_NG%",,,LEFT,""
+
+; -----------------------------------------------------------------------------
+; ---------- [19] セットアップ完了画面(付録) ----------------------------------
+; -----------------------------------------------------------------------------
+[Finish.Applet]
+MainWindow		=,"1,,0"
+AddImage		="",""
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Finish",,"100,VERT"
+FreeArea.Applet	="APPLET","%SET_APPLET%"	,"Font.Medium",				,"%DIR_APPLET%%LIB_APPLET%,%DIR_MEPC%%EXE_MEPC%,%APPLET_REQUEST_KIND%",
+
+[Finish.Applet.Act]
+BaseSection		=Finish.Applet
+
+[Finish.Applet.E.Cate1]
+BaseSection		=Finish.Applet
+
+[Finish.Applet.J.Cate1]
+BaseSection		=Finish.Applet
+
+[Finish.Applet.E.Cate2]
+BaseSection		=Finish.Applet
+
+[Finish.Applet.J.Cate2]
+BaseSection		=Finish.Applet
+FreeArea.Applet	="APPLET","%SET_APPLET%"	,"Font.Medium",				,"%DIR_WARRANTY%%LIB_WARRANTY%,,%WARRANTY_REQUEST_KIND%",
+
+[Finish.Applet.E.Cate3]
+BaseSection		=Finish.Applet
+
+[Finish.Applet.J.Cate3]
+BaseSection		=Finish.Applet
+
+; -----------------------------------------------------------------------------
+; ---------- 初回終了画面(SCN) ------------------------------------------------
+; -----------------------------------------------------------------------------
+[Select.Scn]
+Button1.Next	=,,,,,"DiagScn.Act,Finish.First.Scn",,0x00000101,,
+
+[DiagScn.Act]
+ActionMode		=DIAG
+DiagCheckItem.SDrv	=,1,"DIAG_SOFT,SDRV","Finish.NoSet"
+
+[Finish.First.Scn]
+BaseSection		=Finish.NoSet
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Install",,"100,VERT"
+Button1.Finish	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"DiagScnExpla.Act,Select.ScnExpla",,0x00000000,,
+
+[DiagScnExpla.Act]
+ActionMode		=DIAG
+DiagCheckItem.Expla	=,2,"DIAG_PATH,%HTM_SCN_CONNECT_CHK%","Select.ScnNoExpla"
+
+; -----------------------------------------------------------------------------
+; ---------- 接続説明有り画面(SCN) ------------------------------------------------
+; -----------------------------------------------------------------------------
+[Select.ScnExpla]
+PanelSetting	=INST_SETTING,0
+MainWindow		=,"1,,0"
+AddImage		="",""
+
+TextArea.Status	="TEXT"	,"%SET_STATUS%"		,"Font.Small,%C_WHITE%"		,"List.Status.Connect",,"100,VERT"
+FreeArea.Full	="HTML3","%SET_HTM_FULL%",,,"%HTM_SCN_CONNECT%,,,",
+BoxArea.App1	="LIST"	,,,"List.ScnIns",,0,"0,0","NONE",,0
+
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"ScnIns.Act",,0x00000010,,
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"Back.Act",,0x00000020,,
+Button3.Cancel	=		,"%SET_BTN3%"		,Font.Button,,%BTN_SKIP%	,"",,0x00000040,,""
+
+[List.ScnIns]
+SWID_SOP		=,%OS_SOP%,,,,,0,1,","	,,%DIR_SOP%%EXE_SOP%	,,%CTRL_SOP%,,"%OP1_SOP%,"	,,"Connect.Scn","Panel.ModelOK.Scn,Panel.TimeOut.Scn",","		; for Win - Scan Op
+SWID_DUMMY		=,%OS_PSET%,,,,,0,1,",",,%INSTALLER_SIMULATE%,,,,,,"Connect.Scn",",",","		; for Mac - PrinterSetting
+
+; -----------------------------------------------------------------------------
+; ---------- 接続説明無し画面(SCN) ------------------------------------------------
+; -----------------------------------------------------------------------------
+[Select.ScnNoExpla]
+BaseSection		=Select.ScnExpla
+
+BoxArea.App1	="LIST"	,,,"List.ScnIns.NoExpla",,0,"0,0","NONE",,0
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"ScnIns.Act",,0x00000101,,
+
+[List.ScnIns.NoExpla]
+SWID_SOP		=,%OS_SOP%,,,,,0,1,","	,,%DIR_SOP%%EXE_SOP%	,,%CTRL_SOP%,,"%OP1_SOP%,"	,,"Connect.Scn.NoExpla","Panel.ModelOK.Scn,Panel.TimeOut.Scn",","		; for Win - Scan Op
+SWID_DUMMY		=,%OS_PSET%,,,,,0,1,",",,%INSTALLER_SIMULATE%,,,,,,"Connect.Scn.NoExpla",",",","		; for Mac - PrinterSetting
+
+[ScnIns.Act]
+ActionMode		=ALLINSTALL
+TransSection	=Install.Hide,"%SECTION_FIN_SCN%",,,
+
+; -----------------------------------------------------------------------------
+; ---------- 接続中画面(SCN) ------------------------------------------------
+; -----------------------------------------------------------------------------
+[Connect.Scn]
+BaseSection		=ConnectLocalOnly
+Button2.Back	=		,"%SET_BTN2%"		,Font.Button,,%BTN_BACK%	,"DevopQuitMsg.Act,Back.Act",,0x00000000,"",""
+
+[Connect.Scn.NoExpla]
+BaseSection		=ConnectLocalOnly
+
+[Panel.ModelOK.Scn]
+BaseSection		=Panel.ModelOK
+
+[Panel.TimeOut.Scn]
+BaseSection		=Panel.TimeOut
+
+[DiagApplet.Scn.Act]
+ActionMode			=DIAG
+DiagCheckItem.Client=%DIAG_CLIENT%,1,"DIAG_OS,%DIAG_CLIENT_CHECK_OS%","Select.DiagReboot.Scn,"
+DiagCheckItem.OS	=%DIAG_FIN_OS_SCN%,2,"DIAG_OS,%DIAG_FIN_CHECK_OS_SCN%","Select.DiagReboot.Scn,"
+DiagCheckItem.OS.Mac=%DIAG_FIN_OS_SCN_MAC%,3,"DIAG_OS,%DIAG_FIN_CHECK_OS_SCN%","Finish.Noset,"
+DiagCheckItem.Inet	=%DIAG_FIN_INET_OS_SCN%,4,"DIAG_INET,","Select.DiagReboot.Scn,"
+
+[Select.DiagReboot.Scn]
+Button1.Next	=		,"%SET_BTN1%"		,Font.Button,,%BTN_NEXT%	,"%SECTION_FIN_NOAPPLET_SCN%",,0x00000101,,
+
+[DiagReboot.Scn.Act]
+ActionMode			=DIAG
+DiagCheckItem.Reboot=%DIAG_FIN_REBOOT_SCN%,1,"DIAG_REBOOT,","Finish.NoSet,"
+
+; -----------------------------------------------------------------------------
+; ---------- 終了画面(SCN) ------------------------------------------------
+; -----------------------------------------------------------------------------
+[Finish.Applet.Scn]
+BaseSection		=Finish.Applet
+FreeArea.Applet	="APPLET","%SET_APPLET%"	,"Font.Medium",				,"%DIR_APPLET%%LIB_APPLET%,%DIR_MEPC%%EXE_MEPC%,%APPLET_REQUEST_KIND_SCN%",
+
+; =====================================================================================================
+; === Common Status ===================================================================================
+; =====================================================================================================
+[List.Status.LA]
+Status1			=%MES_ST_LA%		,"Font.SmallB,%C_WHITE%","%IMG_ST_GO%,%FLG_RTL2%",LEFT,""
+Status2			=%MES_ST_SYS%		,"",,LEFT,""
+Status3			=%MES_ST_SWLIST%	,"",,LEFT,""
+Status4			=%MES_ST_INST%		,"",,LEFT,""
+Status5			=%MES_ST_CONNECT%	,"",,LEFT,""
+Status6			=%MES_ST_SETUP%		,"",,LEFT,""
+Status7			=%MES_ST_FIN%		,"",,LEFT,""
+
+[List.Status.Err]
+Status1			=%MES_ST_LA%		,"","%IMG_ST_FIN%,%FLG_LTR%",LEFT,""
+Status2			=%MES_ST_SYS%		,"Font.SmallB,%C_WHITE%","%IMG_ST_GO%,%FLG_RTL2%",LEFT,""
+Status3			=%MES_ST_SWLIST%	,"",,LEFT,""
+Status4			=%MES_ST_INST%		,"",,LEFT,""
+Status5			=%MES_ST_CONNECT%	,"",,LEFT,""
+Status6			=%MES_ST_SETUP%		,"",,LEFT,""
+Status7			=%MES_ST_FIN%		,"",,LEFT,""
+
+[List.Status.EasyIns]
+Status1			=%MES_ST_LA%		,"","%IMG_ST_FIN%,%FLG_LTR%",LEFT,""
+Status2			=%MES_ST_SYS%		,"","%IMG_ST_FIN%,%FLG_LTR%",LEFT,""
+Status3			=%MES_ST_SWLIST%	,"Font.SmallB,%C_WHITE%","%IMG_ST_GO%,%FLG_RTL2%",LEFT,""
+Status4			=%MES_ST_INST%		,"",,LEFT,""
+Status5			=%MES_ST_CONNECT%	,"",,LEFT,""
+Status6			=%MES_ST_SETUP%		,"",,LEFT,""
+Status7			=%MES_ST_FIN%		,"",,LEFT,""
+
+[List.Status.Install]
+Status1			=%MES_ST_LA%		,"","%IMG_ST_FIN%,%FLG_LTR%",LEFT,""
+Status2			=%MES_ST_SYS%		,"","%IMG_ST_FIN%,%FLG_LTR%",LEFT,""
+Status3			=%MES_ST_SWLIST%	,"","%IMG_ST_FIN%,%FLG_LTR%",LEFT,""
+Status4			=%MES_ST_INST%		,"Font.SmallB,%C_WHITE%","%IMG_ST_GO%,%FLG_RTL2%",LEFT,""
+Status5			=%MES_ST_CONNECT%	,"",,LEFT,""
+Status6			=%MES_ST_SETUP%		,"",,LEFT,""
+Status7			=%MES_ST_FIN%		,"",,LEFT,""
+
+[List.Status.Connect]
+Status1			=%MES_ST_LA%		,"","%IMG_ST_FIN%,%FLG_LTR%",LEFT,""
+Status2			=%MES_ST_SYS%		,"","%IMG_ST_FIN%,%FLG_LTR%",LEFT,""
+Status3			=%MES_ST_SWLIST%	,"","%IMG_ST_FIN%,%FLG_LTR%",LEFT,""
+Status4			=%MES_ST_INST%		,"","%IMG_ST_FIN%,%FLG_LTR%",LEFT,""
+Status5			=%MES_ST_CONNECT%	,"Font.SmallB,%C_WHITE%","%IMG_ST_GO%,%FLG_RTL2%",LEFT,""
+Status6			=%MES_ST_SETUP%		,"",,LEFT,""
+Status7			=%MES_ST_FIN%		,"",,LEFT,""
+
+[List.Status.Setup]
+Status1			=%MES_ST_LA%		,"","%IMG_ST_FIN%,%FLG_LTR%",LEFT,""
+Status2			=%MES_ST_SYS%		,"","%IMG_ST_FIN%,%FLG_LTR%",LEFT,""
+Status3			=%MES_ST_SWLIST%	,"","%IMG_ST_FIN%,%FLG_LTR%",LEFT,""
+Status4			=%MES_ST_INST%		,"","%IMG_ST_FIN%,%FLG_LTR%",LEFT,""
+Status5			=%MES_ST_CONNECT%	,"","%IMG_ST_FIN%,%FLG_LTR%",LEFT,""
+Status6			=%MES_ST_SETUP%		,"Font.SmallB,%C_WHITE%","%IMG_ST_GO%,%FLG_RTL2%",LEFT,""
+Status7			=%MES_ST_FIN%		,"",,LEFT,""
+
+[List.Status.Finish]
+Status1			=%MES_ST_LA%		,"","%IMG_ST_FIN%,%FLG_LTR%",LEFT,""
+Status2			=%MES_ST_SYS%		,"","%IMG_ST_FIN%,%FLG_LTR%",LEFT,""
+Status3			=%MES_ST_SWLIST%	,"","%IMG_ST_FIN%,%FLG_LTR%",LEFT,""
+Status4			=%MES_ST_INST%		,"","%IMG_ST_FIN%,%FLG_LTR%",LEFT,""
+Status5			=%MES_ST_CONNECT%	,"","%IMG_ST_FIN%,%FLG_LTR%",LEFT,""
+Status6			=%MES_ST_SETUP%		,"","%IMG_ST_FIN%,%FLG_LTR%",LEFT,""
+Status7			=%MES_ST_FIN%		,"Font.SmallB,%C_WHITE%","%IMG_ST_GO%,%FLG_RTL2%",LEFT,""
+
+; =====================================================================================================
+; === Common Action Section ===========================================================================
+; =====================================================================================================
+[QuitConfirm.Act]
+ActionMode		=DIALOG
+DialogSetting	=%MES_DIALOG_TO%,"%BTN_YES%,0x00000000","%BTN_NO%,0x00000003"
+
+[DevopQuitMsg.Act]
+ActionMode		=MESSAGE
+MessageValue	=1
+
+[Proceed.Act]
+ActionMode		=PROCEED
+
+[Retry.Act]
+ActionMode		=RETRY
+
+[Reboot.Act]
+ActionMode		=REBOOT
+
+[Back.Act]
+ActionMode		=BACK
+
+[Quit.Act]
+ActionMode		=QUIT
+
+[Quit.Applet.Act]
+ActionMode		=QUIT
+
+[Reboot.Applet.Act]
+ActionMode		=REBOOT
+
+[Back.Applet.Act]
+ActionMode		=BACK
+
+
+; ======================================================================================
+; === Resource Section =================================================================
+; ======================================================================================
+[FontSpec]
+Font.Xlarge		=%FONT_NAME%	,%FONT_SIZE_XLARGE%	,0x00000001
+Font.Large		=%FONT_NAME%	,%FONT_SIZE_LARGE%	,0x00000000
+Font.LargeB		=%FONT_NAME%	,%FONT_SIZE_LARGE%	,0x00000001
+Font.Medium		=%FONT_NAME%	,%FONT_SIZE_MEDIUM%	,0x00000000
+Font.MediumB	=%FONT_NAME%	,%FONT_SIZE_MEDIUM%	,0x00000001
+Font.Small		=%FONT_NAME%	,%FONT_SIZE_SMALL%	,0x00000000
+Font.SmallB		=%FONT_NAME%	,%FONT_SIZE_SMALL%	,0x00000001
+Font.Xsmall		=%FONT_NAME%	,%FONT_SIZE_XSMALL%	,0x00000000
+Font.XsmallB	=%FONT_NAME%	,%FONT_SIZE_XSMALL%	,0x00000001
+Font.Combo		=%FONT_NAME%	,%FONT_SIZE_COMBO%	,0x00000000
+Font.Button		=%FONT_NAME%	,%FONT_SIZE_BUTTON%	,0x00000000
+Font.ButtonB	=%FONT_NAME%	,%FONT_SIZE_BUTTON%	,0x00000001
+
+
+; ---------------------------------------------------------------------
+[OS.definition]
+0x00000001		=%OS_PC_0x00000001%,,%OS_LOW_0x00000001%,%OS_HIGH_0x00000001%,%OS_CPU_0x00000001%,%OS_SP_0x00000001%,,%OS_PDT_0x00000001%	; for  Win2000(x32)		/ MacOS X10.2.8-10.2.9 (PCPPC) 
+0x00000002		=%OS_PC_0x00000002%,,%OS_LOW_0x00000002%,%OS_HIGH_0x00000002%,%OS_CPU_0x00000002%,%OS_SP_0x00000002%,,%OS_PDT_0x00000002%	; for  Dummy			/ MacOS X10.3.0-10.3.8 (PCPPC) 
+0x00000004		=%OS_PC_0x00000004%,,%OS_LOW_0x00000004%,%OS_HIGH_0x00000004%,%OS_CPU_0x00000004%,%OS_SP_0x00000004%,,%OS_PDT_0x00000004%	; for  WinXP(x32)		/ MacOS X10.3.9 (PCPPC) 
+0x00000008		=%OS_PC_0x00000008%,,%OS_LOW_0x00000008%,%OS_HIGH_0x00000008%,%OS_CPU_0x00000008%,%OS_SP_0x00000008%,,%OS_PDT_0x00000008%	; for  WinXP(x64)		/ MacOS X10.4.0-10.4.4 (PCPPC)
+0x00000010		=%OS_PC_0x00000010%,,%OS_LOW_0x00000010%,%OS_HIGH_0x00000010%,%OS_CPU_0x00000010%,%OS_SP_0x00000010%,,%OS_PDT_0x00000010%	; for  WinVISTA(x32)	/ MacOS X10.4.5-10.4 (PCPPC) 
+0x00000020		=%OS_PC_0x00000020%,,%OS_LOW_0x00000020%,%OS_HIGH_0x00000020%,%OS_CPU_0x00000020%,%OS_SP_0x00000020%,,%OS_PDT_0x00000020%	; for  WinVISTA(x64)	/ MacOS X10.4.0-10.4.4 (PCITL)
+0x00000040		=%OS_PC_0x00000040%,,%OS_LOW_0x00000040%,%OS_HIGH_0x00000040%,%OS_CPU_0x00000040%,%OS_SP_0x00000040%,,%OS_PDT_0x00000040%	; for  Win2003sv(x32)	/ MacOS X10.4.5-10.4 (PCITL)
+0x00000080		=%OS_PC_0x00000080%,,%OS_LOW_0x00000080%,%OS_HIGH_0x00000080%,%OS_CPU_0x00000080%,%OS_SP_0x00000080%,,%OS_PDT_0x00000080%	; for  Win2003sv(x64)	/ Dummy
+0x00000100		=%OS_PC_0x00000100%,,%OS_LOW_0x00000100%,%OS_HIGH_0x00000100%,%OS_CPU_0x00000100%,%OS_SP_0x00000100%,,%OS_PDT_0x00000100%	; for  Win2008sv(x32)	/ MacOS X10.5.0-10.5.x (PCPPC)
+0x00000200		=%OS_PC_0x00000200%,,%OS_LOW_0x00000200%,%OS_HIGH_0x00000200%,%OS_CPU_0x00000200%,%OS_SP_0x00000200%,,%OS_PDT_0x00000200%	; for  Win2008sv(x64)	/ MacOS X10.5.0-10.5.x (PCITL)
+0x00000400		=%OS_PC_0x00000400%,,%OS_LOW_0x00000400%,%OS_HIGH_0x00000400%,%OS_CPU_0x00000400%,%OS_SP_0x00000400%,,%OS_PDT_0x00000400%	; for  Windows7(x32)	/ MacOS X10.6.0-10.6.x (PCPPC)
+0x00000800		=%OS_PC_0x00000800%,,%OS_LOW_0x00000800%,%OS_HIGH_0x00000800%,%OS_CPU_0x00000800%,%OS_SP_0x00000800%,,%OS_PDT_0x00000800%	; for  Windows7(x64)	/ MacOS X10.6.0-10.6.x (PCITL)
+0x00001000		=%OS_PC_0x00001000%,,%OS_LOW_0x00001000%,%OS_HIGH_0x00001000%,%OS_CPU_0x00001000%,%OS_SP_0x00001000%,,%OS_PDT_0x00001000%	; for  Winx sv(x32)		/ MacOS X10.7.0-10.7.x (PCPPC)
+0x00002000		=%OS_PC_0x00002000%,,%OS_LOW_0x00002000%,%OS_HIGH_0x00002000%,%OS_CPU_0x00002000%,%OS_SP_0x00002000%,,%OS_PDT_0x00002000%	; for  Winx sv(x64)		/ MacOS X10.7.0-10.7.x (PCITL)
+0x00004000		=%OS_PC_0x00004000%,,%OS_LOW_0x00004000%,%OS_HIGH_0x00004000%,%OS_CPU_0x00004000%,%OS_SP_0x00004000%,,%OS_PDT_0x00004000%	;
+0x00008000		=%OS_PC_0x00008000%,,%OS_LOW_0x00008000%,%OS_HIGH_0x00008000%,%OS_CPU_0x00008000%,%OS_SP_0x00008000%,,%OS_PDT_0x00008000%	;
+0x00010000		=%OS_PC_0x00010000%,,%OS_LOW_0x00010000%,%OS_HIGH_0x00010000%,%OS_CPU_0x00010000%,%OS_SP_0x00010000%,,%OS_PDT_0x00010000%	;
+0x00020000		=%OS_PC_0x00020000%,,%OS_LOW_0x00020000%,%OS_HIGH_0x00020000%,%OS_CPU_0x00020000%,%OS_SP_0x00020000%,,%OS_PDT_0x00020000%	;
+
+
+

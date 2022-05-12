@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<windowSettings>
+		<windowTitle>EpsonPrinterCustomerParticipation Questionnaire</windowTitle>
+		<caption>Please answer the following questions.</caption>
+		<select>Select</select>
+	</windowSettings>
+	<questionnaireSettings>
+		<question name="Sex">
+			<questionString>Sex</questionString>
+			<answerType>LISTBOX</answerType >
+			<answerList>
+				<answer name="male">Male</answer>
+				<answer name="female">Female</answer>
+			</answerList>
+		</question>
+		<question name="YearOfBirth">
+			<questionString>Year of Birth</questionString>
+			<answerType>LISTBOX</answerType>
+			<answerList>
+				<answer name="from">1906</answer>
+				<answer name="to">2005</answer>
+			</answerList>
+		</question>
+		<question name="PrinterLocation">
+			<questionString>Printer Usage</questionString>
+			<answerType> LISTBOX </answerType>
+			<answerList>
+				<answer name="UsedAtHomeForPersonal">Used at home for personal</answer>
+				<answer name="UsedAtHomeForBusiness">Used at home for business</answer>
+				<answer name="UsedAtHomeForBoth">Used at home for both personal and business</answer>
+				<answer name="UsedAtOfficeForBusiness">Used at office for business</answer>
+			</answerList>
+		</question>
+		<question name="PurchaseRoute">
+			<questionString>Where did you buy this product?</questionString>
+			<answerType >LISTBOX</answerType>
+			<answerList>
+				<answer name="InStore">In store</answer>
+				<answer name="MailOrder">Mail order, catalogue, telephone, TV shopping</answer>
+				<answer name="Online">Online</answer>
+				<answer name="SalesAgency">Business, corporate supplier</answer>
+				<answer name="Other">Other</answer >
+			</answerList>
+		</question>
+	</questionnaireSettings>
+	<versionSettings>
+		<version>2010</version>
+	</versionSettings>
+</configuration>

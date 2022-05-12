@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<windowSettings>
+		<windowTitle>Questionario EpsonPrinterCustomerParticipation</windowTitle>
+		<caption>Rispondere alle seguenti domande</caption>
+		<select>Seleziona</select>
+	</windowSettings>
+	<questionnaireSettings>
+		<question name="Sex">
+			<questionString>Genere</questionString>
+			<answerType>LISTBOX</answerType >
+			<answerList>
+				<answer name="male">Maschio</answer>
+				<answer name="female">Femmina</answer>
+			</answerList>
+		</question>
+		<question name="YearOfBirth">
+			<questionString>Anno di nascita</questionString>
+			<answerType>LISTBOX</answerType>
+			<answerList>
+				<answer name="from">1906</answer>
+				<answer name="to">2005</answer>
+			</answerList>
+		</question>
+		<question name="PrinterLocation">
+			<questionString>Uso della stampante</questionString>
+			<answerType> LISTBOX </answerType>
+			<answerList>
+				<answer name="UsedAtHomeForPersonal">Uso personale domestico</answer>
+				<answer name="UsedAtHomeForBusiness">Uso professionale domestico</answer>
+				<answer name="UsedAtHomeForBoth">Uso domestico personale e professionale</answer>
+				<answer name="UsedAtOfficeForBusiness">Uso professionale in ufficio</answer>
+			</answerList>
+		</question>
+		<question name="PurchaseRoute">
+			<questionString>Dove ha acquistato questo prodotto?</questionString>
+			<answerType >LISTBOX</answerType>
+			<answerList>
+				<answer name="InStore">In negozio</answer>
+				<answer name="MailOrder">Con ordine postale, da catalogo, per telefono, TV</answer>
+				<answer name="Online">Online</answer>
+				<answer name="SalesAgency">Negozio, fornitore aziendale</answer>
+				<answer name="Other">Altro</answer >
+			</answerList>
+		</question>
+	</questionnaireSettings>
+	<versionSettings>
+		<version>2010</version>
+	</versionSettings>
+</configuration>

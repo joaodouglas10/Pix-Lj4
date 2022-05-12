@@ -1,0 +1,101 @@
+unit un_movrealizadas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Buttons, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls, sButton, Vcl.Mask, RxToolEdit, Vcl.DBCtrls;
+
+type
+  Tfrm_realizadas = class(TForm)
+    Panel1: TPanel;
+    DBGrid1: TDBGrid;
+    SpeedButton1: TSpeedButton;
+    Edit1: TEdit;
+    Label1: TLabel;
+    data_pesq: TDateEdit;
+    Label21: TLabel;
+    DateEdit1: TDateEdit;
+    DBNavigator1: TDBNavigator;
+    sButton6: TSpeedButton;
+    procedure FormShow(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure Edit1Change(Sender: TObject);
+    procedure sButton6Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frm_realizadas: Tfrm_realizadas;
+
+implementation
+
+{$R *.dfm}
+
+uses dt_entregas;
+
+procedure Tfrm_realizadas.DBGrid1DrawColumnCell(Sender: TObject;
+  const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
+begin
+{   If odd(dtm_entregas.qry_realizadas.RecNo) then
+      begin
+          dbgrid1.Canvas.Font.Color:= clBlack;
+          dbgrid1.Canvas.Brush.Color:= $00FFF5EC;
+      end;
+   if dtm_entregas.qry_realizadasSITUACAO.asstring = 'REALIZADA' then
+       dbgrid1.Canvas.Font.Color := clGreen;
+       dbgrid1.Canvas.FillRect(Rect);
+       dbgrid1.DefaultDrawDataCell(Rect, dbgrid1.columns[DataCol].Field, State);}
+end;
+
+procedure Tfrm_realizadas.Edit1Change(Sender: TObject);
+var
+  Sql: string; // Pesquisando registros na tabela
+begin
+   dtm_entregas.qry_realizadas.close;
+   dtm_entregas.qry_realizadas.Sql.Clear;
+   dtm_entregas.qry_realizadas.Sql.Add('select * from MOV_ENT_REALIZADAS');
+   Sql := 'where DESTINO like ' + QuotedStr('%' + Edit1.Text + '%');
+   dtm_entregas.qry_realizadas.Sql.Add(Sql);
+   dtm_entregas.qry_realizadas.Sql.Add('order by DESTINO');
+   dtm_entregas.qry_realizadas.open;
+end;
+
+procedure Tfrm_realizadas.FormShow(Sender: TObject);
+begin
+    dtm_entregas.qry_realizadas.Open;
+end;
+
+procedure Tfrm_realizadas.sButton6Click(Sender: TObject);
+begin
+   with dtm_entregas.qry_realizadas do
+      begin
+          Close;
+          SQL.Clear;
+          SQL.Text:='SELECT * FROM MOV_ENT_REALIZADAS '+
+                    'WHERE DATA >= :DTINI AND DATA <= :DTFIM '+
+                    'ORDER BY DATA';
+          Parameters.ParamByName('dtini').Value := StrToDate(data_pesq.Text);
+          Parameters.ParamByName('dtfim').Value := StrToDate(dateEdit1.Text);
+          Open;
+          if RecordCount = 0 Then
+             begin
+                MessageDlg('Não existe Movimento para este Período!', mtConfirmation, [mbOk], 0);
+                Close;
+             end;
+      end;
+end;
+
+procedure Tfrm_realizadas.SpeedButton1Click(Sender: TObject);
+begin
+   dtm_entregas.qry_realizadas.Close;
+   Close;
+end;
+
+end.

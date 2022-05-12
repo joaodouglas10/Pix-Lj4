@@ -1,0 +1,68 @@
+unit un_reldiario;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.StdCtrls, Vcl.Mask;
+
+type
+  Tfrm_reldiario = class(TForm)
+    Label1: TLabel;
+    DatIni: TMaskEdit;
+    Label2: TLabel;
+    DatFim: TMaskEdit;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frm_reldiario: Tfrm_reldiario;
+
+implementation
+
+{$R *.dfm}
+
+uses un_entrega, un_pagtransf;
+
+procedure Tfrm_reldiario.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+  If Key = #13 Then
+     Selectnext(ActiveControl, true, true);
+end;
+
+procedure Tfrm_reldiario.SpeedButton1Click(Sender: TObject);
+begin
+   Dtm_Entrega.Qry_PagTransf.Close;
+   Dtm_Entrega.Qry_PagTransf.Filtered := true;
+   Dtm_Entrega.Qry_PagTransf.Open;
+   Dtm_Entrega.Qry_PagTransf.Filter := 'DATA >= '#39 + DatIni.text + #39' And DATA <= '#39 + DatFim.text + #39;
+   Dtm_Entrega.Qry_PagTransf.open;
+   if Dtm_Entrega.Qry_PagTransf.RecordCount > 0 then
+     begin
+        frm_pagTransf.rel_diario.loadfromfile('C:\Projeto_Pag Lj4\relatorios\rel_diario.fr3');
+        with frm_pagTransf.rel_diario.Variables do
+           begin
+               Variables['periodo'] := QuotedStr(Datini.Text + ' até ' + DatFim.Text);
+               frm_pagTransf.rel_diario.showreport(true);
+               close;
+           end;
+     end
+     else
+     Showmessage('Não existe movimento para este PERÍODO!!!');
+     Dtm_Entrega.Qry_PagTransf.Filtered:=false;
+end;
+
+procedure Tfrm_reldiario.SpeedButton2Click(Sender: TObject);
+begin
+   Close;
+end;
+
+end.

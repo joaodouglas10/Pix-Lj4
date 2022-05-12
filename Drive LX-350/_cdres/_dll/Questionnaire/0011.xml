@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<windowSettings>
+		<windowTitle>エプソン リサーチインフォメーション</windowTitle>
+		<caption>以下の４つの質問にお答えください。</caption>
+		<select>選択してください</select>
+	</windowSettings>
+	<questionnaireSettings>
+		<question name="Sex">
+			<questionString>性別</questionString>
+			<answerType>LISTBOX</answerType >
+			<answerList>
+				<answer name="male">男</answer>
+				<answer name="female">女</answer>
+			</answerList>
+		</question>
+		<question name="YearOfBirth">
+			<questionString>生年</questionString>
+			<answerType>LISTBOX</answerType>
+			<answerList>
+				<answer name="from">1906</answer>
+				<answer name="to">2005</answer>
+			</answerList>
+		</question>
+		<question name="PrinterLocation">
+			<questionString>プリンター設置場所</questionString>
+			<answerType> LISTBOX </answerType>
+			<answerList>
+				<answer name="UsedAtHomeForPersonal">個人で趣味に使用</answer>
+				<answer name="UsedAtHomeForBusiness">個人で仕事に使用</answer>
+				<answer name="UsedAtHomeForBoth">個人で趣味・仕事に使用</answer>
+				<answer name="UsedAtOfficeForBusiness">会社で仕事に使用</answer>
+			</answerList>
+		</question>
+		<question name="PurchaseRoute">
+			<questionString>このプリンタを購入された店舗の種類を教えてください。</questionString>
+			<answerType >LISTBOX</answerType>
+			<answerList>
+				<answer name="InStore">家電量販店などの店頭</answer>
+				<answer name="MailOrder">通信販売、TV・テレフォンショッピング</answer>
+				<answer name="Online">オンラインショップ（家電量販店のWeb店舗含む）</answer>
+				<answer name="SalesAgency">事務機器・システム機器の代理店、業者</answer>
+				<answer name="Other">その他の店舗</answer >
+			</answerList>
+		</question>
+	</questionnaireSettings>
+	<versionSettings>
+		<version>2010</version>
+	</versionSettings>
+</configuration>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<windowSettings>
+		<windowTitle>EpsonPrinterCustomerParticipation 调查表</windowTitle>
+		<caption>请回答以下问题。</caption>
+		<select>选择</select>
+	</windowSettings>
+	<questionnaireSettings>
+		<question name="Sex">
+			<questionString>性别</questionString>
+			<answerType>LISTBOX</answerType >
+			<answerList>
+				<answer name="male">男性</answer>
+				<answer name="female">女性</answer>
+			</answerList>
+		</question>
+		<question name="YearOfBirth">
+			<questionString>出生年份</questionString>
+			<answerType>LISTBOX</answerType>
+			<answerList>
+				<answer name="from">1906</answer>
+				<answer name="to">2005</answer>
+			</answerList>
+		</question>
+		<question name="PrinterLocation">
+			<questionString>打印机的使用</questionString>
+			<answerType> LISTBOX </answerType>
+			<answerList>
+				<answer name="UsedAtHomeForPersonal">因家用目的而在家使用</answer>
+				<answer name="UsedAtHomeForBusiness">因商业目的而在家使用</answer>
+				<answer name="UsedAtHomeForBoth">因家用目的和商用目的而在家使用</answer>
+				<answer name="UsedAtOfficeForBusiness">因商业目的而在办公室使用</answer>
+			</answerList>
+		</question>
+		<question name="PurchaseRoute">
+			<questionString>您的打印机（多功能一体机）是通过哪种方式购买的？</questionString>
+			<answerType >LISTBOX</answerType>
+			<answerList>
+				<answer name="InStore">经销商店面</answer>
+				<answer name="MailOrder">邮件订购、商品目录、电话/电视购物</answer>
+				<answer name="Online">网上购物</answer>
+				<answer name="SalesAgency">指定的供应商/采购商</answer>
+				<answer name="Other">其他</answer >
+			</answerList>
+		</question>
+	</questionnaireSettings>
+	<versionSettings>
+		<version>2010</version>
+	</versionSettings>
+</configuration>

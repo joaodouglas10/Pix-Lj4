@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<windowSettings>
+		<windowTitle>Анкета EpsonPrinterCustomerParticipation</windowTitle>
+		<caption>Пожалуйста, ответьте на следующие вопросы.</caption>
+		<select>Выбрать</select>
+	</windowSettings>
+	<questionnaireSettings>
+		<question name="Sex">
+			<questionString>Пол</questionString>
+			<answerType>LISTBOX</answerType >
+			<answerList>
+				<answer name="male">Мужской</answer>
+				<answer name="female">Женский</answer>
+			</answerList>
+		</question>
+		<question name="YearOfBirth">
+			<questionString>Год рождения</questionString>
+			<answerType>LISTBOX</answerType>
+			<answerList>
+				<answer name="from">1906</answer>
+				<answer name="to">2005</answer>
+			</answerList>
+		</question>
+		<question name="PrinterLocation">
+			<questionString>Использование принтера</questionString>
+			<answerType> LISTBOX </answerType>
+			<answerList>
+				<answer name="UsedAtHomeForPersonal">Используется дома для личных целей</answer>
+				<answer name="UsedAtHomeForBusiness">Используется дома для рабочих целей</answer>
+				<answer name="UsedAtHomeForBoth">Используется дома для личных и рабочих целей</answer>
+				<answer name="UsedAtOfficeForBusiness">Используется в офисе для рабочих целей</answer>
+			</answerList>
+		</question>
+		<question name="PurchaseRoute">
+			<questionString>Где приобретен принтер?</questionString>
+			<answerType >LISTBOX</answerType>
+			<answerList>
+				<answer name="InStore">В магазине</answer>
+				<answer name="MailOrder">По почте или каталогу, по телефону, в телемагазине</answer>
+				<answer name="Online">В интернет-магазине</answer>
+				<answer name="SalesAgency">У поставщика компании, корпоративного поставщика</answer>
+				<answer name="Other">Другое</answer >
+			</answerList>
+		</question>
+	</questionnaireSettings>
+	<versionSettings>
+		<version>2010</version>
+	</versionSettings>
+</configuration>

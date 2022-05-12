@@ -1,0 +1,85 @@
+unit un_conscli;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls,
+  sButton, Vcl.ExtCtrls, Vcl.Buttons;
+
+type
+  Tfrm_conscli = class(TForm)
+    DBGrid1: TDBGrid;
+    Edit1: TEdit;
+    Radio: TRadioGroup;
+    sButton1: TSpeedButton;
+    procedure RadioClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure DBGrid1CellClick(Column: TColumn);
+    procedure Edit1Change(Sender: TObject);
+    procedure sButton1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+     cod : integer;
+    { Public declarations }
+  end;
+
+var
+  frm_conscli: Tfrm_conscli;
+
+implementation
+
+{$R *.dfm}
+
+uses dt_entregas;
+
+procedure Tfrm_conscli.DBGrid1CellClick(Column: TColumn);
+begin
+  Case cod Of
+     1:Begin
+         dtm_entregas.qry_moventregaCODIGO.asstring := dtm_entregas.query_cliID_CLIENTE.asstring;
+         dtm_entregas.qry_moventregaDESTINO.asstring := dtm_entregas.query_cliCLIENTE.asstring;
+         dtm_entregas.qry_moventregaENDERECO.asstring := dtm_entregas.query_cliENDERECO.asstring;
+         dtm_entregas.qry_moventregaNUMERO.asstring := dtm_entregas.query_cliNUMERO.asstring;
+         dtm_entregas.qry_moventregaBAIRRO.asstring := dtm_entregas.query_cliBAIRRO.asstring;
+       end;
+  end;
+  frm_conscli.Close;
+end;
+
+procedure Tfrm_conscli.Edit1Change(Sender: TObject);
+var
+  Sql: string; // Pesquisando registros na tabela
+begin
+  dtm_entregas.query_cli.close;
+  dtm_entregas.query_cli.Sql.Clear;
+  dtm_entregas.query_cli.Sql.Add('select * from CAD_CLIENTE');
+
+  if (radio.ItemIndex = 0) then
+    Sql := 'where ID_CLIENTE like ' + QuotedStr('%' + Edit1.Text + '%')
+  else if (radio.ItemIndex = 1) then
+    Sql := 'where CLIENTE like ' + QuotedStr('%' + Edit1.Text + '%');
+
+  dtm_entregas.query_cli.Sql.Add(Sql);
+  dtm_entregas.query_cli.Sql.Add('order by CLIENTE');
+  dtm_entregas.query_cli.open;
+end;
+
+procedure Tfrm_conscli.FormShow(Sender: TObject);
+begin
+   dtm_entregas.query_cli.Open;
+end;
+
+procedure Tfrm_conscli.RadioClick(Sender: TObject);
+begin
+   edit1.SetFocus;
+end;
+
+procedure Tfrm_conscli.sButton1Click(Sender: TObject);
+begin
+   dtm_entregas.query_cli.Close;
+   Close;
+end;
+
+end.

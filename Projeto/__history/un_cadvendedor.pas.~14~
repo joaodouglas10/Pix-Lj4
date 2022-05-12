@@ -1,0 +1,198 @@
+unit un_cadvendedor;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls,
+  Vcl.Mask, Vcl.DBCtrls, Vcl.Buttons, Vcl.ExtCtrls, Vcl.ExtDlgs;
+
+type
+  Tfrm_vendedor = class(TForm)
+    Label1: TLabel;
+    cod: TDBEdit;
+    Label2: TLabel;
+    nome: TDBEdit;
+    DBGrid1: TDBGrid;
+    Panel1: TPanel;
+    novo: TSpeedButton;
+    editar: TSpeedButton;
+    excluir: TSpeedButton;
+    gravar: TSpeedButton;
+    cancelar: TSpeedButton;
+    sair: TSpeedButton;
+    DBNavigator1: TDBNavigator;
+    Label3: TLabel;
+    caminho: TDBEdit;
+    Panel3: TPanel;
+    foto: TImage;
+    SpeedButton1: TSpeedButton;
+    OpenPictureDialog1: TOpenPictureDialog;
+    procedure novoClick(Sender: TObject);
+    procedure editarClick(Sender: TObject);
+    procedure excluirClick(Sender: TObject);
+    procedure gravarClick(Sender: TObject);
+    procedure cancelarClick(Sender: TObject);
+    procedure sairClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure DBNavigator1Click(Sender: TObject; Button: TNavigateBtn);
+    procedure DBGrid1CellClick(Column: TColumn);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frm_vendedor: Tfrm_vendedor;
+
+implementation
+
+{$R *.dfm}
+
+uses un_entrega;
+
+procedure Tfrm_vendedor.cancelarClick(Sender: TObject);
+begin
+    If Application.Messagebox('Confirma Cancelamento de Vendedor? ', 'Confirmação',
+    mb_Iconquestion + Mb_OkCancel + Mb_DefButton1) = IdOk then
+    else
+    exit;
+    cod.ReadOnly := true;
+    nome.ReadOnly := true;
+    novo.Enabled := true;
+    editar.Enabled := true;
+    dbgrid1.ReadOnly := true;
+    excluir.Enabled := true;
+    cancelar.Enabled := false;
+    gravar.Enabled := false;
+    sair.Enabled := true;
+    Dtm_Entrega.qry_vendedor.Cancel;
+    cod.setfocus;
+end;
+
+procedure Tfrm_vendedor.DBGrid1CellClick(Column: TColumn);
+begin
+   foto.Picture.LoadFromFile(Dtm_Entrega.qry_vendedorCAMINHO_FOTO.asstring);
+end;
+
+procedure Tfrm_vendedor.DBNavigator1Click(Sender: TObject;
+  Button: TNavigateBtn);
+begin
+if (caminho.Text = '') and (Foto.Picture.Bitmap.Empty) then
+   begin
+     try
+        StrToDate(caminho.Text);
+        except on EConvertError do
+        begin
+           ShowMessage ('Atenção! Não foi selecionado uma foto para esse colaborador!');
+           exit;
+        end;
+     end;
+   end;
+   foto.Picture.LoadFromFile(Dtm_Entrega.qry_vendedorCAMINHO_FOTO.asstring);
+end;
+
+procedure Tfrm_vendedor.editarClick(Sender: TObject);
+begin
+    If Application.Messagebox('Confirma Alteração de Vendedor? ', 'Confirmação',
+    mb_Iconquestion + Mb_OkCancel + Mb_DefButton1) = IdOk then
+    else
+    exit;
+    cod.ReadOnly := false;
+    nome.ReadOnly := false;
+    novo.Enabled := false;
+    editar.Enabled := false;
+    dbgrid1.ReadOnly := true;
+    excluir.Enabled := false;
+    cancelar.Enabled := true;
+    gravar.Enabled := true;
+    sair.Enabled := false;
+    Dtm_Entrega.qry_vendedor.Edit;
+    cod.setfocus;
+end;
+
+procedure Tfrm_vendedor.excluirClick(Sender: TObject);
+begin
+   If Dtm_Entrega.qry_vendedor.RecordCount <> 0 then
+   If Application.Messagebox('Confirma Exclusão?', 'Confirmar',
+      mb_Iconquestion + MB_YesNo + Mb_DefButton1) = IdYes Then
+      begin
+         Dtm_Entrega.qry_vendedor.Delete;
+         cod.setfocus;
+      end;
+      If Dtm_Entrega.qry_vendedor.RecordCount = 0 then
+         showmessage('Nao Existe Registro para Excluir');
+end;
+
+procedure Tfrm_vendedor.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+   If Key=#13 Then
+      Selectnext(ActiveControl,True,True);
+end;
+
+procedure Tfrm_vendedor.FormShow(Sender: TObject);
+begin
+   Dtm_Entrega.qry_vendedor.Open;
+end;
+
+procedure Tfrm_vendedor.gravarClick(Sender: TObject);
+begin
+    If Application.Messagebox('Confirma Gravação de Vendedor? ', 'Confirmação',
+    mb_Iconquestion + Mb_OkCancel + Mb_DefButton1) = IdOk then
+    else
+    exit;
+    Dtm_Entrega.qry_vendedor.Edit;
+    cod.ReadOnly := true;
+    nome.ReadOnly := true;
+    novo.Enabled := true;
+    editar.Enabled := true;
+    dbgrid1.ReadOnly := true;
+    excluir.Enabled := true;
+    cancelar.Enabled := false;
+    gravar.Enabled := false;
+    sair.Enabled := true;
+    Dtm_Entrega.qry_vendedor.Post;
+    cod.setfocus;
+end;
+
+procedure Tfrm_vendedor.novoClick(Sender: TObject);
+begin
+    If Application.Messagebox('Confirma Inclusão de Vendedor? ', 'Confirmação',
+    mb_Iconquestion + Mb_OkCancel + Mb_DefButton1) = IdOk then
+    else
+    exit;
+    cod.ReadOnly := false;
+    nome.ReadOnly := false;
+    novo.Enabled := false;
+    editar.Enabled := false;
+    excluir.Enabled := false;
+    dbgrid1.ReadOnly := true;
+    cancelar.Enabled := true;
+    gravar.Enabled := true;
+    sair.Enabled := false;
+    Dtm_Entrega.qry_vendedor.Append;
+    cod.setfocus;
+end;
+
+procedure Tfrm_vendedor.sairClick(Sender: TObject);
+begin
+   Dtm_Entrega.qry_vendedor.Close;
+   Close;
+end;
+
+procedure Tfrm_vendedor.SpeedButton1Click(Sender: TObject);
+begin
+   if OpenPictureDialog1.Execute then
+   begin
+      Dtm_Entrega.qry_vendedor.Edit;
+      Dtm_Entrega.qry_vendedor.FieldByName('CAMINHO_FOTO').asstring;
+      Dtm_Entrega.qry_vendedorCAMINHO_FOTO.asstring:=OpenPictureDialog1.FileName;
+      foto.Picture.LoadFromFile(Dtm_Entrega.qry_vendedorCAMINHO_FOTO.asstring);
+      Dtm_Entrega.qry_vendedor.Post;
+   end
+end;
+
+end.

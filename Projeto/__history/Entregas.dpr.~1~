@@ -1,0 +1,30 @@
+program Entregas;
+
+uses
+  Vcl.Forms,
+  dt_entregas in 'dt_entregas.pas' {dtm_entregas: TDataModule},
+  un_cadcondutor in 'un_cadcondutor.pas' {frm_cadcondutor},
+  un_principal in 'un_principal.pas' {frm_principal},
+  un_cadmov in 'un_cadmov.pas' {frm_cadmov},
+  un_chama_servcli in 'un_chama_servcli.pas' {frm_rel_servcli},
+  un_movrealizadas in 'un_movrealizadas.pas' {frm_realizadas},
+  un_cadcli in 'un_cadcli.pas' {frm_clientes},
+  un_conscli in 'un_conscli.pas' {frm_conscli},
+  un_conscond in 'un_conscond.pas' {frm_conscond};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(Tfrm_principal, frm_principal);
+  Application.CreateForm(Tdtm_entregas, dtm_entregas);
+  Application.CreateForm(Tfrm_cadcondutor, frm_cadcondutor);
+  Application.CreateForm(Tfrm_cadmov, frm_cadmov);
+  Application.CreateForm(Tfrm_rel_servcli, frm_rel_servcli);
+  Application.CreateForm(Tfrm_realizadas, frm_realizadas);
+  Application.CreateForm(Tfrm_clientes, frm_clientes);
+  Application.CreateForm(Tfrm_conscli, frm_conscli);
+  Application.CreateForm(Tfrm_conscond, frm_conscond);
+  Application.Run;
+end.

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<windowSettings>
+		<windowTitle>แบบสอบถาม EpsonPrinterCustomerParticipation</windowTitle>
+		<caption>โปรดตอบคำถาม ดังต่อไปนี้</caption>
+		<select>เลือก</select>
+	</windowSettings>
+	<questionnaireSettings>
+		<question name="Sex">
+			<questionString>เพศ</questionString>
+			<answerType>LISTBOX</answerType >
+			<answerList>
+				<answer name="male">ู้ชาย</answer>
+				<answer name="female">หญิง</answer>
+			</answerList>
+		</question>
+		<question name="YearOfBirth">
+			<questionString>ปีเกิด</questionString>
+			<answerType>LISTBOX</answerType>
+			<answerList>
+				<answer name="from">1906</answer>
+				<answer name="to">2005</answer>
+			</answerList>
+		</question>
+		<question name="PrinterLocation">
+			<questionString>เครื่องพิมพ์ที่ใช้</questionString>
+			<answerType> LISTBOX </answerType>
+			<answerList>
+				<answer name="UsedAtHomeForPersonal">ใช้ที่บ้านสำหรับการใช้งานส่วนบุคคล</answer>
+				<answer name="UsedAtHomeForBusiness">ใช้ที่บ้านสำหรับการใช้งานธุรกิจ</answer>
+				<answer name="UsedAtHomeForBoth">ใช้ที่บ้านสำหรับการใช้งานทั้งส่วนบุคคลและธุรกิจ</answer>
+				<answer name="UsedAtOfficeForBusiness">ใช้ที่สำนักงานสำหรับการใช้งานธุรกิจ</answer>
+			</answerList>
+		</question>
+		<question name="PurchaseRoute">
+			<questionString>คำถาม : ท่านซื้อเครื่องพิมพ์จากสถานที่ใด</questionString>
+			<answerType >LISTBOX</answerType>
+			<answerList>
+				<answer name="InStore">ในร้านค้าตัวแทนจำหน่าย</answer>
+				<answer name="MailOrder">ผ่านทางไปรษณีย์ ,  โบร์ชัวร์สินค้า  , โทรศัพท์ หรือ โทรทัศน์</answer>
+				<answer name="Online">ผ่านทางอินเตอร์เน็ต</answer>
+				<answer name="SalesAgency">ตัวแทนจำหน่าย กลุ่มลูกค้าบริษัทหรือองค์กร</answer>
+				<answer name="Other">อื่นๆ</answer >
+			</answerList>
+		</question>
+	</questionnaireSettings>
+	<versionSettings>
+		<version>2010</version>
+	</versionSettings>
+</configuration>

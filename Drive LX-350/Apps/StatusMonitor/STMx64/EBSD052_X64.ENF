@@ -1,0 +1,15 @@
+[ENAppInfo]
+ENFid  = 0x4e656f6e
+ProductName = "EPSON Status Monitor 3"
+ProductID = 0x000f
+Installer = ".\stmsetup.exe"
+ENFVersion = 4.00
+Reboot = 1
+InstallOption=/P"%DepDriverName%"
+UnsupportedOS_x86=*
+UnsupportedOS_x64=0FF
+UnsupportedOS_IA64=*
+AppVersion = "4.02"
+
+[ENAppOption]
+DepDriver1  = "EPSON LX-350 ESC/P"
